@@ -5,13 +5,16 @@
     <persistence-unit name="MidtermPU">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <!-- <class>entities.Todo</class>
-        <class>entities.User</class>
- -->
+        <class>entities.item</class>
+        <class>entities.activity</class>
+        <class>entities.user</class>
+        <class>entities.login</class>
+        <class>entities.address</class>
+ 
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sdvid" />
-            <property name="javax.persistence.jdbc.user" value="student" />
-            <property name="javax.persistence.jdbc.password" value="student" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/inventoryDB" />
+            <property name="javax.persistence.jdbc.user" value="inventory" />
+            <property name="javax.persistence.jdbc.password" value="inventory" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 
             <property name="hibernate.connection.zeroDateTimeBehavior" value="convertToNull"></property>
