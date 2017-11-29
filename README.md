@@ -1,6 +1,6 @@
 <h1>Colorado Micro Sanctuaries Equipment Share Application</h1>
 
-<h2>Alexis Low, Chris Gehrke, Greg Norwood, Jason Caldwell, Rosanne Ussery</h2<
+<h2>Alexis Low, Chris Gehrke, Greg Norwood, Jason Caldwell, Rosanne Ussery</h2>
 
 For this project we will be using:
 <dl>
