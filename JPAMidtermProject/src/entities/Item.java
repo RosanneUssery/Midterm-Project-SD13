@@ -22,7 +22,8 @@ public class Item {
 	
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
-	private int ownerId;
+	private User ownerId;
+//	private int ownerId;
 	
 	@JoinColumn(name = "is_supply")
 	private boolean isSupply;
@@ -45,12 +46,20 @@ public class Item {
 		this.description = description;
 	}
 
-	public int getOwnerId() {
+//	public int getOwnerId() {
+//		return ownerId;
+//	}
+//
+//	public void setOwnerId(int ownerId) {
+//		this.ownerId = ownerId;
+//	}
+
+	public User getUser() {
 		return ownerId;
 	}
 
-	public void setOwnerId(int ownerId) {
-		this.ownerId = ownerId;
+	public void setUser(User user) {
+		this.ownerId = user;
 	}
 
 	public boolean isSupply() {
@@ -73,10 +82,16 @@ public class Item {
 		return id;
 	}
 
+//	@Override
+//	public String toString() {
+//		return "Item [id=" + id + ", title=" + title + ", description=" + description + ", ownerId=" + ownerId
+//				+ ", isSupply=" + isSupply + ", available=" + available + "]";
+//	}
+
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", title=" + title + ", description=" + description + ", ownerId=" + ownerId
-				+ ", isSupply=" + isSupply + ", available=" + available + "]";
+		return "Item [id=" + id + ", title=" + title + ", description=" + description + ", user=" + ownerId + ", isSupply="
+				+ isSupply + ", available=" + available + "]";
 	}
 
 	@Override
