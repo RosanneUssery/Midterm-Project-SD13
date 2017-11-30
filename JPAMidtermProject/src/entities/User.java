@@ -1,10 +1,14 @@
 package entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,8 +29,12 @@ public class User {
 	
 	private String email;
 	
+	@OneToOne
 	@JoinColumn(name = "address_id")
-	private int addressId;
+	private Address address;
+	
+	@OneToMany(mappedBy = "ownerId")
+	List<Item> items;
 
 	public String getFirstName() {
 		return firstName;
@@ -60,22 +68,32 @@ public class User {
 		this.email = email;
 	}
 
-	public int getAddressId() {
-		return addressId;
+	
+
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public int getId() {
 		return id;
 	}
 
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone
-				+ ", email=" + email + ", addressId=" + addressId + "]";
+				+ ", email=" + email + "]";
 	}
 
 	@Override
