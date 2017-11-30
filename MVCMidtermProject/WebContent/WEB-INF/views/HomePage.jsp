@@ -10,6 +10,8 @@
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
+<%@ include file="header.jsp"%>
+<%@ include file="navbar.jsp"%>
 	
 
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
@@ -53,6 +55,8 @@
 <p>
 <a href="add.do">Add a Wine</a>
 </p>
+
+<%@ include file="endbody.jsp"%>
 
 </body>
 </html>
