@@ -32,10 +32,19 @@ public class ActivityTest {
 	
 	@Test
 	public void test_activity_mapping() {
-		assertEquals(1, activity.getBorrower());
-		assertEquals(1, activity.getItem());
-		assertEquals(1, activity.getDateLent());
-		assertEquals(1, activity.getDueDate());
+		assertEquals("0001-01-18", activity.getDateLent().toString());
+		assertEquals("0001-01-18", activity.getDueDate().toString());
+		assertEquals(true, activity.isReturned());
+	}
+	
+	@Test
+	public void test_activity_to_borrower_mapping() {
+		assertEquals("first", activity.getBorrower().getFirstName());
+	}
+	
+	@Test
+	public void test_activity_to_item_mapping() {
+		assertEquals("third", activity.getItem().getTitle());
 	}
 	
 	@After

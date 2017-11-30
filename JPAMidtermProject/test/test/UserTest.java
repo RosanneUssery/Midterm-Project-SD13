@@ -30,6 +30,19 @@ public class UserTest {
 		assertEquals(1, user.getId());
 	}
 	
+	@Test
+	public void test_user_mapping() {
+		assertEquals("first", user.getFirstName());
+		assertEquals("first", user.getLastName());
+		assertEquals("1111111111", user.getPhone());
+		assertEquals("first@first.com", user.getEmail());
+	}
+	
+	@Test
+	public void test_address_to_user_mapping() {
+		assertEquals("Primary", user.getAddress().getCity());
+	}
+	
 	@After
 	public void tearDown() throws Exception {
 		this.em.close();

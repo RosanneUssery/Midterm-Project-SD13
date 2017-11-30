@@ -33,8 +33,8 @@ public class Activity {
 	@Column(name = "due_date")
 	private Date dueDate;
 	
+	@Column(name = "is_returned")
 	private boolean returned;
-	
 	
 
 	public boolean isReturned() {
