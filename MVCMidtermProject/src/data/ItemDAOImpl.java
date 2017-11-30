@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Item;
+import entities.User;
 
 
 
@@ -23,43 +24,50 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public Item createItem(Item item) {
-		// TODO Auto-generated method stub
-		return null;
+		   em.persist(item);
+	        em.flush();
+		return item;
 	}
 
 	@Override
 	public List<Item> getAllItems() {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "select i From Item i";
+		return em.createQuery(query, Item.class).getResultList();
+		
 	}
 
 	@Override
-	public List<Item> getOfferedItemsByUserId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Item> getOfferedItemsByUserId(int id) {// Check-------------------
+		String query = "select i From Item i Where user_id = :id";
+		return em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 	}
 
 	@Override
-	public List<Item> getBorrowedItemsByUserId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Item> getBorrowedItemsByUserId(int id) {// Check-------------------
+		String query = "select i From Item i Where user_id = :id";
+		return em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 	}
 
 	@Override
-	public List<Item> getOfferedItemsByType(String type) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Item> getOfferedItemsByType(String type) {// Check-------------------
+		String query = "select i From Item i Where user_id = :id";
+		return em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 	}
 
 	@Override
-	public Item updateItem() {
-		// TODO Auto-generated method stub
-		return null;
+	public Item updateItem(Item item) {
+		Item managed = em.find(Item.class, item.getId());
+        managed = item;
+        return managed;
 	}
 
 	@Override
-	public boolean deleteItem() {
-		// TODO Auto-generated method stub
+	public boolean deleteItem(Item item) {
+		Item i = em.find(Item.class, item.getId());
+		em.remove(i);
+		if(em.find(Item.class,item.getId()) == null) {
+			return true;
+		}
 		return false;
 	}
 
