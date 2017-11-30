@@ -30,6 +30,14 @@ public class ActivityTest {
 		assertEquals(1, activity.getId());
 	}
 	
+	@Test
+	public void test_activity_mapping() {
+		assertEquals(1, activity.getBorrower());
+		assertEquals(1, activity.getItem());
+		assertEquals(1, activity.getDateLent());
+		assertEquals(1, activity.getDueDate());
+	}
+	
 	@After
 	public void tearDown() throws Exception {
 		this.em.close();
