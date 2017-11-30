@@ -25,6 +25,11 @@ public class MainController {
 			return "views/HomePage.jsp";
 		}
 		
+		@RequestMapping(path = "search.do", method = RequestMethod.GET)
+		public String search() {
+			return "views/searchpage.jsp";
+		}
+		
 //		@RequestMapping(path = "actor.do", method = RequestMethod.GET)
 //		public ModelAndView actors(@RequestParam("aid") int aid) {
 //			ModelAndView mv = new ModelAndView();

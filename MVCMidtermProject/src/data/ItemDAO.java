@@ -17,10 +17,10 @@ public interface ItemDAO {
 	public List<Item> getOfferedItemsByType(String type);
 	
 	//update item
-	public Item updateItem();
+	public Item updateItem(Item item);
 	
 	//delete item
-	public boolean deleteItem();
+	public boolean deleteItem(Item item);
 	
 
 	
