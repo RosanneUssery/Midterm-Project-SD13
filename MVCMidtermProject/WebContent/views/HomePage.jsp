@@ -13,9 +13,9 @@
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
 	
-
-
-
+<div class="mainpic">
+<img src="images/pigfield.jpg">
+</div>
 
 
 
