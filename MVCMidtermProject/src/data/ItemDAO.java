@@ -15,6 +15,7 @@ public interface ItemDAO {
 	public List<Item> getOfferedItemsByUserId(int id);
 	public List<Item> getOfferedItemsByTitle(String title);
 	public List<Item> getAvailableItemsByUserId(int id);
+	public Item getItemById(int id);
 	
 	//update item
 	public Item updateItem(Item item);
