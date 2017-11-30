@@ -24,8 +24,16 @@ This application will be our SD13 midterm group project. It will allow us to pra
 
 In order to achieve these goals, we will be using group project and agile methodologies to work together and create a product. We will be using scrum techniques to keep on track and make sure we meet all of the project's goals.
 
+Our wireframe is designed to demonstrate the general idea of what our site will look like. Each page represented is a basic page required for functionality of the website. We may have to add more pages as development continues.
 
+Main page:
 <img src="Wireframe/CMEEHomepage.png">
+
+New user update page:
 <img src="Wireframe/CMEENewUser.png">
+
+Search page for inventory:
 <img src="Wireframe/CMEESearchPage.png">
+
+Upload page for inventory information:
 <img src="Wireframe/CMEEExchangePage.png">
