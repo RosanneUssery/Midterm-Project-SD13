@@ -30,6 +30,19 @@ public class ItemTest {
 		assertEquals(1, item.getId());
 	}
 	
+	@Test
+	public void test_item_mapping() {
+		assertEquals("first", item.getTitle());
+		assertEquals("one", item.getDescription());
+		assertEquals(false, item.isSupply());
+		assertEquals(true, item.isAvailable());
+	}
+	
+	@Test 
+	public void test_item_to_user() {
+		assertEquals("first", item.getOwnerId().getFirstName());
+	}
+	
 	@After
 	public void tearDown() throws Exception {
 		this.em.close();

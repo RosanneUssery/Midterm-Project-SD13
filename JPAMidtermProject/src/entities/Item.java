@@ -24,11 +24,12 @@ public class Item {
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
 	private User ownerId;
-	// failed test due to int problem. Changed to object to solve.
+	// failed test due to int ownerId problem. Changed to object to solve.
 	
 	@Column(name = "is_supply")
 	private boolean isSupply;
 	
+	@Column(name = "is_available")
 	private boolean available;
 
 	public String getTitle() {
@@ -47,12 +48,12 @@ public class Item {
 		this.description = description;
 	}
 
-	public User getUser() {
+	public User getOwnerId() {
 		return ownerId;
 	}
 
-	public void setUser(User user) {
-		this.ownerId = user;
+	public void setOwnerId(User ownerId) {
+		this.ownerId = ownerId;
 	}
 
 	public boolean isSupply() {
@@ -78,8 +79,8 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", title=" + title + ", description=" + description + ", user=" + ownerId + ", isSupply="
-				+ isSupply + ", available=" + available + "]";
+		return "Item [id=" + id + ", title=" + title + ", description=" + description + ", isSupply=" + isSupply
+				+ ", available=" + available + "]";
 	}
 
 	@Override
