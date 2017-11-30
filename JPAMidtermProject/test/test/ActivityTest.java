@@ -37,10 +37,15 @@ public class ActivityTest {
 		assertEquals(true, activity.isReturned());
 	}
 	
-//	@Test
-//	public void
-//		assertEquals(1, activity.getBorrower());
-//		assertEquals(1, activity.getItem());
+	@Test
+	public void test_activity_to_borrower_mapping() {
+		assertEquals("first", activity.getBorrower().getFirstName());
+	}
+	
+	@Test
+	public void test_activity_to_item_mapping() {
+		assertEquals("third", activity.getItem().getTitle());
+	}
 	
 	@After
 	public void tearDown() throws Exception {
