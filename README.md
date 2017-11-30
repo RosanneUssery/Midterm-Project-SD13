@@ -25,7 +25,7 @@ This application will be our SD13 midterm group project. It will allow us to pra
 In order to achieve these goals, we will be using group project and agile methodologies to work together and create a product. We will be using scrum techniques to keep on track and make sure we meet all of the project's goals.
 
 
-<img src="CMEE Homepage.png">
-<img src="CMEE New User.png">
-<img src="CMEE Search Page.png">
-<img src="CMEE Exchange Page.png">
+<img src="CMEEHomepage.png">
+<img src="CMEENewUser.png">
+<img src="CMEESearchPage.png">
+<img src="CMEEExchangePage.png">
