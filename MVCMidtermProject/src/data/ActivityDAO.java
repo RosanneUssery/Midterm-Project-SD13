@@ -15,6 +15,7 @@ public interface ActivityDAO {
 	//read activity
 	public List<Activity> viewActivityByItem(Item item);
 	public List<Activity> viewActivityByUser(User user);
+	public List<Activity> getNewRequestsByUser(User user);
 	
 	//update activity
 	public Activity confirmLend(Activity activity);

@@ -23,16 +23,14 @@ public class ActivityDAOImpl implements ActivityDAO {
 
 	@Override
 	public Activity createItemRequest(Item item, User borrower) {
-		
-		// TODO
 		Activity a = new Activity();
 		Item managedItem = em.find(Item.class, item.getId());
 		managedItem.setAvailable(false);
-		
-		a.setItem(item);
+		a.setItem(managedItem);
 		a.setBorrower(borrower);
-		
-		return null;
+		em.persist(a);
+		em.flush();
+		return a;
 	}
 
 	@Override
@@ -44,6 +42,12 @@ public class ActivityDAOImpl implements ActivityDAO {
 	@Override
 	public List<Activity> viewActivityByUser(User user) {
 		String query = "select a From Activity a Where borrower_id = :id";
+		return em.createQuery(query, Activity.class).setParameter("id", user.getId()).getResultList();
+	}
+	
+	@Override
+	public List<Activity> getNewRequestsByUser(User user) {
+		String query = "SELECT a FROM Activity a JOIN Item i ON a.item_id = i.id WHERE i.owner_id = :id";
 		return em.createQuery(query, Activity.class).setParameter("id", user.getId()).getResultList();
 	}
 
