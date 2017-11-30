@@ -13,8 +13,8 @@ public interface ItemDAO {
 	//read item
 	public List<Item> getAllItems();
 	public List<Item> getOfferedItemsByUserId(int id);
-	public List<Item> getBorrowedItemsByUserId(int id);
-	public List<Item> getOfferedItemsByType(String type);
+	public List<Item> getOfferedItemsByTitle(String title);
+	public List<Item> getAvailableItemsByUserId(int id);
 	
 	//update item
 	public Item updateItem(Item item);

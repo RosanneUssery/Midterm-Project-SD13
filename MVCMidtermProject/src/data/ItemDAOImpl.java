@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Item;
-import entities.User;
 
 
 
@@ -37,21 +36,20 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public List<Item> getOfferedItemsByUserId(int id) {// Check-------------------
+	public List<Item> getOfferedItemsByUserId(int id) {
 		String query = "select i From Item i Where user_id = :id";
 		return em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 	}
-
 	@Override
-	public List<Item> getBorrowedItemsByUserId(int id) {// Check-------------------
-		String query = "select i From Item i Where user_id = :id";
+	public List<Item> getAvailableItemsByUserId(int id) {
+		String query = "select i From Item i Where user_id = :id And available = 1";
 		return em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 	}
-
+	
 	@Override
-	public List<Item> getOfferedItemsByType(String type) {// Check-------------------
-		String query = "select i From Item i Where user_id = :id";
-		return em.createQuery(query, Item.class).setParameter("id", id).getResultList();
+	public List<Item> getOfferedItemsByTitle(String title) {
+		String query = "select i From Item i Where title = :title";
+		return em.createQuery(query, Item.class).setParameter("title", title).getResultList();
 	}
 
 	@Override
