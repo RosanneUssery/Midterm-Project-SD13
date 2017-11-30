@@ -36,7 +36,6 @@ public class Activity {
 	@Column(name = "is_returned")
 	private boolean returned;
 	
-	
 
 	public boolean isReturned() {
 		return returned;
