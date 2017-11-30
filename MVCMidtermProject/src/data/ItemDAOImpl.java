@@ -27,6 +27,13 @@ public class ItemDAOImpl implements ItemDAO {
 	        em.flush();
 		return item;
 	}
+	
+	
+
+	@Override
+	public Item getItemById(int id) {
+		return em.find(Item.class, id);
+	}
 
 	@Override
 	public List<Item> getAllItems() {
