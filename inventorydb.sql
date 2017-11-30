@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `item_id` INT UNSIGNED NOT NULL,
   `date_lent` DATE NOT NULL,
   `due_date` DATE NOT NULL,
+  `returned` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_user_id_idx` (`borrower_id` ASC),
@@ -174,8 +175,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`) VALUES (1, 1, 3, '1/1/18', '1/1/18');
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`) VALUES (2, 2, 1, '2/1/18', '2/1/18');
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `returned`) VALUES (1, 1, 3, '1/1/18', '1/1/18', 1);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `returned`) VALUES (2, 2, 1, '2/1/18', '2/1/18', 1);
 
 COMMIT;
 
