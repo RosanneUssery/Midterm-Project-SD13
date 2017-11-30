@@ -87,8 +87,8 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `id` INT UNSIGNED NOT NULL,
   `borrower_id` INT UNSIGNED NOT NULL,
   `item_id` INT UNSIGNED NOT NULL,
-  `date_lent` DATE NOT NULL,
-  `due_date` DATE NOT NULL,
+  `date_lent` DATE NULL,
+  `due_date` DATE NULL,
   `is_returned` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
@@ -115,8 +115,8 @@ DROP TABLE IF EXISTS `login` ;
 CREATE TABLE IF NOT EXISTS `login` (
   `user_email` VARCHAR(100) NOT NULL,
   `pwd` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`user_email`),
   UNIQUE INDEX `user_email_UNIQUE` (`user_email` ASC),
+  PRIMARY KEY (`user_email`),
   CONSTRAINT `fk_login_user_email`
     FOREIGN KEY (`user_email`)
     REFERENCES `user` (`email`)
