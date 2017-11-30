@@ -1,7 +1,9 @@
 package entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,7 +14,7 @@ import javax.persistence.Table;
 public class Item {
 	
 	@Id
-	@GeneratedValue()
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	private String title;
@@ -21,9 +23,10 @@ public class Item {
 	
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
-	private int ownerId;
+	private User ownerId;
+	// failed test due to int problem. Changed to object to solve.
 	
-	@JoinColumn(name = "is_supply")
+	@Column(name = "is_supply")
 	private boolean isSupply;
 	
 	private boolean available;
@@ -44,12 +47,12 @@ public class Item {
 		this.description = description;
 	}
 
-	public int getOwnerId() {
+	public User getUser() {
 		return ownerId;
 	}
 
-	public void setOwnerId(int ownerId) {
-		this.ownerId = ownerId;
+	public void setUser(User user) {
+		this.ownerId = user;
 	}
 
 	public boolean isSupply() {
@@ -72,10 +75,11 @@ public class Item {
 		return id;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", title=" + title + ", description=" + description + ", ownerId=" + ownerId
-				+ ", isSupply=" + isSupply + ", available=" + available + "]";
+		return "Item [id=" + id + ", title=" + title + ", description=" + description + ", user=" + ownerId + ", isSupply="
+				+ isSupply + ", available=" + available + "]";
 	}
 
 	@Override

@@ -10,30 +10,30 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import entities.Item;
+import entities.Activity;
 
-public class ItemTest {
+public class ActivityTest {
 	private EntityManagerFactory emf;
 	private EntityManager em;
-	private Item item;
+	private Activity activity;
 
 	@Before
 	public void setUp() throws Exception {
 		this.emf = Persistence.createEntityManagerFactory("MidtermPU");
 		this.em = emf.createEntityManager();
-		item = em.find(Item.class, 1);
+		activity = em.find(Activity.class, 1);
 
 	}
 	
 	@Test
-	public void test_getItemId() {
-		assertEquals(1, item.getId());
+	public void test_getActivityId() {
+		assertEquals(1, activity.getId());
 	}
 	
 	@After
 	public void tearDown() throws Exception {
 		this.em.close();
 		this.emf.close();
-		item = null;
+		activity = null;
 	}
 }
