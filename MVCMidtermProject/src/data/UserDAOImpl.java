@@ -19,31 +19,43 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User createUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+
+        em.persist(user);
+        em.flush();
+		return user;
 	}
 
 	@Override
 	public List<User> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String query = "select u From User u";
+		return em.createQuery(query, User.class).getResultList();
+		
 	}
 
 	@Override
 	public User getUserById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+        User u = em.find(User.class, id);
+		return u;
 	}
 
 	@Override
 	public User updateUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+
+        User managed = em.find(User.class, user.getId());
+        managed = user;
+        return managed;
 	}
 
 	@Override
 	public boolean deleteUser(User user) {
-		// TODO Auto-generated method stub
+		
+		User u = em.find(User.class, user.getId());
+		em.remove(u);
+		if(em.find(User.class,user.getId()) == null) {
+			return true;
+		}
 		return false;
 	}
 
