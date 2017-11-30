@@ -22,5 +22,6 @@ public interface ActivityDAO {
 	
 	//delete activity
 	public boolean deleteActivity(Activity activity);
+	
 
 }
