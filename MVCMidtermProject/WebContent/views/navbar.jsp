@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,88 +7,40 @@
 <title>Navbar</title>
 </head>
 <body>
-    <!-- Referenced http://getbootstrap.com/docs/4.0/components/navbar/ on 9/28/17 -->
-    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-    
-    		<!-- Below is where the logo will go -->
-      <a class="navbar-brand" href="views/HomePage.jsp" target="_blank">
-        <img src="images/me.jpeg" width="30" height="30" class="d-inline-block align-top" alt="microsanctuary logo"> MicroSanctuary Equipment Exchange
-      </a>
-      <!--  Below is dropdowns for the navbar, may not need for this project -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Home
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="http://18.220.208.40:8080/PizzaParty/" target="_blank">Pizza Party </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="http://18.216.132.236:8080/USPresidentsWeb/" target="_blank">President Information</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="https://jdcald13.github.io/" target="_blank">Learn Java the Hard Way Blog</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Join
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="https://github.com/jdcald13/BlackJackProject" target="_blank">Blackjack</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="https://github.com/jdcald13/JetsProject" target="_blank">Jets</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="https://github.com/jdcald13/MakeChangeProject" target="_blank">Make Change</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Borrow
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="https://github.com/jdcald13/Winning_Texas_Holdem_Strategy" target="_blank"> Winning Texas Holdem Strategy </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="https://github.com/jdcald13/Winning_Texas_Holdem_Strategy/tree/master/BA_design" target="_blank"> - Analyst Design Mockup </a>
-              <a class="dropdown-item" href="https://github.com/jdcald13/Winning_Texas_Holdem_Strategy/tree/master/app" target="_blank"> - Application Code </a>
-              <a class="dropdown-item" href="https://github.com/jdcald13/Winning_Texas_Holdem_Strategy/wiki" target="_blank"> - Documentation </a>
-              <a class="dropdown-item" href="https://github.com/jdcald13/Winning_Texas_Holdem_Strategy/wiki/Game-Instructions" target="_blank"> - Graphical User Interface </a>
-              <a class="dropdown-item" href="https://github.com/jdcald13/Winning_Texas_Holdem_Strategy/tree/master/reports" target="_blank"> - Report Samples </a>
-              <a class="dropdown-item" href="https://github.com/jdcald13/Winning_Texas_Holdem_Strategy/tree/master/tests" target="_blank"> - Test Cases Code </a>
-              <a class="dropdown-item" href="https://github.com/jdcald13/Winning_Texas_Holdem_Strategy/wiki/Testing-Concepts" target="_blank"> - Testing Concepts </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="https://github.com/jdcald13/Guess_the_Number" target="_blank">Guess the Number</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Lend
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#tech"> Technologies Summary </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#programming_exp"> Developer Training </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#software_exp"> Software Experience </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#military_exp"> Military Experience </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#other_exp"> Other Experience </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#edu"> Education </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="images/Caldwell_Printable_Resume.pdf"> Printable Resume </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#other"> Miscellaneous </a>
-            </div>
-          </li>
-        </ul>
-        <a class="btn btn-social btn-facebook" href="https://www.facebook.com/Microsanctuary/" target="_blank" title="Colorado Microsanctuary Network Facebook">
-          <span class="fa fa-facebook"></span> Colorado Microsanctuary Network
-        </a>
-      </div>
-    </nav>
+	<!-- Referenced http://getbootstrap.com/docs/4.0/components/navbar/ on 9/28/17 -->
+	<nav class="navbar navbar-expand-xl navbar-dark bg-dark"> <!-- Below is where the logo will go -->
+	<a class="navbar-brand" href="views/HomePage.jsp" target="_blank">
+		<img src="images/me.jpeg" width="30" height="30"
+		class="d-inline-block align-top" alt="microsanctuary logo">
+		MicroSanctuary Equipment Exchange
+	</a>
+	<div class="navbar">
+		<div class="btn-group btn-group-justified">
+			<div class="row">
+				<div class="column navbtn">
+					<a href="views/HomePage.jsp" class="btn btn-primary btn-lg">Home</a>
+				</div>
+				<div class="column space"> </div>
+				<div class="column navbtn">
+					<a href="views/searchpage.jsp" class="btn btn-primary btn-lg" style="padding-left: -15px;">Borrow</a>
+				</div>
+				<div class="column space"> </div>
+				<div class="column navbtn">
+					<a href="#" class="btn btn-primary btn-lg">Lend</a>
+				</div>
+				<div class="column space"> </div>
+				<div class="column navbtn">
+					<a href="#" class="btn btn-primary btn-lg">Join</a>
+				</div>
+				<div class="column space"> </div>
+			</div>
+		</div>
+	</div>
+
+	<a class="btn btn-social btn-facebook"
+		href="https://www.facebook.com/Microsanctuary/" target="_blank"
+		title="Colorado Microsanctuary Network Facebook"> <span
+		class="fa fa-facebook"></span> Colorado Microsanctuary Network
+	</a> </nav>
 </body>
 </html>

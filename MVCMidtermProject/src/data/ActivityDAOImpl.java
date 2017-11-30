@@ -23,6 +23,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 
 	@Override
 	public Activity createItemRequest(Item item, User borrower) {
+
 		Activity a = new Activity();
 		Item managedItem = em.find(Item.class, item.getId());
 		managedItem.setAvailable(false);
