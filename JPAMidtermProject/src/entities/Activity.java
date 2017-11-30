@@ -32,6 +32,18 @@ public class Activity {
 	
 	@Column(name = "due_date")
 	private Date dueDate;
+	
+	private boolean returned;
+	
+	
+
+	public boolean isReturned() {
+		return returned;
+	}
+
+	public void setReturned(boolean returned) {
+		this.returned = returned;
+	}
 
 	public User getBorrower() {
 		return borrower;
@@ -69,10 +81,11 @@ public class Activity {
 		return id;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Activity [id=" + id + ", borrower=" + borrower + ", item=" + item + ", dateLent=" + dateLent
-				+ ", dueDate=" + dueDate + "]";
+				+ ", dueDate=" + dueDate + ", returned=" + returned + "]";
 	}
 
 	@Override

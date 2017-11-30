@@ -1,4 +1,4 @@
-<h1>Colorado Micro Sanctuaries Equipment Share Application</h1>
+<h1>Colorado Micro Sanctuary Equipment Exchange Application</h1>
 
 <h2>Alexis Low, Chris Gehrke, Greg Norwood, Jason Caldwell, Rosanne Ussery</h2>
 
@@ -23,3 +23,17 @@ Our goal with building this application is to create a website that will allow u
 This application will be our SD13 midterm group project. It will allow us to practice the skills we have learned so far, gain greater confidence with the technologies, and deepen our understanding of core software development concepts.
 
 In order to achieve these goals, we will be using group project and agile methodologies to work together and create a product. We will be using scrum techniques to keep on track and make sure we meet all of the project's goals.
+
+Our wireframe is designed to demonstrate the general idea of what our site will look like. Each page represented is a basic page required for functionality of the website. We may have to add more pages as development continues.
+
+Main page:
+<img src="Wireframe/CMEEHomepage.png">
+
+New user update page:
+<img src="Wireframe/CMEENewUser.png">
+
+Search page for inventory:
+<img src="Wireframe/CMEESearchPage.png">
+
+Upload page for inventory information:
+<img src="Wireframe/CMEEExchangePage.png">
