@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Wine Selections</title>
-<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
 <body>
 <%@ include file="header.jsp"%>
@@ -42,21 +42,13 @@
     </div>
   </div>
 </div>
-<c:forEach var="vine" items="${list }">
-<img id="img2" alt="${vine.name} bottle" src="images/${vine.imageName}">
-<a href="info.do?id=${vine.id }">${vine.name }</a>
-
-
-<br>
-</c:forEach>
 
 
 
-<p>
-<a href="add.do">Add a Wine</a>
-</p>
 
-<%@ include file="endbody.jsp"%>
+
+
+<%@ include file="footer.jsp"%>
 
 </body>
 </html>
