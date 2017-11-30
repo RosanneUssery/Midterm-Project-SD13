@@ -1,9 +1,14 @@
 @charset "UTF-8";
 
-.introBar {
-	background-color: gray;
+.mainBox {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  z-index: 15;
+  top: 50%;
 }
 
-.searchbox {
+.searchBox {
 	background-color: rgb(66, 179, 244);
+	padding: 30px;
 }

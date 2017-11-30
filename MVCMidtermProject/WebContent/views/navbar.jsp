@@ -11,7 +11,7 @@
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
     
     		<!-- Below is where the logo will go -->
-      <a class="navbar-brand" href="http://18.220.208.40/" target="_blank">
+      <a class="navbar-brand" href="views/HomePage.jsp" target="_blank">
         <img src="images/me.jpeg" width="30" height="30" class="d-inline-block align-top" alt="microsanctuary logo"> MicroSanctuary Equipment Exchange
       </a>
       <!--  Below is dropdowns for the navbar, may not need for this project -->
@@ -22,7 +22,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Web Projects
+              Home
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="http://18.220.208.40:8080/PizzaParty/" target="_blank">Pizza Party </a>
@@ -34,7 +34,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Java Projects
+              Join
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="https://github.com/jdcald13/BlackJackProject" target="_blank">Blackjack</a>
@@ -46,7 +46,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Python Projects
+              Borrow
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="https://github.com/jdcald13/Winning_Texas_Holdem_Strategy" target="_blank"> Winning Texas Holdem Strategy </a>
@@ -64,7 +64,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Resume
+              Lend
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#tech"> Technologies Summary </a>
