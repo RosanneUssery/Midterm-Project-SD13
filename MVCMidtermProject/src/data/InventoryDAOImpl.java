@@ -2,13 +2,26 @@ package data;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import entities.Activity;
 import entities.Address;
 import entities.Item;
 import entities.User;
 
+
+
+@Repository
+@Transactional
 public class InventoryDAOImpl implements InventoryDAO {
 
+	@PersistenceContext
+	private EntityManager em;
+	
 	@Override
 	public User createUser(User user) {
 		// TODO Auto-generated method stub
