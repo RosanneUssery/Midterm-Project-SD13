@@ -1,5 +1,6 @@
 package entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class Item {
 	private User ownerId;
 //	private int ownerId;
 	
-	@JoinColumn(name = "is_supply")
+	@Column(name = "is_supply")
 	private boolean isSupply;
 	
 	private boolean available;

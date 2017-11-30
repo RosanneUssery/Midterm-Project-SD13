@@ -2,6 +2,7 @@ package entities;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,10 +27,10 @@ public class Activity {
 	@JoinColumn(name = "item_id")
 	private Item item;
 	
-	@JoinColumn(name = "date_lent")
+	@Column(name = "date_lent")
 	private Date dateLent;
 	
-	@JoinColumn(name = "due_date")
+	@Column(name = "due_date")
 	private Date dueDate;
 
 	public User getBorrower() {
