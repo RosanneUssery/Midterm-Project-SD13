@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Borrow</title>
 <!-- Bootstrap/CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
@@ -17,16 +17,20 @@
 <body>
 	<%@ include file="header.jsp"%>
 	<%@ include file="navbar.jsp"%>
-	<div class="container introBar">
-		<h1>Colorado Microsanctuary Equipment Exchange</h1>
-	</div>
-
+<div class="container">	
 	<div class="container">
+	<div class="row">
+	<div class="col-lg-12"></div>
+	</div>
+	</div>
+	<div class="container mainBox">
 		<div class="row">
-			<div class="col-md-4 searchbox">
+			<div class="col-md-4 searchBox">
 				<form action="select.do" method="post">
-				<input type="text" name="EquipmentType" value="${ }">
-				<input type="location" name="EquipmentLocation" value="${address.city}">
+				<input type="text" name="EquipmentType" value="${item.title}" placeholder="Equipment Type"><br>
+				<br>
+				<input type="location" name="EquipmentCity" value="${address.city}" placeholder="Equipment City"><br>
+				<br>
 				<input type="submit" value="submit">
 				</form>
 				 </div>
@@ -38,7 +42,8 @@
 					<div class="col-sm-6">
 					
 					
-					<img src="https://maps.googleapis.com/maps/api/staticmap?center=${},${}&zoom=12&size=400x400&key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o" />
+					<!--  <img src="https://maps.googleapis.com/maps/api/staticmap?center=${},${}&zoom=12&size=400x400&key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o" />
+					-->
 					</div>
 				</div>
 				
@@ -47,6 +52,7 @@
 			</div>
 		</div>
 
+	</div>
 	</div>
 	<%@ include file="footer.jsp"%>
 </body>
