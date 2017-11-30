@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `description` MEDIUMTEXT NULL,
   `owner_id` INT UNSIGNED NOT NULL,
   `is_supply` TINYINT(1) NOT NULL DEFAULT 0,
-  `available` TINYINT(1) NOT NULL DEFAULT 0,
+  `is_available` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_user_id_idx` (`owner_id` ASC),
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `item_id` INT UNSIGNED NOT NULL,
   `date_lent` DATE NOT NULL,
   `due_date` DATE NOT NULL,
-  `returned` TINYINT(1) NOT NULL DEFAULT 0,
+  `is_returned` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_user_id_idx` (`borrower_id` ASC),
@@ -163,9 +163,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `available`) VALUES (1, 'first', 'one', 1, 0, 1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `available`) VALUES (2, 'second', 'two', 1, 0, 1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `available`) VALUES (3, 'third', 'three', 2, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (1, 'first', 'one', 1, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (2, 'second', 'two', 1, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (3, 'third', 'three', 2, 0, 1);
 
 COMMIT;
 
@@ -175,8 +175,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `returned`) VALUES (1, 1, 3, '1/1/18', '1/1/18', 1);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `returned`) VALUES (2, 2, 1, '2/1/18', '2/1/18', 1);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (1, 1, 3, '1/1/18', '1/1/18', 1);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (2, 2, 1, '2/1/18', '2/1/18', 1);
 
 COMMIT;
 

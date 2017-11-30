@@ -22,7 +22,7 @@ public class MainController {
 
 		@RequestMapping(path = "hello.do", method = RequestMethod.GET)
 		public String hello() {
-			return "HomePage.jsp";
+			return "views/HomePage.jsp";
 		}
 		
 //		@RequestMapping(path = "actor.do", method = RequestMethod.GET)
