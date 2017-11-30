@@ -17,25 +17,32 @@ public class AddressDAOImpl implements AddressDAO {
 
 	@Override
 	public Address createAddress(Address address) {
-		// TODO Auto-generated method stub
-		return null;
+		   em.persist(address);
+	        em.flush();
+		return address;
 	}
 
 	@Override
 	public Address getAddressByUserId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		  Address a = em.find(Address.class, id);
+			return a;
 	}
 
 	@Override
 	public Address updateAddress(Address address) {
-		// TODO Auto-generated method stub
-		return null;
+		 Address managed = em.find(Address.class, address.getId());
+	        managed = address;
+	        return managed;
+		
 	}
 
 	@Override
 	public boolean deleteAddress(Address address) {
-		// TODO Auto-generated method stub
+		Address a = em.find(Address.class, address.getId());
+		em.remove(a);
+		if(em.find(Address.class,address.getId()) == null) {
+			return true;
+		}
 		return false;
 	}
 
