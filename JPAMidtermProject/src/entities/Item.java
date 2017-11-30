@@ -30,7 +30,7 @@ public class Item {
 	private boolean isSupply;
 	
 	@Column(name = "is_available")
-	private boolean available;
+	private boolean isAvailable;
 
 	public String getTitle() {
 		return title;
@@ -65,11 +65,11 @@ public class Item {
 	}
 
 	public boolean isAvailable() {
-		return available;
+		return isAvailable;
 	}
 
 	public void setAvailable(boolean available) {
-		this.available = available;
+		this.isAvailable = available;
 	}
 
 	public int getId() {
@@ -80,7 +80,7 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", title=" + title + ", description=" + description + ", isSupply=" + isSupply
-				+ ", available=" + available + "]";
+				+ ", available=" + isAvailable + "]";
 	}
 
 	@Override
