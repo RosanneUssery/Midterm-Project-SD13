@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Wine Selections</title>
+
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
 <body>
