@@ -38,6 +38,11 @@ public class UserTest {
 		assertEquals("first@first.com", user.getEmail());
 	}
 	
+	@Test
+	public void test_address_to_user_mapping() {
+		assertEquals("Primary", user.getAddress().getCity());
+	}
+	
 	@After
 	public void tearDown() throws Exception {
 		this.em.close();
