@@ -20,8 +20,6 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-//	@JoinColumn(name = "first_name")
-//	private String firstName;
 	@Column (name = "first_name")
 	private String firstName;
 	
