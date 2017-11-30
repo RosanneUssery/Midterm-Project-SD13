@@ -2,10 +2,7 @@ package data;
 
 import java.util.List;
 
-import entities.Activity;
-import entities.Address;
 import entities.Item;
-import entities.User;
 
 public interface ItemDAO {
 
