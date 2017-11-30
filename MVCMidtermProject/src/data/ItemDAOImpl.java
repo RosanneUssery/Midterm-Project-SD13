@@ -17,7 +17,7 @@ import entities.User;
 
 @Repository
 @Transactional
-public class InventoryDAOImpl implements InventoryDAO {
+public class ItemDAOImpl implements ItemDAO {
 
 	@PersistenceContext
 	private EntityManager em;
