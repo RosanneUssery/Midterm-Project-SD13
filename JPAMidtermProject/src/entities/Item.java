@@ -29,6 +29,7 @@ public class Item {
 	@Column(name = "is_supply")
 	private boolean isSupply;
 	
+	@Column(name = "is_available")
 	private boolean available;
 
 	public String getTitle() {
