@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.Login;
 import entities.User;
 
 @Repository
@@ -37,6 +38,19 @@ public class UserDAOImpl implements UserDAO {
 	public User getUserById(int id) {
 		
         User u = em.find(User.class, id);
+		return u;
+	}
+	
+
+	@Override
+	public User userLogin(String userEmail, String userPass) {
+		User u = null;
+		String query = "SELECT l FROM Login l WHERE user_email = :userEmail";
+		Login l = em.createQuery(query, Login.class).setParameter("userEmail", userEmail).getResultList().get(0);
+		if (l.getUserEmail().equals(userEmail) && l.getPwd().equals(userPass)) {
+			query = "SELECT u FROM User u WHERE email = :email";
+			u = em.createQuery(query, User.class).setParameter("email", userEmail).getResultList().get(0);
+		}
 		return u;
 	}
 

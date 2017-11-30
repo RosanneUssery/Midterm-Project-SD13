@@ -6,12 +6,13 @@ import entities.User;
 
 public interface UserDAO {
 
-	//create user
+		//create user
 		public User createUser(User user);
 		
 		//read user
 		public List<User> getAllUsers();
 		public User getUserById(int id);
+		public User userLogin(String userEmail, String userPass);
 		
 		//update user
 		public User updateUser(User user);
