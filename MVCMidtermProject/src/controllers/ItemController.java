@@ -21,6 +21,10 @@ public class ItemController {
 	ItemDAO itemDAO;
 	
 	//return a view of all available items -- GET
+	/**
+	 * returns a view of all available items
+	 */
+	
 	
 	/**
 	 * returns a list of items filtered by title
