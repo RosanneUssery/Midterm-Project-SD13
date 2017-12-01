@@ -1,6 +1,4 @@
-package test;
-
-import static org.junit.Assert.assertEquals;
+package test.test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,29 +6,28 @@ import javax.persistence.Persistence;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 
-import entities.Item;
+import entities.User;
 
-public class ItemTest {
+public class UserTest {
 	private EntityManagerFactory emf;
 	private EntityManager em;
-	private Item item;
+	private User user;
 
 	@Before
 	public void setUp() throws Exception {
 		this.emf = Persistence.createEntityManagerFactory("MidtermPU");
 		this.em = emf.createEntityManager();
-		item = em.find(Item.class, 1);
+		user = em.find(User.class, 1);
 
 	}
 	
-
+	
 	
 	@After
 	public void tearDown() throws Exception {
 		this.em.close();
 		this.emf.close();
-		item = null;
+		user = null;
 	}
 }

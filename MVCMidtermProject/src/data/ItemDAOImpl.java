@@ -44,12 +44,12 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public List<Item> getOfferedItemsByUserId(int id) {
-		String query = "select i From Item i Where user_id = :id";
+		String query = "select i From Item i Where owner_id = :id";
 		return em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 	}
 	@Override
 	public List<Item> getAvailableItemsByUserId(int id) {
-		String query = "select i From Item i Where user_id = :id And available = 1";
+		String query = "select i From Item i Where owner_id = :id And is_available = 1";
 		return em.createQuery(query, Item.class).setParameter("id", id).getResultList();
 	}
 	

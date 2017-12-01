@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Navbar</title>
+<title>Microsanctuary Equipment Exchange</title>
 </head>
 <body>
 	<!-- Referenced http://getbootstrap.com/docs/4.0/components/navbar/ on 9/28/17 -->
@@ -12,7 +12,7 @@
 	<a class="navbar-brand" href="views/HomePage.jsp" target="_blank">
 		<img src="images/me.jpeg" width="30" height="30"
 		class="d-inline-block align-top" alt="microsanctuary logo">
-		MicroSanctuary Equipment Exchange
+		Microsanctuary Equipment Exchange
 	</a>
 	<div class="navbar">
 		<div class="btn-group btn-group-justified">
