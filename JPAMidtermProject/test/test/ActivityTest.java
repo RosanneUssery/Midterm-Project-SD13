@@ -39,7 +39,7 @@ public class ActivityTest {
 	
 	@Test
 	public void test_activity_to_borrower_mapping() {
-		assertEquals("first", activity.getBorrower().getFirstName());
+		assertEquals("Heero", activity.getBorrower().getFirstName());
 	}
 	
 	@Test

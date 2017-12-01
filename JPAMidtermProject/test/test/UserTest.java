@@ -32,10 +32,10 @@ public class UserTest {
 	
 	@Test
 	public void test_user_mapping() {
-		assertEquals("first", user.getFirstName());
-		assertEquals("first", user.getLastName());
+		assertEquals("Heero", user.getFirstName());
+		assertEquals("Yuy", user.getLastName());
 		assertEquals("1111111111", user.getPhone());
-		assertEquals("first@first.com", user.getEmail());
+		assertEquals("wingzero@gw.com", user.getEmail());
 	}
 	
 	@Test

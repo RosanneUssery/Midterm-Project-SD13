@@ -40,7 +40,7 @@ public class ItemTest {
 	
 	@Test 
 	public void test_item_to_user() {
-		assertEquals("first", item.getOwnerId().getFirstName());
+		assertEquals("Heero", item.getOwnerId().getFirstName());
 	}
 	
 	@After
