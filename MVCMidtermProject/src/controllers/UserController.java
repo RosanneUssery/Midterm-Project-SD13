@@ -41,11 +41,7 @@ public class UserController {
 	 */
 
 	@RequestMapping(path = "index.do", method = RequestMethod.GET)
-<<<<<<< HEAD
 	public ModelAndView showIndex(HttpSession session) {
-=======
-	public ModelAndView showIndex() {
->>>>>>> c9eeb1b8941857d07ed1e754f73fe987457c9370
 		ModelAndView mv = new ModelAndView("HomePage");
 		return mv;
 	}
@@ -57,11 +53,8 @@ public class UserController {
 	 */
 
 	@RequestMapping(path = "showLogin.do", method = RequestMethod.GET)
-<<<<<<< HEAD
 	public ModelAndView showLogin(HttpSession session) {
-=======
-	public ModelAndView showLogin() {
->>>>>>> c9eeb1b8941857d07ed1e754f73fe987457c9370
+
 		ModelAndView mv = new ModelAndView("login");
 		return mv;
 	}

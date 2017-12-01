@@ -13,7 +13,7 @@
 	crossorigin="anonymous">
 
 <link rel="stylesheet" href="css/Main.css">
-<link rel="stylesheet" href="css/search.css">
+<link rel="stylesheet" href="css/viv.css">
 </head>
 <body>
 	<%@ include file="header.jsp"%>

@@ -61,7 +61,7 @@
 	<a class="btn btn-social btn-facebook"
 		href="https://www.facebook.com/Microsanctuary/" target="_blank"
 		title="Colorado Microsanctuary Network Facebook"> <span
-		class="fa fa-facebook"></span> Colorado Microsanctuary Network
+		class="fa fa-facebook"></span> Microsanctuary FB
 	</a> </nav>
 </body>
 </html>
