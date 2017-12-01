@@ -59,7 +59,7 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		User u = userDAO.userLogin(userEmail, userPass);
 		if (u != null) {
-			session.setAttribute("user", u);
+			session.setAttribute("authenticatedUser", u);
 			mv.setViewName("HomePage.jsp");
 		}
 		else {
@@ -73,6 +73,11 @@ public class UserController {
 	/**
 	 * Shows a user page with a list of their items
 	 */
+	public ModelAndView userDetail(@RequestParam("user") User user) {
+		ModelAndView mv = new ModelAndView();
+		
+		return mv;
+	}
 	
 	
 	// show a user page with all their past activity
