@@ -18,14 +18,10 @@
 .space {margin-left:15px}
 
   .mainpic{
-    position: relative;
- 
+  position: static;
   z-index: -1;
+ 
   }  
-  
-  
-  
-  
   
   
   
@@ -41,4 +37,14 @@
     margin: 25px;
   }
   
- 
+ @media screen and (min-width: 600px) { /*The following CSS runs only for displays with a width (in pixels) of more than 800px*/
+    body {
+        background-color:#007a99 ;
+    }
+}
+
+@media screen and (max-width: 1200px) { /*The following CSS runs only for displays with a width (in pixels) of less than 800px*/
+    body {
+        background-color: #007a99;
+    }
+}
