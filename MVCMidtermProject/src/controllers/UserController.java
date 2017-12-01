@@ -41,7 +41,8 @@ public class UserController {
 	 */
 
 	@RequestMapping(path = "index.do", method = RequestMethod.GET)
-	public ModelAndView showIndex(HttpSession session) {
+	public ModelAndView showIndex(@ModelAttribute("authenticatedUser") User authenticatedUser,
+			HttpSession session) {
 		ModelAndView mv = new ModelAndView("HomePage");
 		return mv;
 	}
@@ -70,7 +71,7 @@ public class UserController {
 		User u = userDAO.userLogin(userEmail, userPass);
 		if (u != null) {
 			session.setAttribute("authenticatedUser", u);
-			mv.setViewName("HomePage");
+			mv.setViewName("redirect:index.do");
 		}
 		else {
 			session.setAttribute("loginFail", true);

@@ -1,9 +1,18 @@
 package controllers;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import data.ItemDAO;
+import entities.Item;
 
 @Controller
 public class ItemController {
@@ -14,6 +23,18 @@ public class ItemController {
 	//return a view of all available items -- GET
 	
 	//return a view with filtered list of items -- GET
+	
+	/**
+	 * returns a list of items filtered by title
+	 */
+	@RequestMapping(path = "search.do", method = RequestMethod.GET)
+	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType,
+			HttpSession session) {
+		ModelAndView mv = new ModelAndView("searchpage");
+		List<Item> searchResults = itemDAO.getOfferedItemsByTitle(equipmentType);
+		mv.addObject("searchResults", searchResults);
+		return mv;
+	}
 	
 	//return a view with single item detail -- GET
 	

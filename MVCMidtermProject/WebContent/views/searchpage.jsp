@@ -39,7 +39,18 @@
 					-->
 					</div>
 				</div>
-				
+				<div class="row">
+					<div class="col">
+						<c:if test="${not empty searchResults}">
+							<c:forEach>
+							
+							
+							</c:forEach>
+						
+						</c:if>
+					
+					</div>
+				</div>
 				
 				
 			</div>
