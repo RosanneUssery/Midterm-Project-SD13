@@ -24,6 +24,7 @@ public class UserTest {
 		this.emf = Persistence.createEntityManagerFactory("MidtermPU");
 		this.em = emf.createEntityManager();
 		login = em.find(Login.class, "first@first.com");
+		user = em.find(User.class, 1);
 
 	}
 	
@@ -33,6 +34,7 @@ public class UserTest {
 	public void tearDown() throws Exception {
 		this.em.close();
 		this.emf.close();
+		user = null;
 		login = null;
 	}
 	
@@ -41,6 +43,11 @@ public class UserTest {
 	public void test_user_login_email() {
     	assertEquals("first@first.com",login.getUserEmail());
     	assertEquals("1",login.getPwd());
+    	
+    	assertEquals(1, user.getId());
+    	assertEquals("first@first.com", user.getEmail());
+    	assertEquals(login.getUserEmail(), user.getEmail());
+    	
 	}
 	
 }
