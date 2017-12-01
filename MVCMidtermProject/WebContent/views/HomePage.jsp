@@ -14,7 +14,7 @@
 <%@ include file="navbar.jsp"%>
 
 <div class="container">	
-<div class="homeparagraph" z-index=2>
+<div class="homeparagraph">
 random sayings to see this work
 </div>
 </div>
