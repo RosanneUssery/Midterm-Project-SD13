@@ -1,4 +1,4 @@
-package test;
+package test.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -33,4 +33,18 @@ public class ItemTest {
 		this.emf.close();
 		item = null;
 	}
+	
+	@Test
+	public void test_item() {
+    	assertEquals("first", item.getTitle());
+	}
+	
+	@Test
+	public void test_owner_availability() {
+	 	assertEquals(true, item.isAvailable());
+	 	assertEquals(1, item.getId());
+
+	}
+	
+	
 }
