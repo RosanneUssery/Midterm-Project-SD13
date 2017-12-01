@@ -12,15 +12,23 @@
 <body>
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
-	
-<div class="mainpic">
-<img src="images/pigfield.jpg">
+
+<div class="container">	
+<div class="homeparagraph" z-index=2>
+random sayings to see this work
 </div>
+</div>
+<!-- <div class="row">
+<div class="col-lg-12"> -->
+<div class="mainpic">
+<img src="images/chickengrass.jpg" width=100% z-index=-1>
+</div>
+<!-- </div> 
+</div> 
+ -->
 
 
-
-
-<%@ include file="footer.jsp"%>
+<%@ include file="footer.jsp"%> 
 
 </body>
 </html>

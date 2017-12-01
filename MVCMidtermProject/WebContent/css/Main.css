@@ -17,18 +17,13 @@
 
 .space {margin-left:15px}
 
-/* .mainpic{
-  position: absolute;
-  width: 400px;
-  height: 250px;
+  .mainpic{
+  z-index: -1;
+  }  
+  
+  .homeparagraph { 
   z-index: 2;
-  top: 50%;
-  right:50%;
-  
-  } */
-  
-  body{
-    background-image: url("images/pigfield.jpg");
-    background-size: full;
-  background-repeat: no-repeat;
+  text-align: left;
   }
+  
+  
