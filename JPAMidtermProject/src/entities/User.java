@@ -34,6 +34,9 @@ public class User {
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
+	@Column(name = "permission_level")
+	private int permissionLevel;
+	
 	@OneToMany(mappedBy = "ownerId")
 	List<Item> items;
 
@@ -68,8 +71,14 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 	
+	public int getPermissionLevel() {
+		return permissionLevel;
+	}
+
+	public void setPermissionLevel(int permissionLevel) {
+		this.permissionLevel = permissionLevel;
+	}
 
 	public Address getAddress() {
 		return address;
