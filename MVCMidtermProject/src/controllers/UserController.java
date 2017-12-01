@@ -34,7 +34,7 @@ public class UserController {
 
 	@RequestMapping(path = "index.do", method = RequestMethod.GET)
 	public ModelAndView showIndex() {
-		ModelAndView mv = new ModelAndView("HomePage.jsp");
+		ModelAndView mv = new ModelAndView("/views/HomePage.jsp");
 		return mv;
 	}
 
