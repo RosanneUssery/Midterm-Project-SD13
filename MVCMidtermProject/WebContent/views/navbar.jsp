@@ -10,7 +10,7 @@
 	<!-- Referenced http://getbootstrap.com/docs/4.0/components/navbar/ on 9/28/17 -->
 	<nav class="navbar navbar-expand-xl navbar-dark bg-dark"> <!-- Below is where the logo will go -->
 	<a class="navbar-brand" href="views/HomePage.jsp" target="_blank">
-		<img src="images/me.jpeg" width="30" height="30"
+		<img src="images/chickenicon.jpeg" width="30" height="30"
 		class="d-inline-block align-top" alt="microsanctuary logo">
 		Microsanctuary Equipment Exchange
 	</a>
