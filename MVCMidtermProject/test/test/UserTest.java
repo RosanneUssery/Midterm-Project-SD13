@@ -1,5 +1,4 @@
-package test.test;
-
+package test;
 import static org.junit.Assert.assertEquals;
 
 import javax.persistence.EntityManager;
@@ -10,18 +9,21 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import entities.Activity;
+import entities.Login;
+import entities.User;
 
-public class ActivityTest {
+public class UserTest {
 	private EntityManagerFactory emf;
 	private EntityManager em;
-	private Activity activity;
+	private User user;
+	private Login login;
 
 	@Before
 	public void setUp() throws Exception {
 		this.emf = Persistence.createEntityManagerFactory("MidtermPU");
 		this.em = emf.createEntityManager();
-		activity = em.find(Activity.class, 1);
+		login = em.find(Login.class, "first@first.com");
+		user = em.find(User.class, 1);
 
 	}
 	
@@ -31,19 +33,20 @@ public class ActivityTest {
 	public void tearDown() throws Exception {
 		this.em.close();
 		this.emf.close();
-		activity = null;
+		user = null;
+		login = null;
 	}
 	
-	@Test
-	public void test_activity() {
-    	assertEquals(1, activity.getId());
-    	assertEquals(1, activity.getBorrower().getId());
-    	assertEquals("first", activity.getBorrower().getFirstName());
-	}
 	
 	@Test
-	public void test_new_request_by_user() {
-		assertEquals(3, activity.getItem().getId());
-		assertEquals(2, activity.getItem().getOwnerId().getId());
+	public void test_user_login_email() {
+    	assertEquals("first@first.com",login.getUserEmail());
+    	assertEquals("1",login.getPwd());
+    	
+    	assertEquals(1, user.getId());
+    	assertEquals("first@first.com", user.getEmail());
+    	assertEquals(login.getUserEmail(), user.getEmail());
+    	
 	}
+	
 }
