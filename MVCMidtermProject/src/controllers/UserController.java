@@ -52,7 +52,7 @@ public class UserController {
 
 	/**
 	 * Shows the index page
-	 * 
+	 * TODO--1+ users should see if they have new requests
 	 * @return
 	 */
 
@@ -109,6 +109,7 @@ public class UserController {
 
 	/**
 	 * Shows a user page with a list of their items
+	 * TODO--0 users can't see sensitive info, 1+ users can see everything
 	 */
 	public ModelAndView userItemsDetail(@RequestParam("userId") int id,
 			HttpSession session) {
@@ -123,6 +124,7 @@ public class UserController {
 	
 	/**
 	 * show a user page with all their past activity
+	 * TODO--0 users can't see anything, 1 users can see their own, 2 users can see anyone's
 	 */
 	public ModelAndView userActivityDetail(@RequestParam("userId") int id,
 			HttpSession session) {
@@ -137,6 +139,7 @@ public class UserController {
 	
 	/**
 	 * shows a page with all requests that user has been sent
+	 * TODO--0 users get redirected to login, 1+ users see their info
 	 */
 //	public ModelAndView getRequestsSentToUser(
 //			@ModelAttribute("authenticatedUser") User authenticatedUser,

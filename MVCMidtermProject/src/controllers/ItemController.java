@@ -25,11 +25,19 @@ public class ItemController {
 	 * returns a view of all available items
 	 */
 	
+	/**
+	 * directs user to search page
+	 */
+	@RequestMapping(path = "showSearchPage.do", method = RequestMethod.GET)
+	public ModelAndView showSearchPage() {
+		return new ModelAndView("searchpage");
+	}
+	
 	
 	/**
 	 * returns a list of items filtered by title
 	 */
-	@RequestMapping(path = "search.do", method = RequestMethod.GET)
+	@RequestMapping(path = "searchResults.do", method = RequestMethod.GET)
 	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType,
 			HttpSession session) {
 		ModelAndView mv = new ModelAndView("searchpage");
