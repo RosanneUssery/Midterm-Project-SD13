@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import data.ActivityDAO;
 import data.AddressDAO;
+import data.ItemDAO;
 import data.UserDAO;
 import entities.Activity;
 import entities.Item;
@@ -33,6 +34,9 @@ public class UserController {
 
 	@Autowired
 	ActivityDAO activityDAO;
+	
+	@Autowired
+	ItemDAO itemDAO;
 
 	/**
 	 * Shows the index page
@@ -97,7 +101,7 @@ public class UserController {
 			HttpSession session) {
 		ModelAndView mv = new ModelAndView("userItemsDetail");
 		User requestedUser = userDAO.getUserById(id);
-		List<Item> userItems = requestedUser.getItems();
+		List<Item> userItems = itemDAO.getOfferedItemsByUserId(requestedUser.getId());
 		userItems.size();
 		session.setAttribute("requestedUser", requestedUser);
 		session.setAttribute("requestedUserItems", userItems);
