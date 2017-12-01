@@ -1,4 +1,4 @@
-package test;
+package test.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,27 +10,41 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import entities.User;
+import entities.Item;
 
-public class UserTest {
+public class ItemTest {
 	private EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Item item;
 
 	@Before
 	public void setUp() throws Exception {
 		this.emf = Persistence.createEntityManagerFactory("MidtermPU");
 		this.em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		item = em.find(Item.class, 1);
 
 	}
 	
-	
+
 	
 	@After
 	public void tearDown() throws Exception {
 		this.em.close();
 		this.emf.close();
-		user = null;
+		item = null;
 	}
+	
+	@Test
+	public void test_item() {
+    	assertEquals("first", item.getTitle());
+	}
+	
+	@Test
+	public void test_owner_availability() {
+	 	assertEquals(true, item.isAvailable());
+	 	assertEquals(1, item.getId());
+
+	}
+	
+	
 }

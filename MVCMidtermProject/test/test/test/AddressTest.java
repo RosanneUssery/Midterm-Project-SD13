@@ -1,6 +1,4 @@
-package test;
-
-import static org.junit.Assert.assertEquals;
+package test.test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,7 +6,6 @@ import javax.persistence.Persistence;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 
 import entities.Address;
 
