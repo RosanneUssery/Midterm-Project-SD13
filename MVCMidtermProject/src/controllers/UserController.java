@@ -1,20 +1,28 @@
 package controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.ActivityDAO;
 import data.AddressDAO;
 import data.UserDAO;
+import entities.Activity;
+import entities.Item;
 import entities.User;
 
 @Controller
+@SessionAttributes({"authenticatedUser", "requestedUser", "requestedUserItems", "requestedUserActivity"})
 public class UserController {
 
 	@Autowired
@@ -33,7 +41,11 @@ public class UserController {
 	 */
 
 	@RequestMapping(path = "index.do", method = RequestMethod.GET)
+<<<<<<< HEAD
+	public ModelAndView showIndex(HttpSession session) {
+=======
 	public ModelAndView showIndex() {
+>>>>>>> c9eeb1b8941857d07ed1e754f73fe987457c9370
 		ModelAndView mv = new ModelAndView("HomePage");
 		return mv;
 	}
@@ -45,7 +57,11 @@ public class UserController {
 	 */
 
 	@RequestMapping(path = "showLogin.do", method = RequestMethod.GET)
+<<<<<<< HEAD
+	public ModelAndView showLogin(HttpSession session) {
+=======
 	public ModelAndView showLogin() {
+>>>>>>> c9eeb1b8941857d07ed1e754f73fe987457c9370
 		ModelAndView mv = new ModelAndView("login");
 		return mv;
 	}
@@ -69,24 +85,61 @@ public class UserController {
 		
 		return mv;
 	}
+	
+	/**
+	 * logs out active user, hopefully
+	 */
+	public ModelAndView userLogout(SessionStatus status) {
+		ModelAndView mv = new ModelAndView("logout");
+		status.setComplete();
+		return mv;
+	}
 
 	/**
 	 * Shows a user page with a list of their items
 	 */
-	public ModelAndView userDetail(@RequestParam("user") User user) {
-		ModelAndView mv = new ModelAndView();
+	public ModelAndView userItemsDetail(@RequestParam("userId") int id,
+			HttpSession session) {
+		ModelAndView mv = new ModelAndView("userItemsDetail");
+		User requestedUser = userDAO.getUserById(id);
+		List<Item> userItems = requestedUser.getItems();
+		userItems.size();
+		session.setAttribute("requestedUser", requestedUser);
+		session.setAttribute("requestedUserItems", userItems);
+		return mv;
+	}
+	
+	/**
+	 * show a user page with all their past activity
+	 */
+	public ModelAndView userActivityDetail(@RequestParam("userId") int id,
+			HttpSession session) {
+		ModelAndView mv = new ModelAndView("userActivityDetail");
+		User requestedUser = userDAO.getUserById(id);
+		List<Activity> requestedUserActivity = activityDAO.viewActivityByUser(requestedUser);
+		requestedUserActivity.size();
+		session.setAttribute("requestedUser", requestedUser);
+		session.setAttribute("requestedUserActivity", requestedUserActivity);
+		return mv;
+	}
+	
+	/**
+	 * shows a page with all requests that user has been sent
+	 */
+	public ModelAndView getRequestsSentToUser(@ModelAttribute("authenticatedUser") User authenticatedUser,
+			HttpSession session) {
+		ModelAndView mv = new ModelAndView("userRequestDetail");
+		List<Activity> receivedRequests = activityDAO.getNewRequestsByUser(authenticatedUser);
+		receivedRequests.size();
 		
 		return mv;
 	}
 	
-	
-	// show a user page with all their past activity
-
 	// show a page with all requests for that user
 
 	// show a page where a user can register -- POST REDIRECT
-	// sign up completed page
+		// sign up completed page
 
 	// show a page to update user info -- POST REDIRECT
-	// update completed page
+		// update completed page
 }
