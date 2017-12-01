@@ -45,7 +45,8 @@ public class UserController {
 	 */
 
 	@RequestMapping(path = "index.do", method = RequestMethod.GET)
-	public ModelAndView showIndex(@ModelAttribute("authenticatedUser") User authenticatedUser,
+	public ModelAndView showIndex(
+//			@ModelAttribute("authenticatedUser") User authenticatedUser,
 			HttpSession session) {
 		ModelAndView mv = new ModelAndView("HomePage");
 		return mv;
@@ -125,14 +126,15 @@ public class UserController {
 	/**
 	 * shows a page with all requests that user has been sent
 	 */
-	public ModelAndView getRequestsSentToUser(@ModelAttribute("authenticatedUser") User authenticatedUser,
-			HttpSession session) {
-		ModelAndView mv = new ModelAndView("userRequestDetail");
-		List<Activity> receivedRequests = activityDAO.getNewRequestsByUser(authenticatedUser);
-		receivedRequests.size();
-		session.setAttribute("receivedRequests", receivedRequests);
-		return mv;
-	}
+//	public ModelAndView getRequestsSentToUser(
+//			@ModelAttribute("authenticatedUser") User authenticatedUser,
+//			HttpSession session) {
+//		ModelAndView mv = new ModelAndView("userRequestDetail");
+//		List<Activity> receivedRequests = activityDAO.getNewRequestsByUser(authenticatedUser);
+//		receivedRequests.size();
+//		session.setAttribute("receivedRequests", receivedRequests);
+//		return mv;
+//	}
 	
 	// show a page with all requests for that user
 
