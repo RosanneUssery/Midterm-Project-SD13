@@ -7,12 +7,13 @@
 }
 
 .mainBox {
-	position: absolute;
+	position: relative;
 	width: 100%;
 	height: 200px;
 	z-index: 15;
 	top: 50%;
 }
+
 
 .mainpic {
 	position: fixed;
@@ -24,15 +25,6 @@
 	padding: 30px;
 }
 
-.loginForm {
-	position: fixed;
-	padding: 15px;
-	background-color: #BEBBBB;
-	border-width: 5px;
-	border-color: green;
-	border-style: solid;
-	top: 20%;
-}
 
 body {
 	margin-bottom: 100px;
@@ -173,9 +165,20 @@ span.psw {
 	
 }
 
+/* __________________________________  */
+/* SEARCH PAGE CSS  */
+.roundbunny {
+	 border: 1px;
+	 border-radius: 100%;
+	 border-style: solid;
+	 border-color: gray;
+}
 
-
-
+#body-search {
+	background-image: url("../images/duck.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 
 
 

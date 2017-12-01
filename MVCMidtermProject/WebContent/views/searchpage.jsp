@@ -8,18 +8,13 @@
 <title>Borrow</title>
 <%@ include file="header.jsp"%>
 </head>
-<body>
+<body id="body-search">
 	<%@ include file="navbar.jsp"%>
-	<div class="container">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12"></div>
-			</div>
-		</div>
+
 		<div class="container mainBox">
 			<div class="row">
 				<div class="col-md-4 searchBox">
-					<form action="select.do" method="GET">
+					<form action="/MVCMidtermProject/searchResults.do" method="GET">
 						<input type="text" name="EquipmentType" value="${item.title}"
 							placeholder="Equipment Type"><br> <br> 
 						
@@ -30,7 +25,8 @@
 				</div>
 				<div class="col-md-8">
 					<div class="row">
-						<c:if test="${not empty searchResults}">
+						<c:choose>
+						<c:when test="${not empty searchResults}">
 							<c:forEach items="${searchResults}" var="searchResults">
 								<div class="col-sm-6">
 									<img src=" " alt="image of equipment">
@@ -45,8 +41,15 @@
 									<div class="col-sm 12"></div>
 								</div>
 							</c:forEach>
-
-						</c:if>
+						
+						</c:when>
+						<c:otherwise>
+							<h3>No Match</h3>
+							<div class="roundbunny">
+							<img src="../images/bunny.jpg">
+							</div>
+						</c:otherwise>
+						</c:choose>
 					</div>
 
 				</div>
@@ -54,10 +57,6 @@
 
 
 		</div>
-	</div>
-
-	</div>
-	</div>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

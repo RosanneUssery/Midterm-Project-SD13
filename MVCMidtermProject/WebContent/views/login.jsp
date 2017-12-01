@@ -8,6 +8,7 @@
 <title>Login</title>
 
 <%@ include file="header.jsp"%>
+<link rel="stylesheet" href="css/viv.css">
 </head>
 <body id="body-login">
 	<%@ include file="navbar.jsp"%>
