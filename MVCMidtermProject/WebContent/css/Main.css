@@ -18,10 +18,13 @@
 .space {margin-left:15px}
 
   .mainpic{
+    position: relative;
+ 
   z-index: -1;
   }  
   
   .homeparagraph { 
+  position: absolute;
   z-index: 2;
   text-align: left;
   }
