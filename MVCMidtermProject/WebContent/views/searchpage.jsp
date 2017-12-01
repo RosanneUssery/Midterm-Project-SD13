@@ -16,7 +16,7 @@
 				<div class="col-md-4 searchBox">
 					<form action="/MVCMidtermProject/searchResults.do" method="GET">
 						<input type="text" name="EquipmentType" value="${item.title}"
-							placeholder="Equipment Type"><br> <br> 
+							placeholder="Equipment Type" required><br> <br> 
 						
 						<%-- <input type="location" name="EquipmentCity" value="${address.city}"
 							placeholder="Equipment City"><br> <br> --%> 
@@ -34,9 +34,8 @@
 								<div class="col-sm-6">
 
 
-									<!--  <img src="https://maps.googleapis.com/maps/api/staticmap?center=${},${}&zoom=12&size=400x400&key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o" />
-					-->
-								</div>
+		<%-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=${},${}&zoom=12&size=400x400&key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o" />
+							 --%>	</div>
 								<div class="row">
 									<div class="col-sm-12"></div>
 								</div>
