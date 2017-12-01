@@ -20,10 +20,19 @@ public class ItemController {
 	@Autowired
 	ItemDAO itemDAO;
 	
-	//return a view of all available items -- GET
 	/**
 	 * returns a view of all available items
 	 */
+	@RequestMapping(path = "viewAllItems.do", method = RequestMethod.GET)
+	public ModelAndView viewAllItems() {
+		ModelAndView mv = new ModelAndView("searchPage");
+		
+		List<Item> allItems = itemDAO.getAllItems();
+		mv.addObject("allItems", allItems);		
+		
+		return mv;
+		
+	}
 	
 	/**
 	 * directs user to search page
