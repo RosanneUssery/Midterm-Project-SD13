@@ -3,7 +3,6 @@
   <display-name>MVCMidtermProject</display-name>
   <welcome-file-list>
     <welcome-file>index.do</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
   <servlet>
@@ -16,4 +15,6 @@
     <servlet-name>midterm</servlet-name>
     <url-pattern>*.do</url-pattern>
 </servlet-mapping>
+
+
 </web-app>
