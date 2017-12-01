@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="loginForm">
-					<form action="completeLogin.do" method="GET">
+					<form action="completeLogin.do" method="POST">
 						Your email: <input type="text" name="userEmail"
 							value="${user.userEmail}" placeholder="email" required> <br>
 						<br> Your password: <input type="password" name="userPass"
