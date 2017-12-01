@@ -2,17 +2,13 @@
 <footer class="footer">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 col-xs-12">
+			<div class="col-md-12 col-xs-12">
 				No-&copy; 2017
 				<script>
 					new Date().getFullYear() >= 2017
 							&& document.write("-" + new Date().getFullYear());
-				</script>
-				, Jason Caldwell, Rosanne Ussery, Alexis Low, Chris Gehrke, Greg
-				Norwood
-			</div>
-			<div class="col-md-6 col-xs-12">
-				<a href="https://github.com/RosanneUssery/Midterm-Project-SD13">View
+				</script> Jason Caldwell, Rosanne Ussery, Alexis Low, Chris Gehrke, Greg
+				Norwood <a href="https://github.com/RosanneUssery/Midterm-Project-SD13">View
 					Code</a>
 				</a>
 			</div>
