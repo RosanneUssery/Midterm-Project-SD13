@@ -54,7 +54,7 @@ public class UserController {
 
 	@RequestMapping(path = "showLogin.do", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpSession session) {
-
+		
 		ModelAndView mv = new ModelAndView("login");
 		return mv;
 	}
