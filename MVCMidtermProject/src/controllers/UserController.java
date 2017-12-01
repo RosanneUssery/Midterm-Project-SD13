@@ -22,7 +22,7 @@ import entities.Item;
 import entities.User;
 
 @Controller
-@SessionAttributes({"authenticatedUser", "requestedUser", "requestedUserItems", "requestedUserActivity"})
+@SessionAttributes({"authenticatedUser", "requestedUser", "requestedUserItems", "requestedUserActivity", "userReceivedRequests"})
 public class UserController {
 
 	@Autowired
@@ -62,6 +62,7 @@ public class UserController {
 	/**
 	 * Completes login and redirects to index
 	 */
+	@RequestMapping(path = "completeLogin.do", method = RequestMethod.POST)
 	public ModelAndView completeLogin(@RequestParam("userEmail") String userEmail,
 			@RequestParam("userPass") String userPass,
 			HttpSession session) {
@@ -124,7 +125,7 @@ public class UserController {
 		ModelAndView mv = new ModelAndView("userRequestDetail");
 		List<Activity> receivedRequests = activityDAO.getNewRequestsByUser(authenticatedUser);
 		receivedRequests.size();
-		
+		session.setAttribute("receivedRequests", receivedRequests);
 		return mv;
 	}
 	

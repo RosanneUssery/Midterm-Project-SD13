@@ -6,56 +6,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-	crossorigin="anonymous">
 
-<link rel="stylesheet" href="css/Main.css">
-<link rel="stylesheet" href="css/viv.css">
-</head>
-<body>
 	<%@ include file="header.jsp"%>
+</head>
+<body id="body-login">
 	<%@ include file="navbar.jsp"%>
 
-	<div class="mainpic">
-		<img src="images/chickenrocks.jpg" width="100%" height="100%">
-	</div>
+		<main class="container">
 
-	<div class="container">
-		<div class="loginForm">
 		<div class="row">
 			<div class="col-md-6">
-				<form action="showLogin.do" method="GET">
-					Your email:
-					<input type="text" name="userEmail" value="${user.userEmail}" placeholder="email" required>
-					<br>
-					<br> 
-					Your password:
-					<input type="password" name="userPass" value="${user.pwd}" placeholder="password" required>
-					<br>
-					<br> 
-					<input type="submit" value="Login">
+				<div class="loginForm">
+					<form action="completeLogin.do" method="POST">
+						Your email: <input type="text" name="userEmail"
+							value="${user.userEmail}" placeholder="email" required> <br>
+						<br> Your password: <input type="password" name="userPass"
+							value="${user.pwd}" placeholder="password" required> <br>
+						<br> <input type="submit" value="Login">
 
-				</form>
-				<br>
-				<button type="button" class="cancelbtn">Cancel</button>
-				<br>
-				<br>
-				<span class="psw">Forgot <a href="#">password?</a></span>
+					</form>
+					<br>
+					<button type="button" class="cancelbtn">Cancel</button>
+					<br> <br> <span class="psw"><a href="#">Forgot
+							password?</a></span>
+				</div>
 			</div>
 
-			<div class="col-md-6">
-				
-			</div>
+			<div class="col-md-6"></div>
 		</div>
-		</div>
-
-
-
-	</div>
-
-
+		</main>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
