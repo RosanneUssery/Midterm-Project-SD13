@@ -23,7 +23,7 @@ import entities.Item;
 import entities.User;
 
 @Controller
-@SessionAttributes({"authenticatedUser", "requestedUser", "requestedUserItems", "requestedUserActivity", "userReceivedRequests"})
+@SessionAttributes("authenticatedUser")
 public class UserController {
 
 	@Autowired
@@ -37,6 +37,18 @@ public class UserController {
 	
 	@Autowired
 	ItemDAO itemDAO;
+	
+	/**
+	 * initializes anonymous user into session
+	 * user has no other attributes set
+	 * @return
+	 */
+	@ModelAttribute("authenticatedUser")
+	public User initAuthenticatedUser() {
+		User u = new User();
+		u.setPermissionLevel(0);
+		return u;
+	}
 
 	/**
 	 * Shows the index page
