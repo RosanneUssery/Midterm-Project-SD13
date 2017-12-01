@@ -22,7 +22,7 @@
 				</div>
 				<div class="column space"></div>
 				<div class="column navbtn">
-					<a href="views/searchpage.jsp" class="btn btn-primary btn-lg"
+					<a href="showSearchPage.do" class="btn btn-primary btn-lg"
 						style="padding-left: -15px;">Borrow</a>
 				</div>
 				<div class="column space"></div>

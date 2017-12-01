@@ -38,6 +38,8 @@ public class UserController {
 	@Autowired
 	ItemDAO itemDAO;
 	
+
+	
 	/**
 	 * initializes anonymous user into session
 	 * user has no other attributes set
@@ -151,11 +153,12 @@ public class UserController {
 //		return mv;
 //	}
 	
-	// show a page with all requests for that user
 
 	// show a page where a user can register -- POST REDIRECT
+		//TODO--should only be available to 0 users
 		// sign up completed page
 
 	// show a page to update user info -- POST REDIRECT
+		//TODO-- 1+ user level
 		// update completed page
 }

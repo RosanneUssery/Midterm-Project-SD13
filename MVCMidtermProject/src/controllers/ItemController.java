@@ -12,13 +12,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import data.ItemDAO;
+import data.UserDAO;
 import entities.Item;
+import entities.User;
 
 @Controller
 public class ItemController {
 	
 	@Autowired
 	ItemDAO itemDAO;
+	
+	@Autowired
+	UserDAO userDAO;
 	
 	/**
 	 * returns a view of all available items
@@ -55,7 +60,28 @@ public class ItemController {
 		return mv;
 	}
 	
-	//return a view with single item detail -- GET
+	/**
+	 * shows detailed item view, also some user info based on currentUser permission level
+	 * @param itemId
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(path = "itemDetail.do", method = RequestMethod.GET)
+	public ModelAndView itemDetail(@RequestParam("itemId") int itemId,
+			HttpSession session) {
+		ModelAndView mv = new ModelAndView("itemDetail");
+		Item itemDetail = itemDAO.getItemById(itemId);
+		mv.addObject("itemDetail", itemDetail);
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		
+		if(authUser.getPermissionLevel() > 0) {		//they're are logged in and can see stuff
+			User itemOwner = userDAO.getUserById(itemDetail.getOwnerId().getId());
+			mv.addObject("itemOwner", itemOwner);
+		}
+	
+		
+		return mv;
+	}
 	
 	//send user to page where they can add an item -- POST REDIRECT
 		//send user to page with added item
