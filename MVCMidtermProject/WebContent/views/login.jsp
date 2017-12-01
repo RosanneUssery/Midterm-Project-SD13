@@ -26,7 +26,7 @@
 		<div class="loginForm">
 		<div class="row">
 			<div class="col-md-6">
-				<form action="showLogin.do" method="GET">
+				<form action="completeLogin.do" method="GET">
 					Your email:
 					<input type="text" name="userEmail" value="${user.userEmail}" placeholder="email" required>
 					<br>
@@ -42,7 +42,7 @@
 				<button type="button" class="cancelbtn">Cancel</button>
 				<br>
 				<br>
-				<span class="psw">Forgot <a href="#">password?</a></span>
+				<span class="psw"><a href="#">Forgot password?</a></span>
 			</div>
 
 			<div class="col-md-6">
@@ -50,9 +50,6 @@
 			</div>
 		</div>
 		</div>
-
-
-
 	</div>
 
 
