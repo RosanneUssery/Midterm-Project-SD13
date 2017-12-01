@@ -12,17 +12,21 @@
 <body id="body-login">
 	<%@ include file="navbar.jsp"%>
 
-
+<div row="row">
+<div row="col-sm-12">
+<div class="buttonMiddle">
 	<button onclick="document.getElementById('id01').style.display='block'"
 		style="width: auto;">Login</button>
-
+</div>
+</div>
+</div>
 	<div id="id01" class="modal">
 
 		<form class="modal-content animate" action="/action_page.php">
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('id01').style.display='none'"
 					class="close" title="Close Modal">&times;</span> <img
-					src="img_avatar2.png" alt="Avatar" class="avatar">
+					src="images/rabbits.jpg" alt="Avatar" class="avatar">
 			</div>
 
 			<div class="container">

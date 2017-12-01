@@ -19,12 +19,13 @@
 		<div class="container mainBox">
 			<div class="row">
 				<div class="col-md-4 searchBox">
-					<form action="select.do" method="post">
+					<form action="select.do" method="GET">
 						<input type="text" name="EquipmentType" value="${item.title}"
-							placeholder="Equipment Type"><br> <br> <input
-							type="location" name="EquipmentCity" value="${address.city}"
-							placeholder="Equipment City"><br> <br> <input
-							type="submit" value="submit">
+							placeholder="Equipment Type"><br> <br> 
+						
+						<%-- <input type="location" name="EquipmentCity" value="${address.city}"
+							placeholder="Equipment City"><br> <br> --%> 
+						<input type="submit" value="submit">
 					</form>
 				</div>
 				<div class="col-md-8">
