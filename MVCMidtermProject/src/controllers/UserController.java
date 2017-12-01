@@ -62,6 +62,7 @@ public class UserController {
 	/**
 	 * Completes login and redirects to index
 	 */
+	@RequestMapping(path = "completeLogin.do", method = RequestMethod.POST)
 	public ModelAndView completeLogin(@RequestParam("userEmail") String userEmail,
 			@RequestParam("userPass") String userPass,
 			HttpSession session) {
