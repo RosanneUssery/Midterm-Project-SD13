@@ -22,8 +22,6 @@ public class ItemController {
 	
 	//return a view of all available items -- GET
 	
-	//return a view with filtered list of items -- GET
-	
 	/**
 	 * returns a list of items filtered by title
 	 */
