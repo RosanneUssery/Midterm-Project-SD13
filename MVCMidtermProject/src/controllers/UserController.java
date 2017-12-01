@@ -56,16 +56,25 @@ public class UserController {
 	public ModelAndView completeLogin(@RequestParam("userEmail") String userEmail,
 			@RequestParam("userPass") String userPass,
 			HttpSession session) {
-		ModelAndView mv = new ModelAndView("HomePage.jsp");
+		ModelAndView mv = new ModelAndView();
+		User u = userDAO.userLogin(userEmail, userPass);
+		if (u != null) {
+			session.setAttribute("user", u);
+			mv.setViewName("HomePage.jsp");
+		}
+		else {
+			session.setAttribute("loginFail", true);
+			mv.setViewName("login.jsp");
+		}
 		
-		
-		
-		session.setAttribute("user", user);
 		return mv;
 	}
 
-	// show a user page with a list of their items
-
+	/**
+	 * Shows a user page with a list of their items
+	 */
+	
+	
 	// show a user page with all their past activity
 
 	// show a page with all requests for that user
