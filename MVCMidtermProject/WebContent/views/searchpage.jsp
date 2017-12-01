@@ -38,15 +38,17 @@
 					-->
 								</div>
 								<div class="row">
-									<div class="col-sm 12"></div>
+									<div class="col-sm-12"></div>
 								</div>
 							</c:forEach>
 						
 						</c:when>
 						<c:otherwise>
+							<div class="row container">
+							<div class="col-sm-4"></div>
+							<div class="col-sm-8 match">
 							<h3>No Match</h3>
-							<div class="roundbunny">
-							<img src="../images/bunny.jpg">
+							</div>
 							</div>
 						</c:otherwise>
 						</c:choose>

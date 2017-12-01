@@ -180,7 +180,10 @@ span.psw {
 	background-repeat: no-repeat;
 }
 
-
+.match {
+	text-align: center;
+	color: white;
+}
 
 
 
