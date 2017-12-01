@@ -34,7 +34,7 @@ public class UserController {
 
 	@RequestMapping(path = "index.do", method = RequestMethod.GET)
 	public ModelAndView showIndex() {
-		ModelAndView mv = new ModelAndView("/views/HomePage.jsp");
+		ModelAndView mv = new ModelAndView("HomePage");
 		return mv;
 	}
 
@@ -46,7 +46,7 @@ public class UserController {
 
 	@RequestMapping(path = "showLogin.do", method = RequestMethod.GET)
 	public ModelAndView showLogin() {
-		ModelAndView mv = new ModelAndView("login.jsp");
+		ModelAndView mv = new ModelAndView("login");
 		return mv;
 	}
 
@@ -60,11 +60,11 @@ public class UserController {
 		User u = userDAO.userLogin(userEmail, userPass);
 		if (u != null) {
 			session.setAttribute("authenticatedUser", u);
-			mv.setViewName("HomePage.jsp");
+			mv.setViewName("HomePage");
 		}
 		else {
 			session.setAttribute("loginFail", true);
-			mv.setViewName("login.jsp");
+			mv.setViewName("login");
 		}
 		
 		return mv;
