@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Microsanctuary Equipment Exchange</title>
+<link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
 <body>
 
@@ -17,115 +18,44 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+     
+   
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Borrow</a></li>
+      <li><a href="#">Lend</a></li>
+      <li><a href="#">Requests</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	<a class="btn btn-social btn-facebook"
+		href="https://www.facebook.com/Microsanctuary/" target="_blank"
+		title="Colorado Microsanctuary Network Facebook"> <span
+		class="fa fa-facebook"></span> Microsanctuary FB
+	</a>    
+    </ul>
+  </div>
+  
+</nav>
+  <!-- 
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Borrow</a>
       <a class="nav-item nav-link" href="#">Lend</a>
       <a class="nav-item nav-link" href="#">Requests</a>
+    <div class="navbar-nav navbar-right">
       <a class="nav-item nav-link" href="#">Login</a>
-      <a class="btn btn-social btn-facebook"
-		href="https://www.facebook.com/Microsanctuary/" target="_blank"
-		title="Colorado Microsanctuary Network Facebook"> <span
-		class="fa fa-facebook"></span> Microsanctuary FB
-	</a>
-    
+       -->
+	
+    </div>
     </div>
   </div>
 
 </nav> 
 
-	<!-- Referenced http://getbootstrap.com/docs/4.0/components/navbar/ on 9/28/17 -->
-	<!-- <nav class="navbar navbar-expand-xl navbar-dark bg-dark"> Below is where the logo will go
-	<a class="navbar-brand" href="views/HomePage.jsp" target="_blank">
-		<img src="images/chickenicon.jpeg" width="30" height="30"
-		class="d-inline-block align-top" alt="microsanctuary logo">
-		Microsanctuary Equipment Exchange
-	</a>
-	<div class="navbar">
-<<<<<<< HEAD
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="btn-group btn-group-justified">
-				<div class="row">
-					<div class="col-xs-12 col-sm-2">
-						<div class="column navbtn">
-							<a href="views/HomePage.jsp" class="btn btn-primary btn-lg">Home</a>
-						</div>
-					</div>
-					<div class="column space"></div>
-					<div class="col-xs-12 col-sm-2">
-						<div class="column navbtn">
-							<a href="views/searchpage.jsp" class="btn btn-primary btn-lg"
-								style="padding-left: -15px;">Borrow</a>
-						</div>
-					</div>
-
-					<div class="column space"></div>
-					<div class="col-xs-12 col-sm-2">
-						<div class="column navbtn">
-							<a href="#" class="btn btn-primary btn-lg">Lend</a>
-						</div>
-					</div>
-					<div class="column space"></div>
-					<div class="col-xs-12 col-sm-2">
-						<div class="column navbtn">
-							<a href="#" class="btn btn-primary btn-lg">Requests</a>
-						</div>
-					</div>
-					<div class="column space"></div>
-
-					<div class="col-xs-12 col-sm-2">
-						<div class="column navbtn">
-							<a href="#" class="btn btn-primary btn-lg">Join</a>
-						</div>
-					</div>
-					<div class="col-xs-12 col-md-6">
-=======
-		<div class="btn-group btn-group-justified">
-			<div class="row">
-				<div class="column navbtn">
-					<a href="views/HomePage.jsp" class="btn btn-primary btn-lg">Home</a>
-				</div>
-				<div class="column space"></div>
-				<div class="column navbtn">
-					<a href="showSearchPage.do" class="btn btn-primary btn-lg"
-						style="padding-left: -15px;">Borrow</a>
-				</div>
-				<div class="column space"></div>
-				<div class="column navbtn">
-					<a href="#" class="btn btn-primary btn-lg">Lend</a>
-				</div>
-				<div class="column space"></div>
-				<div class="column navbtn">
-					<a href="#" class="btn btn-primary btn-lg">Requests</a>
-				</div>
-				<div class="column space"></div>
-				<!--need to find a way to hide/show login if they are logged in  -->
-					<!-- <script type="text/javascript">
-						function hideLogout() {
-							document.getElementById('logout').style.visibility = 'hidden';
-						}
-						function hideLogin() {
-							document.getElementById('login').style.visibility = 'hidden';
-						}
-					</script>
->>>>>>> 05baee5399570409a87c4ed720984c7c80a70a1d
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<a class="btn btn-social btn-facebook"
-			href="https://www.facebook.com/Microsanctuary/" target="_blank"
-			title="Colorado Microsanctuary Network Facebook"> <span
-			class="fa fa-facebook"></span> Microsanctuary FB
-		</a>
-	</nav>  -->
+	
 </body>
 </html>
 

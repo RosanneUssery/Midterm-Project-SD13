@@ -34,7 +34,16 @@
 	background-color: #f5f5f5;
 }
 
-
+.navbar .nav > li > a, .navbar .nav > li > a:first-letter,
+.navbar .nav > li.current-menu-item > a, 
+.navbar .nav > li.current-menu-ancestor > a {
+display:        inline;
+color:          #007a99;                        
+font-family:    Garamond;
+font-size:      1.5em;
+padding:        5px 20px;
+}
+ 
   
   
   .homeparagraph { 
