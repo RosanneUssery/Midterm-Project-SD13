@@ -74,10 +74,8 @@ public class UserController {
 	 * Shows the login page
 	 * @return
 	 */
-
 	@RequestMapping(path = "showLogin.do", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpSession session) {
-		
 		ModelAndView mv = new ModelAndView("login");
 		return mv;
 	}
