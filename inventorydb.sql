@@ -191,9 +191,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (1, 1, 3, '1/1/18', '2/1/18', 1);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (2, 2, 1, '1/29/18', '3/1/18', 1);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (3, 4, 13, '12/5/17', '1/5/18', 1);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (1, 1, 3, '2018/01/01', '2018/02/01', 1);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (2, 2, 1, '2018/01/29', '2018/03/01', 1);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (3, 4, 13, '2017/12/05', '2018/01/05', 0);
 
 COMMIT;
 
