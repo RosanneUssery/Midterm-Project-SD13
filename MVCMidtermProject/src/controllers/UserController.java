@@ -23,7 +23,7 @@ import entities.Item;
 import entities.User;
 
 @Controller
-@SessionAttributes("authenticatedUser")
+@SessionAttributes({"authenticatedUser", "loggedIn"})
 public class UserController {
 
 	@Autowired
