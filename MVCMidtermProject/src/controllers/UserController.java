@@ -23,7 +23,7 @@ import entities.Item;
 import entities.User;
 
 @Controller
-@SessionAttributes({"authenticatedUser", "loggedIn"})
+@SessionAttributes({ "authenticatedUser", "loggedIn" })
 public class UserController {
 
 	@Autowired
@@ -34,13 +34,13 @@ public class UserController {
 
 	@Autowired
 	ActivityDAO activityDAO;
-	
+
 	@Autowired
 	ItemDAO itemDAO;
-	
+
 	/**
-	 * initializes anonymous user into session
-	 * user has no other attributes set
+	 * initializes anonymous user into session user has no other attributes set
+	 * 
 	 * @return
 	 */
 	@ModelAttribute("authenticatedUser")
@@ -49,9 +49,10 @@ public class UserController {
 		u.setPermissionLevel(0);
 		return u;
 	}
-	
+
 	/**
 	 * initializes loggedIn boolean to false
+	 * 
 	 * @return false
 	 */
 	@ModelAttribute("loggedIn")
@@ -60,8 +61,8 @@ public class UserController {
 	}
 
 	/**
-	 * Shows the index page
-	 * TODO--1+ users should see if they have new requests
+	 * Shows the index page TODO--1+ users should see if they have new requests
+	 * 
 	 * @return
 	 */
 	@RequestMapping(path = "index.do", method = RequestMethod.GET)
@@ -72,6 +73,7 @@ public class UserController {
 
 	/**
 	 * Shows the login page
+	 * 
 	 * @return
 	 */
 	@RequestMapping(path = "showLogin.do", method = RequestMethod.GET)
@@ -81,35 +83,39 @@ public class UserController {
 	}
 
 	/**
-	 * Checks user login
-	 * if successful, redirects to index, changes authUser and loggedIn
-	 * @param userEmail		-- user email passed in from form
-	 * @param userPass		-- user pw passed in from form
-	 * @param session		-- used to add user to session if successful
-	 * @return				-- the ModelAndView object
+	 * Checks user login if successful, redirects to index, changes authUser and
+	 * loggedIn
+	 * 
+	 * @param userEmail
+	 *            -- user email passed in from form
+	 * @param userPass
+	 *            -- user pw passed in from form
+	 * @param session
+	 *            -- used to add user to session if successful
+	 * @return -- the ModelAndView object
 	 */
 	@RequestMapping(path = "completeLogin.do", method = RequestMethod.POST)
 	public ModelAndView completeLogin(@RequestParam("userEmail") String userEmail,
-			@RequestParam("userPass") String userPass,
-			HttpSession session) {
+			@RequestParam("userPass") String userPass, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		User u = userDAO.userLogin(userEmail, userPass);
-		if (u != null) {										//user logged in successfully
-			session.setAttribute("authenticatedUser", u);	//add to session as authenticatedUser
-			session.setAttribute("loggedIn", true);			//change loggedIn to true to hide login button
-			mv.setViewName("redirect:index.do");				//redirect to index view
-		}
-		else {												//login not successful
-			mv.addObject("loginFail", true);					//add boolean to model indicating such
+		if (u != null) { // user logged in successfully
+			session.setAttribute("authenticatedUser", u); // add to session as authenticatedUser
+			session.setAttribute("loggedIn", true); // change loggedIn to true to hide login button
+			mv.setViewName("redirect:index.do"); // redirect to index view
+		} else { // login not successful
+			mv.addObject("loginFail", true); // add boolean to model indicating such
 			mv.setViewName("login");
 		}
 		return mv;
 	}
-	
+
 	/**
 	 * logs out active user, hopefully, but tbh i don't really know yet TODO
-	 * @param status		-- used to clear session
-	 * @return			-- the ModelAndView object
+	 * 
+	 * @param status
+	 *            -- used to clear session
+	 * @return -- the ModelAndView object
 	 */
 	@RequestMapping(path = "userLogout.do", method = RequestMethod.GET)
 	public ModelAndView userLogout(SessionStatus status) {
@@ -119,38 +125,40 @@ public class UserController {
 	}
 
 	/**
-	 * Shows a user page with a list of their items
-	 * level 0 users are only shown user first name
-	 * level 1+ users are given full user info
-	 * @param id			-- used to get the user out of the database
-	 * @param session	-- used to check authUser permissions
-	 * @return			-- the ModelAndView object
+	 * Shows a user page with a list of their items level 0 users are only shown
+	 * user first name level 1+ users are given full user info
+	 * 
+	 * @param id
+	 *            -- used to get the user out of the database
+	 * @param session
+	 *            -- used to check authUser permissions
+	 * @return -- the ModelAndView object
 	 */
 	@RequestMapping(path = "userDetail.do", method = RequestMethod.GET)
-	public ModelAndView userDetail(@RequestParam("userId") int id,
-			HttpSession session) {
+	public ModelAndView userDetail(@RequestParam("userId") int id, HttpSession session) {
 		ModelAndView mv = new ModelAndView("userDetail");
 		User authUser = (User) session.getAttribute("authenticatedUser");
 		User requestedUser = userDAO.getUserById(id);
 		List<Item> requestedUserItems = itemDAO.getOfferedItemsByUserId(requestedUser.getId());
 		requestedUserItems.size();
-		if (authUser.getPermissionLevel() > 0) {		//user is allowed to see all the things
+		if (authUser.getPermissionLevel() > 0) { // user is allowed to see all the things
 			mv.addObject("authUserHasPermission", true);
 			mv.addObject("requestedUser", requestedUser);
-		}
-		else {		//they're only allowed to see first name
+		} else { // they're only allowed to see first name
 			mv.addObject("authUserHasPermission", false);
 			mv.addObject("requestedUserFirstName", requestedUser.getFirstName());
 		}
 		mv.addObject("requestedUserItems", requestedUserItems);
 		return mv;
 	}
-	
+
 	/**
-	 * show a user page with all their past activity
-	 * assume that if user is sent here, they have permission to see the requested user's activity
-	 * @param userId		-- used to get the user and user activity out of the database
-	 * @return			-- the ModelAndView object
+	 * show a user page with all their past activity assume that if user is sent
+	 * here, they have permission to see the requested user's activity
+	 * 
+	 * @param userId
+	 *            -- used to get the user and user activity out of the database
+	 * @return -- the ModelAndView object
 	 */
 	public ModelAndView userActivityDetail(@RequestParam("userId") int userId) {
 		ModelAndView mv = new ModelAndView("userActivityDetail");
@@ -161,27 +169,39 @@ public class UserController {
 		mv.addObject("requestedUserActivity", requestedUserActivity);
 		return mv;
 	}
-	
-	/**
-	 * shows a page with all requests that user has been sent
-	 * TODO--0 users get redirected to login, 1+ users see their info
+
+	/*
+	 * Need a way to display a list of users. Need a way to show a filtered list of
+	 * users. -->do this last
 	 */
-//	public ModelAndView getRequestsSentToUser(
-//			@ModelAttribute("authenticatedUser") User authenticatedUser,
-//			HttpSession session) {
-//		ModelAndView mv = new ModelAndView("userRequestDetail");
-//		List<Activity> receivedRequests = activityDAO.getNewRequestsByUser(authenticatedUser);
-//		receivedRequests.size();
-//		session.setAttribute("receivedRequests", receivedRequests);
-//		return mv;
-//	}
-	
+
+	/**
+	 * Shows a page with all requests that user has been sent
+	 * Returns them to login page if they do not have permissions
+	 * @param session 	-- used to get auth user out of the session
+	 * @return 			-- used to return received requests and display them
+	 */
+	@RequestMapping(path = "getRequestsSentToUser.do", method = RequestMethod.GET)
+	public ModelAndView getRequestsSentToUser(HttpSession session) {
+		ModelAndView mv = new ModelAndView("userRequestDetail");
+		User user = (User) session.getAttribute("authenticatedUser");
+		if (user.getPermissionLevel() > 0) {
+
+			List<Activity> receivedRequests = activityDAO.getNewRequestsByUser(user);
+			receivedRequests.size();
+			mv.addObject("receivedRequests", receivedRequests);
+			return mv;
+		} else {
+			mv.setViewName("redirect:showLogin.do");
+			return mv;
+		}
+	}
 
 	// show a page where a user can register -- POST REDIRECT
-		//TODO--should only be available to 0 users
-		// sign up completed page
+	// TODO--should only be available to 0 users
+	// sign up completed page
 
 	// show a page to update user info -- POST REDIRECT
-		//TODO-- 1+ user level
-		// update completed page
+	// TODO-- 1+ user level
+	// update completed page
 }
