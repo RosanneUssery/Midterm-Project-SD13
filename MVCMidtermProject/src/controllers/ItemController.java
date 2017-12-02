@@ -33,12 +33,9 @@ public class ItemController {
 	@RequestMapping(path = "viewAllItems.do", method = RequestMethod.GET)
 	public ModelAndView viewAllItems() {
 		ModelAndView mv = new ModelAndView("searchPage");
-		
 		List<Item> allItems = itemDAO.getAllItems();
 		mv.addObject("allItems", allItems);		
-		
 		return mv;
-		
 	}
 	
 	/**
@@ -142,8 +139,5 @@ public class ItemController {
 		redir.addFlashAttribute("itemId", addedItem.getId());
 		return mv;
 	}
-	
-	//return a page with a user and all their items -- GET
-	
 	
 }
