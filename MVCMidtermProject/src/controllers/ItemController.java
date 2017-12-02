@@ -74,17 +74,33 @@ public class ItemController {
 		mv.addObject("itemDetail", itemDetail);
 		User authUser = (User) session.getAttribute("authenticatedUser");
 		
-		if(authUser.getPermissionLevel() > 0) {		//they're are logged in and can see stuff
+		if (authUser.getPermissionLevel() > 0) {		//they're are logged in and can see stuff
 			User itemOwner = userDAO.getUserById(itemDetail.getOwnerId().getId());
 			mv.addObject("itemOwner", itemOwner);
 		}
-	
-		
+		if (authUser.equals(itemDetail.getOwnerId())) {	//they're the owner of the item, so they can update it
+			mv.addObject("activeUserIsItemOwner", true);	//add a boolean to indicate that
+		}
 		return mv;
 	}
 	
 	//send user to page where they can add an item -- POST REDIRECT
 		//send user to page with added item
+	
+	
+	/**
+	 * send user to a page where they can update an item
+	 * @return
+	 */
+	@RequestMapping(path = "showUpdateItem.do", method = RequestMethod.GET)
+	public ModelAndView showUpdateItem(@RequestParam("itemId") int itemId,
+			HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		
+		
+		return mv;
+	}
 	
 	//return a page with a user and all their items -- GET
 	
