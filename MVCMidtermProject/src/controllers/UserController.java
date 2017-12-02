@@ -110,17 +110,34 @@ public class UserController {
 	}
 
 	/**
-	 * Shows a user page with a list of their items
+	 * 
 	 * TODO--0 users can't see sensitive info, 1+ users can see everything
 	 */
-	public ModelAndView userItemsDetail(@RequestParam("userId") int id,
+	/**
+	 * Shows a user page with a list of their items
+	 * level 0 users are only shown user first name
+	 * level 1+ users are given full user info
+	 * @param id			-- used to get the user out of the database
+	 * @param session	-- used to check authUser permissions
+	 * @return			-- the ModelAndView object
+	 */
+	@RequestMapping(path = "userDetail.do", method = RequestMethod.GET)
+	public ModelAndView userDetail(@RequestParam("userId") int id,
 			HttpSession session) {
-		ModelAndView mv = new ModelAndView("userItemsDetail");
+		ModelAndView mv = new ModelAndView("userDetail");
+		User authUser = (User) session.getAttribute("authenticatedUser");
 		User requestedUser = userDAO.getUserById(id);
-		List<Item> userItems = itemDAO.getOfferedItemsByUserId(requestedUser.getId());
-		userItems.size();
-		session.setAttribute("requestedUser", requestedUser);
-		session.setAttribute("requestedUserItems", userItems);
+		List<Item> requestedUserItems = itemDAO.getOfferedItemsByUserId(requestedUser.getId());
+		requestedUserItems.size();
+		if (authUser.getPermissionLevel() > 0) {		//user is allowed to see all the things
+			mv.addObject("authUserHasPermission", true);
+			mv.addObject("requestedUser", requestedUser);
+		}
+		else {		//they're only allowed to see first name
+			mv.addObject("authUserHasPermission", false);
+			mv.addObject("requestedUserFirstName", requestedUser.getFirstName());
+		}
+		mv.addObject("requestedUserItems", requestedUserItems);
 		return mv;
 	}
 	
