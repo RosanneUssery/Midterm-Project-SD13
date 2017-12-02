@@ -13,13 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import data.ActivityDAO;
 import data.AddressDAO;
 import data.ItemDAO;
 import data.UserDAO;
 import entities.Activity;
+import entities.Address;
 import entities.Item;
+import entities.Login;
 import entities.User;
 
 @Controller
@@ -196,7 +199,56 @@ public class UserController {
 			return mv;
 		}
 	}
+	
+	/**
+	 * Shows a page where a user can register
+	 * 
+	 * @return			-- used to take user to process page and log them in
+	 */
+	@RequestMapping(path = "getNewUser.do", method = RequestMethod.GET)
+	public ModelAndView getNewUser() {
+		ModelAndView mv = new ModelAndView("join");
+		Login modelLogin = new Login();
+		mv.addObject("modelLogin", modelLogin);
+		return mv;
+	}
 
+	
+	@RequestMapping(path = "processJoinEmail.do", method = RequestMethod.POST)
+	public ModelAndView processJoinEmail(Login userLogin, RedirectAttributes redir) {
+		ModelAndView mv = new ModelAndView("redirect:join.do");
+		User modelUser = new User();
+		redir.addFlashAttribute("modelUser", modelUser);
+		redir.addFlashAttribute("userLogin", userLogin);
+		return mv;
+	}
+	
+	@RequestMapping(path = "processJoinUser.do", method = RequestMethod.POST)
+	public ModelAndView processJoinUser(User userInfo, RedirectAttributes redir, @ModelAttribute("userLogin") Login userLogin) {
+		ModelAndView mv = new ModelAndView("redirect:join.do");
+		Address modelAddress = new Address();
+		redir.addFlashAttribute("modelAddress", modelAddress);
+		redir.addFlashAttribute("userInfo", userInfo);
+		redir.addFlashAttribute("userLogin", userLogin);
+		return mv;
+	}
+	
+	
+	@RequestMapping(path = "processJoinAddress.do", method = RequestMethod.POST) 
+	public ModelAndView processJoinAddress(Address userAddress, RedirectAttributes redir, @ModelAttribute("userLogin") Login userLogin, 
+			@ModelAttribute("userInfo") User userInfo) {
+		ModelAndView mv = new ModelAndView("redirect:join.do");
+		userAddress = addressDAO.createAddress(userAddress);
+//		userLogin = //stuff goes here;
+		userInfo = userDAO.createUser(userInfo);
+		
+		return mv;
+		
+	}
+	
+//	public ModelAndView userCreated( ) {
+//		
+//	}
 	// show a page where a user can register -- POST REDIRECT
 	// TODO--should only be available to 0 users
 	// sign up completed page
