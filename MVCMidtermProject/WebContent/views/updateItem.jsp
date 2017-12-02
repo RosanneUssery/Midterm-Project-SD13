@@ -10,6 +10,7 @@
 	<!-- this page should allow the user to update an item
 		assume that when the user is sent here, they have permission to update an item
 		the item object is named "itemToUpdate"
+		form action should direct to processUpdateItem.do
 	 -->
 
 </body>
