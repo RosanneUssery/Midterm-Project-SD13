@@ -79,7 +79,7 @@ public class ItemController {
 			mv.addObject("itemOwner", itemOwner);
 		}
 		if (authUser.equals(itemDetail.getOwnerId())) {	//they're the owner of the item, so they can update it
-			mv.addObject("authUserIsItemOwner", true);	//add a boolean to indicate that
+			mv.addObject("authUserIsItemOwner", true);	//add a boolean to indicate that, so view can create an update link
 		}
 		return mv;
 	}
@@ -89,15 +89,16 @@ public class ItemController {
 	
 	/**
 	 * send user to a page where they can update an item
+	 * expect that user is allowed to update item, because they were directed here correctly
 	 * @return
 	 */
 	@RequestMapping(path = "showUpdateItem.do", method = RequestMethod.GET)
 	public ModelAndView showUpdateItem(@RequestParam("itemId") int itemId,
 			HttpSession session) {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("updateItem");
 		User authUser = (User) session.getAttribute("authenticatedUser");
-		
-		
+		Item itemToUpdate = itemDAO.getItemById(itemId);
+		mv.addObject("itemToUpdate", itemToUpdate);
 		return mv;
 	}
 	
