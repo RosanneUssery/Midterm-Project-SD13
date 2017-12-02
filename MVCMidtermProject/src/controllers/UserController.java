@@ -148,16 +148,17 @@ public class UserController {
 	
 	/**
 	 * show a user page with all their past activity
-	 * TODO--0 users can't see anything, 1 users can see their own, 2 users can see anyone's
+	 * assume that if user is sent here, they have permission to see the requested user's activity
+	 * @param userId		-- used to get the user and user activity out of the database
+	 * @return			-- the ModelAndView object
 	 */
-	public ModelAndView userActivityDetail(@RequestParam("userId") int id,
-			HttpSession session) {
+	public ModelAndView userActivityDetail(@RequestParam("userId") int userId) {
 		ModelAndView mv = new ModelAndView("userActivityDetail");
-		User requestedUser = userDAO.getUserById(id);
+		User requestedUser = userDAO.getUserById(userId);
 		List<Activity> requestedUserActivity = activityDAO.viewActivityByUser(requestedUser);
 		requestedUserActivity.size();
-		session.setAttribute("requestedUser", requestedUser);
-		session.setAttribute("requestedUserActivity", requestedUserActivity);
+		mv.addObject("requestedUser", requestedUser);
+		mv.addObject("requestedUserActivity", requestedUserActivity);
 		return mv;
 	}
 	
