@@ -8,8 +8,17 @@
 </head>
 <body>
 	<!-- this page should display a user's info and a list of their items
-		the user object is named "requestedUser"
-		the list of items is named "requestedUserItems"
+		!!! controller checks to see what user is allowed to see, adds bool named "authUserHasPermission" with true/false based on check.
+		!!! use this bool to determine what to display:
+		
+		if the user is permission level 0:		
+			"authUserHasPermission" is false
+			the first name of the requested user is added to model, name is "requestedUserFirstName"
+		if the user is permission level 1+:
+			"authUserHasPermission" is true
+			the user object is named "requestedUser"
+		in both cases:
+			the list of items is named "requestedUserItems"
 	 -->
 
 </body>
