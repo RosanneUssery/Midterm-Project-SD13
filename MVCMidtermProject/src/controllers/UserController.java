@@ -38,8 +38,6 @@ public class UserController {
 	@Autowired
 	ItemDAO itemDAO;
 	
-
-	
 	/**
 	 * initializes anonymous user into session
 	 * user has no other attributes set
@@ -66,18 +64,14 @@ public class UserController {
 	 * TODO--1+ users should see if they have new requests
 	 * @return
 	 */
-
 	@RequestMapping(path = "index.do", method = RequestMethod.GET)
-	public ModelAndView showIndex(
-//			@ModelAttribute("authenticatedUser") User authenticatedUser,
-			HttpSession session) {
+	public ModelAndView showIndex() {
 		ModelAndView mv = new ModelAndView("HomePage");
 		return mv;
 	}
 
 	/**
 	 * Shows the login page
-	 * 
 	 * @return
 	 */
 
@@ -115,18 +109,17 @@ public class UserController {
 	}
 	
 	/**
-	 * logs out active user, hopefully
+	 * logs out active user, hopefully, but tbh i don't really know yet TODO
+	 * @param status		-- used to clear session
+	 * @return			-- the ModelAndView object
 	 */
+	@RequestMapping(path = "userLogout.do", method = RequestMethod.GET)
 	public ModelAndView userLogout(SessionStatus status) {
 		ModelAndView mv = new ModelAndView("logout");
 		status.setComplete();
 		return mv;
 	}
 
-	/**
-	 * 
-	 * TODO--0 users can't see sensitive info, 1+ users can see everything
-	 */
 	/**
 	 * Shows a user page with a list of their items
 	 * level 0 users are only shown user first name
