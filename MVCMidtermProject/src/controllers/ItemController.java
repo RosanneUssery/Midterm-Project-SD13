@@ -28,6 +28,7 @@ public class ItemController {
 	
 	/**
 	 * returns a view of all available items
+	 * @return	-- the ModelAndView object
 	 */
 	@RequestMapping(path = "viewAllItems.do", method = RequestMethod.GET)
 	public ModelAndView viewAllItems() {
@@ -42,19 +43,20 @@ public class ItemController {
 	
 	/**
 	 * directs user to search page
+	 * @return -- the ModelAndView object
 	 */
 	@RequestMapping(path = "showSearchPage.do", method = RequestMethod.GET)
 	public ModelAndView showSearchPage() {
 		return new ModelAndView("searchpage");
 	}
 	
-	
 	/**
-	 * returns a list of items filtered by title
+	 * shows a list of items filtered by title
+	 * @param equipmentType	-- needed to get results
+	 * @return				-- the ModelAndView object
 	 */
 	@RequestMapping(path = "searchResults.do", method = RequestMethod.GET)
-	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType,
-			HttpSession session) {
+	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType) {
 		ModelAndView mv = new ModelAndView("searchpage");
 		List<Item> searchResults = itemDAO.getOfferedItemsByTitle(equipmentType);
 		mv.addObject("searchResults", searchResults);
@@ -63,9 +65,11 @@ public class ItemController {
 	
 	/**
 	 * shows detailed item view, also some user info based on currentUser permission level
-	 * @param itemId
-	 * @param session
-	 * @return
+	 * if user is permission level 1+, adds item owner info
+	 * if user owns item, adds boolean indicating so
+	 * @param itemId		-- pass in like so: "itemDetail.do?itemId=${item.id}" 
+	 * @param session	-- needed to check user permissions
+	 * @return			-- the ModelAndView object
 	 */
 	@RequestMapping(path = "itemDetail.do", method = RequestMethod.GET)
 	public ModelAndView itemDetail(@RequestParam("itemId") int itemId,
@@ -88,13 +92,12 @@ public class ItemController {
 	/**
 	 * send user to a page where they can update an item
 	 * expect that user is allowed to update item, because they were directed here correctly
-	 * @return
+	 * @param itemId		-- pass in like so: "showUpdateItem.do?itemId=${item.id}" 
+	 * @return			-- the ModelAndView object
 	 */
 	@RequestMapping(path = "showUpdateItem.do", method = RequestMethod.GET)
-	public ModelAndView showUpdateItem(@RequestParam("itemId") int itemId,
-			HttpSession session) {
+	public ModelAndView showUpdateItem(@RequestParam("itemId") int itemId) {
 		ModelAndView mv = new ModelAndView("updateItem");
-		User authUser = (User) session.getAttribute("authenticatedUser");
 		Item itemToUpdate = itemDAO.getItemById(itemId);
 		mv.addObject("itemToUpdate", itemToUpdate);
 		return mv;
@@ -102,6 +105,9 @@ public class ItemController {
 	
 	/**
 	 * processes item update and redirects to itemDetail.do
+	 * @param updatedItem	-- command item created from spring form in updateItem view
+	 * @param redir			-- to add flash attribute for redirect
+	 * @return				-- the ModelAndView object
 	 */
 	@RequestMapping(path = "processItemUpdate.do", method = RequestMethod.POST)
 	public ModelAndView processItemUpdate(Item updatedItem, RedirectAttributes redir) {
