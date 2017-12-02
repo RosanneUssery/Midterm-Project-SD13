@@ -5,11 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Microsanctuary Equipment Exchange</title>
+<%@ include file="header.jsp"%>
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
 <body>
 
-	 <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="views/HomePage.jsp" target="_blank">
 		<img src="images/chickenicon.jpeg" width="30" height="30"
 		class="d-inline-block align-top" alt="microsanctuary logo">
@@ -30,12 +31,12 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	<a class="btn btn-social btn-facebook"
+    </ul>
+	  <a class="btn btn-social btn-facebook"
 		href="https://www.facebook.com/Microsanctuary/" target="_blank"
 		title="Colorado Microsanctuary Network Facebook"> <span
 		class="fa fa-facebook"></span> Microsanctuary FB
 	</a>    
-    </ul>
   </div>
   
 </nav>
@@ -49,11 +50,11 @@
       <a class="nav-item nav-link" href="#">Login</a>
        -->
 	
+ <!--    </div>
     </div>
-    </div>
-  </div>
+  </div> -->
 
-</nav> 
+
 
 	
 </body>
