@@ -79,13 +79,12 @@ public class ItemController {
 			mv.addObject("itemOwner", itemOwner);
 		}
 		if (authUser.equals(itemDetail.getOwnerId())) {	//they're the owner of the item, so they can update it
-			mv.addObject("activeUserIsItemOwner", true);	//add a boolean to indicate that
+			mv.addObject("authUserIsItemOwner", true);	//add a boolean to indicate that
 		}
 		return mv;
 	}
 	
-	//send user to page where they can add an item -- POST REDIRECT
-		//send user to page with added item
+	
 	
 	
 	/**
@@ -101,6 +100,9 @@ public class ItemController {
 		
 		return mv;
 	}
+	
+	//send user to page where they can add an item -- POST REDIRECT
+		//send user to page with added item
 	
 	//return a page with a user and all their items -- GET
 	
