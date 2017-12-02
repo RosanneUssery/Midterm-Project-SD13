@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import data.ItemDAO;
 import data.UserDAO;
@@ -84,9 +85,6 @@ public class ItemController {
 		return mv;
 	}
 	
-	
-	
-	
 	/**
 	 * send user to a page where they can update an item
 	 * expect that user is allowed to update item, because they were directed here correctly
@@ -102,12 +100,27 @@ public class ItemController {
 		return mv;
 	}
 	
+	/**
+	 * processes item update and redirects to itemDetail.do
+	 */
+	@RequestMapping(path = "processItemUpdate.do", method = RequestMethod.POST)
+	public ModelAndView processItemUpdate(Item updatedItem, RedirectAttributes redir) {
+		ModelAndView mv = new ModelAndView("redirect:itemDetail.do");
+		updatedItem = itemDAO.updateItem(updatedItem);
+		redir.addFlashAttribute("itemId", updatedItem.getId());
+		return mv;
+	}
+	
 	//send user to page where they can add an item -- POST REDIRECT
 		//send user to page with added item
 	
+	@RequestMapping(path = "showAddItem.do", method = RequestMethod.GET)
+	public ModelAndView showAddItem() {
+		ModelAndView mv = new ModelAndView("addItem");
+		return mv;
+	}
+	
 	//return a page with a user and all their items -- GET
 	
-	//send user to page where they can update item --POST REDIRECT
-		//send user to page with updated item
 	
 }
