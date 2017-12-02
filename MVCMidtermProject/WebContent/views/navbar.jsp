@@ -43,6 +43,7 @@
 		Microsanctuary Equipment Exchange
 	</a>
 	<div class="navbar">
+<<<<<<< HEAD
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -84,6 +85,36 @@
 						</div>
 					</div>
 					<div class="col-xs-12 col-md-6">
+=======
+		<div class="btn-group btn-group-justified">
+			<div class="row">
+				<div class="column navbtn">
+					<a href="views/HomePage.jsp" class="btn btn-primary btn-lg">Home</a>
+				</div>
+				<div class="column space"></div>
+				<div class="column navbtn">
+					<a href="showSearchPage.do" class="btn btn-primary btn-lg"
+						style="padding-left: -15px;">Borrow</a>
+				</div>
+				<div class="column space"></div>
+				<div class="column navbtn">
+					<a href="#" class="btn btn-primary btn-lg">Lend</a>
+				</div>
+				<div class="column space"></div>
+				<div class="column navbtn">
+					<a href="#" class="btn btn-primary btn-lg">Requests</a>
+				</div>
+				<div class="column space"></div>
+				<!--need to find a way to hide/show login if they are logged in  -->
+					<!-- <script type="text/javascript">
+						function hideLogout() {
+							document.getElementById('logout').style.visibility = 'hidden';
+						}
+						function hideLogin() {
+							document.getElementById('login').style.visibility = 'hidden';
+						}
+					</script>
+>>>>>>> 05baee5399570409a87c4ed720984c7c80a70a1d
 
 					</div>
 				</div>

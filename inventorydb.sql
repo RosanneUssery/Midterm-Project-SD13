@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `phone` VARCHAR(10) NULL,
   `email` VARCHAR(100) NOT NULL,
   `address_id` INT UNSIGNED NOT NULL,
+  `permission_level` INT UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC),
@@ -90,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `date_lent` DATE NULL,
   `due_date` DATE NULL,
   `is_returned` TINYINT(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`, `item_id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_user_id_idx` (`borrower_id` ASC),
   INDEX `fk_item_id_idx` (`item_id` ASC),
@@ -152,8 +153,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`) VALUES (1, 'first', 'first', '1111111111', 'first@first.com', 1);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`) VALUES (2, 'second', 'second', '2222222222', 'second@second.com', 2);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (1, 'Heero', 'Yuy', '1111111111', 'wingzero@gw.com', 1, 2);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (2, 'Duo', 'Maxwell', '2222222222', 'deathscythe@gw.com', 2, 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (3, 'Trowa', 'Barton', '3333333333', 'heavyarms@gw.com', 1, 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (4, 'Quatre', 'Winner', '4444444444', 'sandrock@gw.com', 2, 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (5, 'Chang', 'Wufei', '5555555555', 'nataku@gw.com', 1, 1);
 
 COMMIT;
 
@@ -186,8 +190,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `login` (`user_email`, `pwd`) VALUES ('first@first.com', '1');
-INSERT INTO `login` (`user_email`, `pwd`) VALUES ('second@second.com', '2');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('wingzero@gw.com', 'one');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('deathscythe@gw.com', 'two');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('heavyarms@gw.com', 'three');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('sandrock@gw.com', 'four');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('nataku@gw.com', 'five');
 
 COMMIT;
 

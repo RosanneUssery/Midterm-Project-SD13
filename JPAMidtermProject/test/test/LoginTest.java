@@ -21,14 +21,14 @@ public class LoginTest {
 	public void setUp() throws Exception {
 		this.emf = Persistence.createEntityManagerFactory("MidtermPU");
 		this.em = emf.createEntityManager();
-		login = em.find(Login.class, "first@first.com");
+		login = em.find(Login.class, "deathscythe@gw.com");
 
 	}
 	
 	@Test
 	public void test_getActivityId() {
-		assertEquals("first@first.com", login.getUserEmail());
-		assertEquals("1", login.getPwd());
+		assertEquals("deathscythe@gw.com", login.getUserEmail());
+		assertEquals("two", login.getPwd());
 	}
 	
 	@After
