@@ -144,6 +144,7 @@ START TRANSACTION;
 USE `inventorydb`;
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (1, '1st', 'Primary', 'One', '11111');
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (2, '2nd', 'Secondary', 'Two', '22222');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (3, '123 Main Street', 'Denver', 'Colorado', '80014');
 
 COMMIT;
 
@@ -158,6 +159,7 @@ INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (3, 'Trowa', 'Barton', '3333333333', 'heavyarms@gw.com', 1, 1);
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (4, 'Quatre', 'Winner', '4444444444', 'sandrock@gw.com', 2, 1);
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (5, 'Chang', 'Wufei', '5555555555', 'nataku@gw.com', 1, 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (6, 'Public', 'Public', '0000000000', 'public@public.com', 3, 0);
 
 COMMIT;
 
@@ -167,9 +169,19 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (1, 'first', 'one', 1, 0, 1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (2, 'second', 'two', 1, 0, 1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (3, 'third', 'three', 2, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (1, 'Blankets', 'Blankets', 1, 1, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (2, 'Cloth Towels', 'Cloth Towels', 1, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (3, 'Cat Litter', 'Cat Litter', 2, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (4, 'Dog Food', 'Dog Food', 2, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (5, 'Cat Food', 'Cat Food', 2, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (6, 'Seed', 'Seed', 2, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (7, 'Toys', 'Toys', 2, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (8, 'Food Puzzles', 'Food Puzzles', 2, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (9, 'Gift Cards to Pet Supply Stores', 'Gift Cards to Pet Supply Stores', 2, 0, 0);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (10, 'Kennels', 'Kennels', 3, 1, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (11, 'Trash Bags', 'Trash Bags', 3, 0, 0);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (12, 'Beds', 'Beds', 3, 1, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (13, 'Food Bowels', 'Food Bowels', 4, 1, 1);
 
 COMMIT;
 
@@ -179,8 +191,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (1, 1, 3, '1/1/18', '1/1/18', 1);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (2, 2, 1, '2/1/18', '2/1/18', 1);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (1, 1, 3, '1/1/18', '2/1/18', 1);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (2, 2, 1, '1/29/18', '3/1/18', 1);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (3, 4, 13, '12/5/17', '1/5/18', 1);
 
 COMMIT;
 
@@ -195,6 +208,6 @@ INSERT INTO `login` (`user_email`, `pwd`) VALUES ('deathscythe@gw.com', 'two');
 INSERT INTO `login` (`user_email`, `pwd`) VALUES ('heavyarms@gw.com', 'three');
 INSERT INTO `login` (`user_email`, `pwd`) VALUES ('sandrock@gw.com', 'four');
 INSERT INTO `login` (`user_email`, `pwd`) VALUES ('nataku@gw.com', 'five');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('public@public.com', 'public');
 
 COMMIT;
-
