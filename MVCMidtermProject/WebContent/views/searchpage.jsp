@@ -25,8 +25,7 @@
 				</div>
 				<div class="col-md-8">
 					<div class="row">
-						<c:choose>
-						<c:when test="${not empty searchResults}">
+						<c:if test="${not empty searchResults}">
 							<c:forEach items="${searchResults}" var="searchResults">
 								<div class="col-sm-6">
 									<img src=" " alt="image of equipment">
@@ -41,16 +40,15 @@
 								</div>
 							</c:forEach>
 						
-						</c:when>
-						<c:otherwise>
+						</c:if>
+						<c:if test="${empty searchResults }">
 							<div class="row container">
 							<div class="col-sm-4"></div>
 							<div class="col-sm-8 match">
 							<h3>No Match</h3>
 							</div>
 							</div>
-						</c:otherwise>
-						</c:choose>
+						</c:if>
 					</div>
 
 				</div>
