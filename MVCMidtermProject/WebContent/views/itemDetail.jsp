@@ -9,6 +9,8 @@
 <body>
 	<!-- this page should display an item's info 
 		the item object is named "requestedItem"
+		if the user has adequate permissions, a user object corresponding to the item's owner is added; it is named "itemOwner"
+		if the user is the owner of the item, a boolean is added to the model to indicate that; it is named "authUserIsItemOwner" and it will be set to true
 		
 	 -->
 </body>
