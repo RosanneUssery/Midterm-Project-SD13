@@ -32,8 +32,8 @@ public class ActivityTest {
 	
 	@Test
 	public void test_activity_mapping() {
-		assertEquals("0001-01-18", activity.getDateLent().toString());
-		assertEquals("0001-01-18", activity.getDueDate().toString());
+		assertEquals("2018-01-01", activity.getDateLent().toString());
+		assertEquals("2018-02-01", activity.getDueDate().toString());
 		assertEquals(true, activity.isReturned());
 	}
 	
@@ -44,7 +44,7 @@ public class ActivityTest {
 	
 	@Test
 	public void test_activity_to_item_mapping() {
-		assertEquals("third", activity.getItem().getTitle());
+		assertEquals("Cat Litter", activity.getItem().getTitle());
 	}
 	
 	@After

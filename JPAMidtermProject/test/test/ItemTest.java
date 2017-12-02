@@ -32,9 +32,9 @@ public class ItemTest {
 	
 	@Test
 	public void test_item_mapping() {
-		assertEquals("first", item.getTitle());
-		assertEquals("one", item.getDescription());
-		assertEquals(false, item.isSupply());
+		assertEquals("Blankets", item.getTitle());
+		assertEquals("Blankets", item.getDescription());
+		assertEquals(true, item.isSupply());
 		assertEquals(true, item.isAvailable());
 	}
 	
