@@ -111,12 +111,29 @@ public class ItemController {
 		return mv;
 	}
 	
-	//send user to page where they can add an item -- POST REDIRECT
-		//send user to page with added item
-	
+	/**
+	 * sends user to page where they can add an item
+	 * @return
+	 */
 	@RequestMapping(path = "showAddItem.do", method = RequestMethod.GET)
 	public ModelAndView showAddItem() {
 		ModelAndView mv = new ModelAndView("addItem");
+		return mv;
+	}
+	
+	/**
+	 * processes add item, redirects to itemDetail.do with item id in flash attributes
+	 * @param addedItem	-- command item created from spring form in addItem view
+	 * @param session	-- TODO -- needed to set added item's user, unless it's done in spring form
+	 * @param redir		-- to add the flash attribute for redirect
+	 * @return			-- the ModelAndView object
+	 */
+	@RequestMapping(path = "processAddItem.do", method = RequestMethod.POST)
+	public ModelAndView processAddItem(Item addedItem, HttpSession session, RedirectAttributes redir) {
+		ModelAndView mv = new ModelAndView("redirect:itemDetail.do");
+		addedItem.setOwnerId((User) session.getAttribute("authenticatedUser"));
+		addedItem = itemDAO.createItem(addedItem);
+		redir.addFlashAttribute("itemId", addedItem.getId());
 		return mv;
 	}
 	
