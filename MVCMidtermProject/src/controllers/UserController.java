@@ -51,6 +51,15 @@ public class UserController {
 		u.setPermissionLevel(0);
 		return u;
 	}
+	
+	/**
+	 * initializes loggedIn boolean to false
+	 * @return false
+	 */
+	@ModelAttribute("loggedIn")
+	public boolean initLoggedIn() {
+		return false;
+	}
 
 	/**
 	 * Shows the index page
@@ -80,7 +89,12 @@ public class UserController {
 	}
 
 	/**
-	 * Completes login and redirects to index
+	 * Checks user login
+	 * if successful, redirects to index, changes authUser and loggedIn
+	 * @param userEmail		-- user email passed in from form
+	 * @param userPass		-- user pw passed in from form
+	 * @param session		-- used to add user to session if successful
+	 * @return				-- the ModelAndView object
 	 */
 	@RequestMapping(path = "completeLogin.do", method = RequestMethod.POST)
 	public ModelAndView completeLogin(@RequestParam("userEmail") String userEmail,
@@ -88,15 +102,15 @@ public class UserController {
 			HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		User u = userDAO.userLogin(userEmail, userPass);
-		if (u != null) {
-			session.setAttribute("authenticatedUser", u);
-			mv.setViewName("redirect:index.do");
+		if (u != null) {										//user logged in successfully
+			session.setAttribute("authenticatedUser", u);	//add to session as authenticatedUser
+			session.setAttribute("loggedIn", true);			//change loggedIn to true to hide login button
+			mv.setViewName("redirect:index.do");				//redirect to index view
 		}
-		else {
-			session.setAttribute("loginFail", true);
+		else {												//login not successful
+			mv.addObject("loginFail", true);					//add boolean to model indicating such
 			mv.setViewName("login");
 		}
-		
 		return mv;
 	}
 	
