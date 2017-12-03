@@ -5,14 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%@ include file="header.jsp"%>
 </head>
 <body>
-	<%@ include file="navbar.jsp"%>
+	
 	<!-- this page should display a user's info and list their past transactions
 		user object is named "requestedUser"
 		list of activities is named "requestedUserActivity"
 	 -->
-	<%@ include file="footer.jsp"%>
+	
 </body>
 </html>

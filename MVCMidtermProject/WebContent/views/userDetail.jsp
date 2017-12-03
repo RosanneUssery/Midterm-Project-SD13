@@ -5,10 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%@ include file="header.jsp"%>
 </head>
 <body>
-	<%@ include file="navbar.jsp"%>
 	<!-- this page should display a user's info and a list of their items
 		!!! controller checks to see what user is allowed to see, adds bool named "authUserHasPermission" with true/false based on check.
 		!!! use this bool to determine what to display:
@@ -22,6 +20,6 @@
 		in both cases:
 			the list of items is named "requestedUserItems"
 	 -->
-	<%@ include file="footer.jsp"%>
+
 </body>
 </html>

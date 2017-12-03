@@ -10,39 +10,55 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <a
-		class="navbar-brand" href="views/HomePage.jsp" target="_blank"> <img
-		src="images/chickenicon.jpeg" width="30" height="30"
+	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="views/HomePage.jsp" target="_blank">
+		<img src="images/chickenicon.jpeg" width="30" height="30"
 		class="d-inline-block align-top" alt="microsanctuary logo">
 		Microsanctuary Equipment Exchange
 	</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse"
-		data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-		aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+     
+   
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Borrow</a></li>
+      <li><a href="#">Lend</a></li>
+      <li><a href="#">Requests</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+	  <a class="btn btn-social btn-facebook"
+		href="https://www.facebook.com/Microsanctuary/" target="_blank"
+		title="Colorado Microsanctuary Network Facebook"> <span
+		class="fa fa-facebook"></span> Microsanctuary FB
+	</a>    
+  </div>
+  
+</nav>
+  <!-- 
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Borrow</a>
+      <a class="nav-item nav-link" href="#">Lend</a>
+      <a class="nav-item nav-link" href="#">Requests</a>
+    <div class="navbar-nav navbar-right">
+      <a class="nav-item nav-link" href="#">Login</a>
+       -->
+	
+ <!--    </div>
+    </div>
+  </div> -->
 
-	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">Borrow</a></li>
-			<li><a href="#">Lend</a></li>
-			<li><a href="#">Requests</a></li>
-			<!-- request button requires a boolean value -->
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-					Sign Up</a></li>
-			<li><a href="showLogin.do"><span class="glyphicon glyphicon-log-in"></span>
-					Login</a></li>
-		</ul>
-		<a class="btn btn-social btn-facebook"
-			href="https://www.facebook.com/Microsanctuary/" target="_blank"
-			title="Colorado Microsanctuary Network Facebook"> <span
-			class="fa fa-facebook"></span> Microsanctuary FB
-		</a>
-	</div>
-	</nav>
+
+
+	
 </body>
 </html>
 
+
+<!-- request button requires a boolean value -->

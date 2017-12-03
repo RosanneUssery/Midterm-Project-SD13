@@ -10,16 +10,24 @@
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
 <body>
-	<%@ include file="navbar.jsp"%>
+<%@ include file="navbar.jsp"%>
 
-	<div class="container">
-		<div class="homeparagraph">random sayings to see this work we
-			are going to get a script from the sanctuary that will go here. I
-			just wanted to see a nice paragraph for testing purposes.
-		</div>
-	</div>
+<div class="container">	
+<div class="homeparagraph">
+random sayings to see this work
+we are going to get a script
+from the sanctuary that will
+go here. I just wanted to
+see a nice paragraph for
+testing purposes.
+</div>
+</div>
 
-	<%@ include file="footer.jsp"%>
+
+
+
+
+<%@ include file="footer.jsp"%> 
 
 </body>
 </html>

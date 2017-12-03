@@ -5,12 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%@ include file="header.jsp"%>
 </head>
 <body>
-	<%@ include file="navbar.jsp"%>
+
 	<!-- This page should allow the anon user to create an account and log in -->
 	<!-- Empty user object is passed in as modelUser -->
-	<%@ include file="footer.jsp"%>
+
 </body>
 </html>
