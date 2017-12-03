@@ -1,4 +1,4 @@
-package test.test;
+package test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,41 +10,41 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import entities.Item;
+import entities.Activity;
 
-public class ItemTest {
+public class JPQLActivityTest {
 	private EntityManagerFactory emf;
 	private EntityManager em;
-	private Item item;
+	private Activity activity;
 
 	@Before
 	public void setUp() throws Exception {
 		this.emf = Persistence.createEntityManagerFactory("MidtermPU");
 		this.em = emf.createEntityManager();
-		item = em.find(Item.class, 1);
+		activity = em.find(Activity.class, 1);
 
 	}
 	
-
+	
 	
 	@After
 	public void tearDown() throws Exception {
 		this.em.close();
 		this.emf.close();
-		item = null;
+		activity = null;
 	}
 	
 	@Test
-	public void test_item() {
-    	assertEquals("Blankets", item.getTitle());
+	public void test_activity() {
+    	assertEquals(1, activity.getId());
+    	assertEquals(1, activity.getBorrower().getId());
+    	assertEquals("Heero", activity.getBorrower().getFirstName());
 	}
 	
 	@Test
-	public void test_owner_availability() {
-	 	assertEquals(true, item.isAvailable());
-	 	assertEquals(1, item.getId());
-
+	public void test_new_request_by_user() {
+		assertEquals(3, activity.getItem().getId());
+		assertEquals(2, activity.getItem().getOwnerId().getId());
 	}
-	
-	
 }
+
