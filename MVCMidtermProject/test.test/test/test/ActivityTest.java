@@ -38,7 +38,7 @@ public class ActivityTest {
 	public void test_activity() {
     	assertEquals(1, activity.getId());
     	assertEquals(1, activity.getBorrower().getId());
-    	assertEquals("first", activity.getBorrower().getFirstName());
+    	assertEquals("Heero", activity.getBorrower().getFirstName());
 	}
 	
 	@Test

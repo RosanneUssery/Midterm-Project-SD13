@@ -36,7 +36,7 @@ public class ItemTest {
 	
 	@Test
 	public void test_item() {
-    	assertEquals("first", item.getTitle());
+    	assertEquals("Blankets", item.getTitle());
 	}
 	
 	@Test
