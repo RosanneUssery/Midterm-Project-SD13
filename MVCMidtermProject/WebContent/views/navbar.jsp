@@ -24,7 +24,7 @@
 
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
+			<li class="active"><a href="index.do">Home</a></li>
 			<li><a href="#">Borrow</a></li>
 			<li><a href="#">Lend</a></li>
 			<li><a href="#">Requests</a></li>
