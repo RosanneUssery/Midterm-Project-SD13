@@ -15,15 +15,36 @@
 		if the user is the owner of the item, a boolean is added to the model to indicate that; it is named "authUserIsItemOwner" and it will be set to true
 		
 	 -->
-	 <c:if test="${item != null }">
+	 <c:if test="${itemDetail != null }">
 	<div>
-		${item.title }
+		<div>
+			Item Id: ${itemDetail.id}
+		</div>
+		<div>
+			Item Title: ${itemDetail.title }
+		</div>
+		<div>
+			Item Description: ${itemDetail.description }
+		</div>
+		<div>
+			Item Returnable: ${itemDetail.supply }
+		</div>
+		<div>
+			Item Available: ${itemDetail.available }
+		</div>
+		<div>
+			Owner Id: ${itemDetail.ownerId.id} <br>
+			Owner Info: <br>
+			${itemDetail.ownerId.firstName} ${itemDetail.ownerId.lastName} <br>
+			${itemDetail.ownerId.phone} ${itemDetail.ownerId.email} <br>
+		</div>
 	</div>
 	</c:if>
 	
 <!-- ==== This has more to do, but in a browser if you enter:
 	http://localhost:8080/MVCMidtermProject/itemDetail.do?itemId=1
-	In the console you can see the correct queries coming back from 
+	You can see the info on the webpage.
+	Also, you can see the correct queries coming back from 
 	the db in the console.==== -->
 	
 	
