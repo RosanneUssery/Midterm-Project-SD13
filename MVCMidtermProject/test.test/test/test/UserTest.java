@@ -1,4 +1,4 @@
-package test;
+package test.test;
 import static org.junit.Assert.assertEquals;
 
 import javax.persistence.EntityManager;
