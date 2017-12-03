@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -36,6 +37,12 @@ public class ItemTest {
 		assertEquals("Blankets", item.getDescription());
 		assertEquals(true, item.isSupply());
 		assertEquals(true, item.isAvailable());
+		
+		item = em.find(Item.class, 9);
+		assertEquals("Gift Cards to Pet Supply Stores", item.getTitle());
+		assertNotEquals("Blankets", item.getDescription());
+		assertEquals(false, item.isSupply());
+		assertEquals(false, item.isAvailable());
 	}
 	
 	@Test 

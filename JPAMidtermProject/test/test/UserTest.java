@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -36,11 +37,18 @@ public class UserTest {
 		assertEquals("Yuy", user.getLastName());
 		assertEquals("1111111111", user.getPhone());
 		assertEquals("wingzero@gw.com", user.getEmail());
+		assertEquals(2, user.getPermissionLevel());
 	}
 	
 	@Test
 	public void test_address_to_user_mapping() {
 		assertEquals("Primary", user.getAddress().getCity());
+	}
+	
+	@Test
+	public void test_public_user() {
+		user = em.find(User.class, 6);
+		assertTrue(user.getPermissionLevel() == 0);
 	}
 	
 	@After
