@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
-
+<!-- This image can be changed to whatever is desired. Or removed if an image isn't desired in the title bar. -->
+<link rel="icon" href="images/bunny.jpg"/>
 <link rel="stylesheet" href="css/Main.css">
 <link rel="stylesheet" href="css/viv.css">
