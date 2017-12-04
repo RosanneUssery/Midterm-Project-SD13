@@ -32,7 +32,7 @@
       <!-- <div hiddenloggedIn class="login-user state-hidden"> -->
       <li><a href="showSearchPage.do"><span class="glyphicon glyphicon-user"></span>Borrow</a></li>
       <li><a href="#">Lend</a></li>
-      <li><a href="getRequestsSentToUser.do"> <span class="glyphicon glyphicon-user"></span>Requests</a></li>
+      <li><a href="">Requests</a></li>
 
       <!-- </div> -->
 	<!-- request button requires a boolean value -->
