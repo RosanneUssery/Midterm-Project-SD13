@@ -1,4 +1,4 @@
-package test.test;
+package test;
 import static org.junit.Assert.assertEquals;
 
 import javax.persistence.EntityManager;
@@ -12,7 +12,7 @@ import org.junit.Test;
 import entities.Login;
 import entities.User;
 
-public class UserTest {
+public class JPQLUserTest {
 	private EntityManagerFactory emf;
 	private EntityManager em;
 	private User user;

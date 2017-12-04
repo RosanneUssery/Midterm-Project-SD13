@@ -1,4 +1,4 @@
-package test.test;
+package test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,7 +13,7 @@ import org.junit.Test;
 import entities.Address;
 
 
-public class AddressTest {
+public class JPQLAddressTest {
     private EntityManagerFactory emf;
     private EntityManager em;
     private Address address;
