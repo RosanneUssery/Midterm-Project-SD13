@@ -108,7 +108,7 @@ public class UserController {
 			mv.setViewName("redirect:index.do"); // redirect to index view
 		} else { // login not successful
 			mv.addObject("loginFail", true); // add boolean to model indicating such
-			mv.setViewName("login");
+			mv.setViewName("showlogin.do");
 		}
 		return mv;
 	}
