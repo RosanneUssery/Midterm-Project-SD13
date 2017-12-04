@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<!-- ==== I, Jason, may have told Chris how to do this incorrectly. I don't think we need this here.==== -->
-<%-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,7 +10,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
-<body> --%>
+<body> 
 
 	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="views/HomePage.jsp" target="_blank">
@@ -34,11 +33,10 @@
       <li><a href="#">Borrow</a></li>
       <li><a href="#">Lend</a></li>
       <li><a href="#">Requests</a></li>
-<<<<<<< HEAD
+
       <!-- </div> -->
-=======
 	<!-- request button requires a boolean value -->
->>>>>>> 047489474f9307c6ec625a7d4c0697ad88389367
+
     </ul>
     <ul class="nav navbar-nav navbar-right">
     
@@ -62,6 +60,6 @@
 
 
 	
-<!-- </body>
-</html> -->
+</body>
+</html>
 
