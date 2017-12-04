@@ -30,7 +30,7 @@
       
       <!-- when a loggin process has been completed hide these buttons -->
       <!-- <div hiddenloggedIn class="login-user state-hidden"> -->
-      <li><a href="#">Borrow</a></li>
+      <li><a href="showSearchPage.do"><span class="glyphicon glyphicon-user"></span>Borrow</a></li>
       <li><a href="#">Lend</a></li>
       <li><a href="getRequestsSentToUser.do"> <span class="glyphicon glyphicon-user"></span>Requests</a></li>
 

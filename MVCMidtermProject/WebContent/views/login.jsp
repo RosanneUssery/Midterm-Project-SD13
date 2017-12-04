@@ -13,7 +13,7 @@
 <body id="body-login">
 	<%@ include file="navbar.jsp"%>
 
-<div row="row">
+<div row="container row">
 <div row="col-sm-12">
 <div class="buttonMiddle">
 	<button onclick="document.getElementById('id01').style.display='block'"

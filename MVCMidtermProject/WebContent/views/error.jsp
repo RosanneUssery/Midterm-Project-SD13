@@ -7,7 +7,7 @@
 <title>ERROR</title>
 <%@ include file="header.jsp"%>
 </head>
-<body>
+<body id="body-error">
 	<%@ include file="navbar.jsp"%>
 
 <h1>ERROR</h1>

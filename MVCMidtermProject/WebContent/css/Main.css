@@ -13,10 +13,6 @@
 	padding: 30px;
 }
 
-
-
-
-
 .searchBoxSearch {
 	background-color: rgb(66, 179, 244);
 	padding: 30px;
@@ -24,16 +20,8 @@
 
 .space {margin-left:15px}
 
-  
-  
-
-  
-
-
 #body-home {
-
 	margin-bottom: 100px;
-	
 	background-image: url("../images/chickengrass.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -46,11 +34,18 @@
 }
 
 #body-search {
+	margin-bottom: 100px;
 	background-image: url("../images/duck.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
+#body-error {
+	margin-bottom: 100px;
+	background-image: url("../images/sadkitty.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 .footer {
 	position: absolute;
 	bottom: 0;
