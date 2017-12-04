@@ -2,12 +2,14 @@ package data;
 
 import java.util.List;
 
+import entities.Address;
+import entities.Login;
 import entities.User;
 
 public interface UserDAO {
 
 		//create user
-		public User createUser(User user);
+		public User createUser(User user, Address address, Login login);
 		
 		//read user
 		public List<User> getAllUsers();
