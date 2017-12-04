@@ -11,7 +11,7 @@
 <body id="body-search">
 	<%@ include file="navbar.jsp"%>
 
-		<div class="container mainBox">
+		<div class="container mainBoxSearch">
 			<div class="row">
 				<div class="col-md-4 searchBox">
 					<form action="/MVCMidtermProject/searchResults.do" method="GET">
@@ -23,7 +23,8 @@
 						<input type="submit" value="submit">
 					</form>
 				</div>
-				<div class="col-md-8">
+				<div class="col-md-1"></div>
+				<div class="col-md-7">
 					<div class="row">
 						<c:if test="${not empty searchResults}">
 							<c:forEach items="${searchResults}" var="searchResults">
@@ -35,20 +36,24 @@
 
 		<%-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=${},${}&zoom=12&size=400x400&key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o" />
 							 --%>	</div>
-								<div class="row">
-									<div class="col-sm-12"></div>
+								<div class="container row">
+									<div class="col-md-12"></div>
+									${searchResults.title } <br>
+									${searchResults.description } <br>
+									
+									
 								</div>
 							</c:forEach>
 						
 						</c:if>
-						<c:if test="${empty searchResults }">
+						<%-- <c:if test="${empty searchResults }">
 							<div class="row container">
 							<div class="col-sm-4"></div>
 							<div class="col-sm-8 match">
 							<h3>No Match</h3>
 							</div>
 							</div>
-						</c:if>
+						</c:if> --%>
 						
 					</div>
 
