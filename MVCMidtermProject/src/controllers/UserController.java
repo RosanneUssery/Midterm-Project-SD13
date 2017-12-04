@@ -111,7 +111,7 @@ public class UserController {
 	 *            -- used to add user to session if successful
 	 * @return -- the ModelAndView object
 	 */
-	@RequestMapping(path = "completeLogin.do", method = RequestMethod.POST)
+	@RequestMapping(path = "completeLogin.do", method = RequestMethod.GET)
 	public ModelAndView completeLogin(@RequestParam("userEmail") String userEmail,
 			@RequestParam("userPass") String userPass, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -119,10 +119,10 @@ public class UserController {
 		if (u != null) { // user logged in successfully
 			session.setAttribute("authenticatedUser", u); // add to session as authenticatedUser
 			session.setAttribute("loggedIn", true); // change loggedIn to true to hide login button
-			mv.setViewName("redirect:index.do"); // redirect to index view
+			mv.setViewName("redirect:views/HomePage.jsp"); // redirect to index view
 		} else { // login not successful
 			mv.addObject("loginFail", true); // add boolean to model indicating such
-			mv.setViewName("showlogin.do");
+			mv.setViewName("login");
 		}
 		return mv;
 	}

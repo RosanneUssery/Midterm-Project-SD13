@@ -62,11 +62,16 @@ public class UserDAOImpl implements UserDAO {
 	public User userLogin(String userEmail, String userPass) {
 		User u = null;
 		String query = "SELECT l FROM Login l WHERE user_email = :userEmail";
-		Login l = em.createQuery(query, Login.class).setParameter("userEmail", userEmail).getResultList().get(0);
-		if (l.getUserEmail().equals(userEmail) && l.getPwd().equals(userPass)) {
-			query = "SELECT u FROM User u WHERE email = :email";
-			u = em.createQuery(query, User.class).setParameter("email", userEmail).getResultList().get(0);
+		try {
+			Login l = em.createQuery(query, Login.class).setParameter("userEmail", userEmail).getResultList().get(0);
+			if (l.getUserEmail().equals(userEmail) && l.getPwd().equals(userPass)) {
+				query = "SELECT u FROM User u WHERE email = :email";
+				u = em.createQuery(query, User.class).setParameter("email", userEmail).getResultList().get(0);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
 		}
+	
 		return u;
 	}
 
