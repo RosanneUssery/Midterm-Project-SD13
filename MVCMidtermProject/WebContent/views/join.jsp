@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,6 +16,55 @@
 	<!-- Empty user object is passed in as modelUser -->
 	
 	<div class="userForm">
+	
+	<c:choose>
+	
+	<c:when test="${modelLogin not null}">
+	<form:form action="processJoinEmail.do" method="post" modelAttribute="modelLogin">
+	<form:input path="userEmail"/>
+	<form:password path="pwd"/>
+	<input type="submit" value="Next">
+	</form:form>
+	
+	
+	</c:when>
+	<c:when test="${modelUser not null}">
+	
+	<form:form action="processJoinUser.do" method="post" modelAttribute="modelUser">
+	<form:input path="firstName"/>
+	<form:input path="lastName"/>
+	<form:input path="phone"/>
+	<form:hidden path="id"/>
+	<form:hidden path="email"/>
+	<form:hidden path="address"/>
+	<form:hidden path="permissionLevel"/>
+	<form:hidden path="items"/>
+	<input type="submit" value="Next">
+	</form:form>
+	
+	
+	</c:when>
+	
+	<c:when test="${modelAddress not null}">
+	
+	<form:form action="processJoinAddress.do" method="post" modelAttribute="modelAddress">
+	<form:input path="street"/>
+	<form:input path="city"/>
+	<form:input path="state"/>
+	<form:input path="zip"/>
+	<form:hidden path="id"/>
+	
+	<input type="submit" value="Submit">
+	</form:form>
+	
+	
+	</c:when>
+	
+	</c:choose>
+	
+	
+	
+	<%-- 
 	<form>
   <div class="form-row">
     <div class="form-group col-sm-5">
@@ -25,6 +76,12 @@
       <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
     </div>
   </div>
+  
+  
+  
+  
+  
+  
   <div class="form-group col-lg-10">
     <label for="inputAddress">Address</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
@@ -60,7 +117,7 @@
 	
 
 	
-	</div>
+	</div> --%>
 	
 	
 	
