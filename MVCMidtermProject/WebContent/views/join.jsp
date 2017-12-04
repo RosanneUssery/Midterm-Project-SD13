@@ -19,7 +19,7 @@
 	
 	<c:choose>
 	
-	<c:when test="${modelLogin not null}">
+	<c:when test="${modelLogin != null }">
 	<form:form action="processJoinEmail.do" method="post" modelAttribute="modelLogin">
 	<form:input path="userEmail"/>
 	<form:password path="pwd"/>
@@ -28,7 +28,7 @@
 	
 	
 	</c:when>
-	<c:when test="${modelUser not null}">
+	<c:when test="${modelUser != null}">
 	
 	<form:form action="processJoinUser.do" method="post" modelAttribute="modelUser">
 	<form:input path="firstName"/>
@@ -45,7 +45,7 @@
 	
 	</c:when>
 	
-	<c:when test="${modelAddress not null}">
+	<c:when test="${modelAddress != null}">
 	
 	<form:form action="processJoinAddress.do" method="post" modelAttribute="modelAddress">
 	<form:input path="street"/>

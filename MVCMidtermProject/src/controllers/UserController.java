@@ -26,7 +26,7 @@ import entities.Login;
 import entities.User;
 
 @Controller
-@SessionAttributes({ "authenticatedUser", "loggedIn" })
+@SessionAttributes({ "authenticatedUser", "loggedIn", "userLogin", "userInfo", "userAddress" })
 public class UserController {
 
 	@Autowired
@@ -62,6 +62,20 @@ public class UserController {
 	public boolean initLoggedIn() {
 		return false;
 	}
+	@ModelAttribute("userLogin")
+	public Login initUserLogin() {
+		return new Login();
+	}
+	@ModelAttribute("userInfo")
+	public User initUserInfo() {
+		return new User();
+	}
+	@ModelAttribute("userAddress")
+	public Address initUserAddress() {
+		return new Address();
+	}
+	
+	
 
 	/**
 	 * Shows the index page TODO--1+ users should see if they have new requests
@@ -200,6 +214,18 @@ public class UserController {
 		}
 	}
 	
+	@RequestMapping(path ="join.do", method = RequestMethod.GET)
+	public ModelAndView join() {
+		ModelAndView mv = new ModelAndView("join");
+		
+		return mv;
+	}
+	
+	
+	
+
+	
+	
 	/**
 	 * Shows a page where a user can enter login info (email/pw), beginning registration process
 	 * First mapping in user registration sequence
@@ -221,11 +247,11 @@ public class UserController {
 	 * @return			-- ModelAndView object
 	 */
 	@RequestMapping(path = "processJoinEmail.do", method = RequestMethod.POST)
-	public ModelAndView processJoinEmail(Login userLogin, RedirectAttributes redir) {
+	public ModelAndView processJoinEmail(Login userLogin, RedirectAttributes redir, HttpSession session) {
 		ModelAndView mv = new ModelAndView("redirect:join.do");
 		User modelUser = new User();
 		redir.addFlashAttribute("modelUser", modelUser);
-		redir.addFlashAttribute("userLogin", userLogin);
+		session.setAttribute("userLogin", userLogin);
 		return mv;
 	}
 	
@@ -238,12 +264,12 @@ public class UserController {
 	 * @return				-- ModelAndView object
 	 */
 	@RequestMapping(path = "processJoinUser.do", method = RequestMethod.POST)
-	public ModelAndView processJoinUser(User userInfo, RedirectAttributes redir, @ModelAttribute("userLogin") Login userLogin) {
+	public ModelAndView processJoinUser(User userInfo, RedirectAttributes redir, HttpSession session) {
 		ModelAndView mv = new ModelAndView("redirect:join.do");
 		Address modelAddress = new Address();
 		redir.addFlashAttribute("modelAddress", modelAddress);
-		redir.addFlashAttribute("userInfo", userInfo);
-		redir.addFlashAttribute("userLogin", userLogin);
+		session.setAttribute("userInfo", userInfo);
+		
 		return mv;
 	}
 	
@@ -257,12 +283,11 @@ public class UserController {
 	 * @return				-- ModelAndView object
 	 */
 	@RequestMapping(path = "processJoinAddress.do", method = RequestMethod.POST) 
-	public ModelAndView processJoinAddress(Address userAddress, HttpSession session,
-			@ModelAttribute("userLogin") Login userLogin, 
-			@ModelAttribute("userInfo") User userInfo) {
+	public ModelAndView processJoinAddress(Address userAddress, HttpSession session) {
 		ModelAndView mv = new ModelAndView("redirect:index.do");
-		
-		User newUser = userDAO.createUser(userInfo, userAddress, userLogin);
+		Login login = (Login) session.getAttribute("userLogin");
+		User userInfo= (User) session.getAttribute("userInfo");
+		User newUser = userDAO.createUser(userInfo, userAddress, login);
 		session.setAttribute("authenticatedUser", newUser);
 		session.setAttribute("loggedIn", true);
 		
