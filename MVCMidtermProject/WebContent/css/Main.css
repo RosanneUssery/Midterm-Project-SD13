@@ -19,8 +19,9 @@
 
   
   
-  body {
+  #body-home {
 	margin-bottom: 100px;
+	
 	background-image: url("../images/chickengrass.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -58,20 +59,28 @@ padding:        5px 20px;
     margin: 25px;
   }
   
+  
+ #body-join {
+	background-image: url("../images/sheep.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+}
+  
+  
+  
+  
  @media screen and (min-width: 600px) { /*The following CSS runs only for displays with a width (in pixels) of more than 800px*/
     body {
         background-color:#007a99 ;
-        margin-bottom: 100px;
-	background-image: url("../images/chickengrass.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
+    
     }
 }
 
 @media screen and (max-width: 1200px) { /*The following CSS runs only for displays with a width (in pixels) of less than 800px*/
     body {
         background-color: #007a99;
+     
     }
     
    
-}
