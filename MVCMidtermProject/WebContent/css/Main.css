@@ -100,19 +100,15 @@ padding:        5px 20px;
     }
     
 /*__________________________________________________________  */
-/*Search page functionality  */
-.mainBoxSearch {
-	position: relative;
-	width: 100%;
-	height: 200px;
-	z-index: 15;
-	top: 50%;
-}
+/*SEARCH PAGE FUNCTIONALITY  */
+
 
 .searchBoxSearch {
+	width: 100%;
+	height: 200px;
 	background-color: rgb(66, 179, 244);
 	color: white;
-	padding: 20px;
+	align-content: center;
 }
 
 

@@ -76,5 +76,11 @@ public class ItemDAOImpl implements ItemDAO {
 		return false;
 	}
 
-	
+    public List<Item> getItemsByOwnerAddressWithZipCode(String zip, String title) {
+        String query = "SELECT i FROM Item i WHERE i.owner.address.zip = :zip AND LOWERCASE(i.title) = :title";
+        return em.createQuery(query, Item.class)
+                .setParameter("zip", zip)
+                .setParameter("title", "%" + title.toLowerCase() + "%")
+                .getResultList();
+    }
 }
