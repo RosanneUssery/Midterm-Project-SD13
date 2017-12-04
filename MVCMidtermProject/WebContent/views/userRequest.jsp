@@ -12,7 +12,7 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	
-		<form action="getRequestsSentToUser.do" method="get">
+		<form action="" method="get">
 	
  	<c:if test="${itemDetail != null }">
 	<%-- <c:forEach items = "" var = "">
