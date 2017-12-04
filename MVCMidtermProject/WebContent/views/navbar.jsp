@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<!-- ==== I, Jason, may have told Chris how to do this incorrectly. I don't think we need this here.==== -->
-<%-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Microsanctuary Equipment Exchange</title>
 <%@ include file="header.jsp"%>
+
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
-<body> --%>
+<body> 
 
 	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="views/HomePage.jsp" target="_blank">
@@ -25,15 +25,27 @@
    
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="index.do">Home</a></li>
+      
+      
+      <!-- when a loggin process has been completed hide these buttons -->
+      <!-- <div hiddenloggedIn class="login-user state-hidden"> -->
       <li><a href="#">Borrow</a></li>
       <li><a href="#">Lend</a></li>
       <li><a href="#">Requests</a></li>
+
+      <!-- </div> -->
 	<!-- request button requires a boolean value -->
+
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    
+<!-- when a a sign up and loggin is successful use a process to hide sign up and toggle log in to log out-->
+    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+    <li><a href="showLogin.do"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    
+    
+    
     </ul>
 	  <a class="btn btn-social btn-facebook"
 		href="https://www.facebook.com/Microsanctuary/" target="_blank"
@@ -43,23 +55,11 @@
   </div>
   
 </nav>
-  <!-- 
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Borrow</a>
-      <a class="nav-item nav-link" href="#">Lend</a>
-      <a class="nav-item nav-link" href="#">Requests</a>
-    <div class="navbar-nav navbar-right">
-      <a class="nav-item nav-link" href="#">Login</a>
-       -->
-	
- <!--    </div>
-    </div>
-  </div> -->
+  
 
 
 
 	
-<!-- </body>
-</html> -->
+</body>
+</html>
 
