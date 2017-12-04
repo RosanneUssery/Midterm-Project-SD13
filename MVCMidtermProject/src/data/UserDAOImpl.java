@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.Address;
 import entities.Login;
 import entities.User;
 
@@ -19,10 +20,25 @@ public class UserDAOImpl implements UserDAO {
 	private EntityManager em;
 
 	@Override
-	public User createUser(User user) {
-
-        em.persist(user);
+	public User createUser(User user, Address address, Login login) {
+		
+		//first insert the address, get back the id
+        em.persist(address);
         em.flush();
+        
+        //attach address and email to user
+        user.setAddress(address);
+        user.setEmail(login.getUserEmail());
+        
+        //persist user before login, because login table depends on user email being present
+        em.persist(user);
+        
+        //now we can persist login
+        em.persist(login);
+
+        //get it all back
+        em.flush();
+        
 		return user;
 	}
 
