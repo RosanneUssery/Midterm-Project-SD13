@@ -52,8 +52,8 @@
 							</div>
 							<div class="container searchBoxSearch">
 								<div class="col-md-12"></div>
-								Item: ${searchResults.title } <br> 
-								Description: ${searchResults.description } <br>
+								<span class="title">Item:</span> ${searchResults.title } <br> 
+								<span class="title">Description:</span> ${searchResults.description } <br>
 
 
 							</div>
