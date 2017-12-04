@@ -235,12 +235,14 @@ public class UserController {
 	
 	
 	@RequestMapping(path = "processJoinAddress.do", method = RequestMethod.POST) 
-	public ModelAndView processJoinAddress(Address userAddress, RedirectAttributes redir, @ModelAttribute("userLogin") Login userLogin, 
+	public ModelAndView processJoinAddress(Address userAddress, RedirectAttributes redir, HttpSession session,
+			@ModelAttribute("userLogin") Login userLogin, 
 			@ModelAttribute("userInfo") User userInfo) {
-		ModelAndView mv = new ModelAndView("redirect:join.do");
-		userAddress = addressDAO.createAddress(userAddress);
-//		userLogin = //stuff goes here;
-		userInfo = userDAO.createUser(userInfo);
+		ModelAndView mv = new ModelAndView("redirect:index.do");
+		
+		User newUser = userDAO.createUser(userInfo, userAddress, userLogin);
+		session.setAttribute("authenticatedUser", newUser);
+		session.setAttribute("loggedIn", true);
 		
 		return mv;
 		
