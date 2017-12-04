@@ -10,21 +10,28 @@
 </head>
 <body id="body-search">
 	<%@ include file="navbar.jsp"%>
-
-		<div class="container mainBoxSearch">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-4 searchBoxSearch">
+				<div class="column">
+				<br>
+				<br>
+				<br>
+				</div>
+			</div>
+		
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2.5 searchBoxSearch">
 					<form action="/MVCMidtermProject/searchResults.do" method="GET">
 						<input type="text" name="EquipmentType" value="${item.title}"
-							placeholder="Equipment Type" required><br> <br> 
-						
-						<%-- <input type="location" name="EquipmentCity" value="${address.city}"
-							placeholder="Equipment City"><br> <br> --%> 
+							placeholder="Equipment Type" required><br> <br> 	
+						<input type="text" name="EquipmentCity" placeholder="zip code" value="${address.zip}"><br><br>
 						<input type="submit" value="submit">
 					</form>
 				</div>
 				<div class="col-md-1"></div>
-				<div class="col-md-7">
+				<div class="col-md-8">
 					<div class="row">
 						<c:if test="${not empty searchResults}">
 							<c:forEach items="${searchResults}" var="searchResults">
@@ -32,14 +39,25 @@
 									<img src=" " alt="image of equipment">
 								</div>
 								<div class="col-sm-6">
-
+									<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o
+    &q=${address.street}+${address.city}+${address.state}+${address.zip}" allowfullscreen>
+</iframe>
+									
+									
+									<!-- AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o -->
+									
 
 		<%-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=${},${}&zoom=12&size=400x400&key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o" />
 							 --%>	</div>
 								<div class="container row searchBoxSearch">
 									<div class="col-md-12"></div>
-									<div class="introText"> Item: </div>${searchResults.title } <br>
-									<div class="introText">Description:</div> ${searchResults.description } <br>
+									Item: ${searchResults.title } <br>
+									Description:
+									${searchResults.description } <br>
 									
 									
 								</div>

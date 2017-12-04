@@ -16,6 +16,7 @@ import data.ItemDAO;
 import data.UserDAO;
 import entities.Item;
 import entities.User;
+import helpers.GoogleAddressHelper;
 
 @Controller
 public class ItemController {
@@ -25,6 +26,9 @@ public class ItemController {
 	
 	@Autowired
 	UserDAO userDAO;
+	
+	@Autowired
+	GoogleAddressHelper gmap;
 	
 	/**
 	 * returns a view of all available items
@@ -53,10 +57,11 @@ public class ItemController {
 	 * @return				-- the ModelAndView object
 	 */
 	@RequestMapping(path = "searchResults.do", method = RequestMethod.GET)
-	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType) {
+	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType, @RequestParam("EquipmentCity") String equipmentCity) {
 		ModelAndView mv = new ModelAndView("searchpage");
 		List<Item> searchResults = itemDAO.getOfferedItemsByTitle(equipmentType);
 		mv.addObject("searchResults", searchResults);
+		mv.addObject("map", gmap.gMapsEmbedFormatter(equipmentCity));
 		return mv;
 	}
 	
