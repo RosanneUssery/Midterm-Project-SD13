@@ -13,7 +13,7 @@
 
 		<div class="container mainBoxSearch">
 			<div class="row">
-				<div class="col-md-4 searchBox">
+				<div class="col-md-4 searchBoxSearch">
 					<form action="/MVCMidtermProject/searchResults.do" method="GET">
 						<input type="text" name="EquipmentType" value="${item.title}"
 							placeholder="Equipment Type" required><br> <br> 
@@ -36,10 +36,10 @@
 
 		<%-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=${},${}&zoom=12&size=400x400&key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o" />
 							 --%>	</div>
-								<div class="container row">
+								<div class="container row searchBoxSearch">
 									<div class="col-md-12"></div>
-									${searchResults.title } <br>
-									${searchResults.description } <br>
+									<div class="introText"> Item: </div>${searchResults.title } <br>
+									<div class="introText">Description:</div> ${searchResults.description } <br>
 									
 									
 								</div>
