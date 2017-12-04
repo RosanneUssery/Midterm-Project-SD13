@@ -12,6 +12,7 @@ public class Login {
 	@Column(name = "user_email")
 	private String userEmail;
 	
+
 	private String pwd;
 
 	public String getPwd() {
@@ -24,6 +25,9 @@ public class Login {
 
 	public String getUserEmail() {
 		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 	@Override

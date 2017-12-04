@@ -26,7 +26,7 @@ import entities.Login;
 import entities.User;
 
 @Controller
-@SessionAttributes({ "authenticatedUser", "loggedIn", "userLogin", "userInfo", "userAddress" })
+@SessionAttributes({ "authenticatedUser", "loggedIn", "userLogin", "userInfo"})
 public class UserController {
 
 	@Autowired
@@ -69,10 +69,6 @@ public class UserController {
 	@ModelAttribute("userInfo")
 	public User initUserInfo() {
 		return new User();
-	}
-	@ModelAttribute("userAddress")
-	public Address initUserAddress() {
-		return new Address();
 	}
 	
 	
