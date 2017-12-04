@@ -15,13 +15,15 @@
 	<!-- This page should allow the anon user to create an account and log in -->
 	<!-- Empty user object is passed in as modelUser -->
 	
-	<div class="userForm">
+	<!-- <!-- <div class="userForm"> --> -->
 	
 	<c:choose>
 	
 	<c:when test="${modelLogin != null }">
 	<form:form action="processJoinEmail.do" method="post" modelAttribute="modelLogin">
+	Email:
 	<form:input path="userEmail"/>
+	Password:
 	<form:password path="pwd"/>
 	<input type="submit" value="Next">
 	</form:form>
@@ -31,14 +33,17 @@
 	<c:when test="${modelUser != null}">
 	
 	<form:form action="processJoinUser.do" method="post" modelAttribute="modelUser">
+	First Name:
 	<form:input path="firstName"/>
+	Last Name:
 	<form:input path="lastName"/>
+	Phone:
 	<form:input path="phone"/>
-	<form:hidden path="id"/>
+	<%-- <form:hidden path="id"/>
 	<form:hidden path="email"/>
 	<form:hidden path="address"/>
 	<form:hidden path="permissionLevel"/>
-	<form:hidden path="items"/>
+	<form:hidden path="items"/> --%>
 	<input type="submit" value="Next">
 	</form:form>
 	
@@ -48,11 +53,15 @@
 	<c:when test="${modelAddress != null}">
 	
 	<form:form action="processJoinAddress.do" method="post" modelAttribute="modelAddress">
+	Street
 	<form:input path="street"/>
+	City
 	<form:input path="city"/>
+	State
 	<form:input path="state"/>
+	Zip
 	<form:input path="zip"/>
-	<form:hidden path="id"/>
+	<%-- <form:hidden path="id"/> --%>
 	
 	<input type="submit" value="Submit">
 	</form:form>

@@ -14,9 +14,9 @@
 	
 		<form action="getRequestsSentToUser.do" method="get">
 	
-<%-- 	<c:if test="${itemDetail. }">
-	<c:forEach items = "" var = "">
-	</c:forEach> --%>
+ 	<c:if test="${itemDetail != null }">
+	<%-- <c:forEach items = "" var = "">
+	</c:forEach>  --%>
 	
 	<div>
 			Item Id: ${itemDetail.id}
@@ -29,7 +29,7 @@
 		</div>
 	
 	
-<%-- 	</c:if> --%>
+ 	</c:if> 
 	
 	
 		</form>
