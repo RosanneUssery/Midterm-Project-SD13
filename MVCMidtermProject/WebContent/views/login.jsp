@@ -37,7 +37,7 @@
 				<input type="password" value="${user.pwd}" placeholder="Enter Password" name="userPass"
 					required>
 
-				<button type="submit" action="completeLogin.do">Login</button>
+				<button type="submit">Login</button>
 				<input type="checkbox" checked="checked"> Remember me <!-- Make this do something -->
 				
 			</div>
