@@ -23,7 +23,7 @@
 </div>
 	<div id="id01" class="modal">
 
-		<form class="modal-content animate" action="SOME_RESPONSE.do">
+		<form class="modal-content animate" action="completeLogin.do">
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('id01').style.display='none'"
 					class="close" title="Close Modal">&times;</span> <img
@@ -37,8 +37,9 @@
 				<input type="password" value="${user.pwd}" placeholder="Enter Password" name="userPass"
 					required>
 
-				<button type="submit">Login</button>
+				<button type="submit" action="completeLogin.do">Login</button>
 				<input type="checkbox" checked="checked"> Remember me <!-- Make this do something -->
+				
 			</div>
 
 			<div class="container" style="background-color: #f1f1f1">
