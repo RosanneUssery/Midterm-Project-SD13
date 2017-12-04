@@ -9,8 +9,9 @@
 
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
-<body>
+<body id="body-home">
 <%@ include file="navbar.jsp"%>
+
 
 <div class="container">	
 <div class="homeparagraph">
@@ -22,7 +23,6 @@ see a nice paragraph for
 testing purposes.
 </div>
 </div>
-
 
 
 

@@ -41,7 +41,7 @@
     <ul class="nav navbar-nav navbar-right">
     
 <!-- when a a sign up and loggin is successful use a process to hide sign up and toggle log in to log out-->
-    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+    <li><a href="getNewUser.do"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
     <li><a href="showLogin.do"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     
     

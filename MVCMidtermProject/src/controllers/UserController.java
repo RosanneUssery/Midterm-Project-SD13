@@ -201,9 +201,9 @@ public class UserController {
 	}
 	
 	/**
-	 * Shows a page where a user can register
-	 * 
-	 * @return			-- used to take user to process page and log them in
+	 * Shows a page where a user can enter login info (email/pw), beginning registration process
+	 * First mapping in user registration sequence
+	 * @return			-- the ModelAndView object
 	 */
 	@RequestMapping(path = "getNewUser.do", method = RequestMethod.GET)
 	public ModelAndView getNewUser() {
@@ -213,7 +213,13 @@ public class UserController {
 		return mv;
 	}
 
-	
+	/**
+	 * Shows page where user can enter personal info
+	 * Second mapping in user registration sequence
+	 * @param userLogin	-- command object created from getNewUser.do, spring form in join.jsp
+	 * @param redir		-- holds new login entity and empty modelUser for spring form in join.jsp 
+	 * @return			-- ModelAndView object
+	 */
 	@RequestMapping(path = "processJoinEmail.do", method = RequestMethod.POST)
 	public ModelAndView processJoinEmail(Login userLogin, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView("redirect:join.do");
@@ -223,6 +229,14 @@ public class UserController {
 		return mv;
 	}
 	
+	/**
+	 * Shows page where user can enter address info
+	 * Third mapping in user registration sequence
+	 * @param userInfo		-- command object created from processJoinEmail.do, spring form in join.jsp
+	 * @param userLogin		-- login entity from redirect
+	 * @param redir			-- holds user entities and modelAddress for spring form in join.jsp
+	 * @return				-- ModelAndView object
+	 */
 	@RequestMapping(path = "processJoinUser.do", method = RequestMethod.POST)
 	public ModelAndView processJoinUser(User userInfo, RedirectAttributes redir, @ModelAttribute("userLogin") Login userLogin) {
 		ModelAndView mv = new ModelAndView("redirect:join.do");
@@ -233,14 +247,24 @@ public class UserController {
 		return mv;
 	}
 	
-	
+	/**
+	 * Completes user registration and redirects to index.do
+	 * Final mapping in user registration sequence
+	 * @param userAddress	-- command object created from processJoinUser.do, spring form in join.jsp
+	 * @param userLogin		-- login entity from redirect
+	 * @param userInfo		-- user entity from redirect
+	 * @param session		-- to log new user into site
+	 * @return				-- ModelAndView object
+	 */
 	@RequestMapping(path = "processJoinAddress.do", method = RequestMethod.POST) 
-	public ModelAndView processJoinAddress(Address userAddress, RedirectAttributes redir, @ModelAttribute("userLogin") Login userLogin, 
+	public ModelAndView processJoinAddress(Address userAddress, HttpSession session,
+			@ModelAttribute("userLogin") Login userLogin, 
 			@ModelAttribute("userInfo") User userInfo) {
-		ModelAndView mv = new ModelAndView("redirect:join.do");
-		userAddress = addressDAO.createAddress(userAddress);
-//		userLogin = //stuff goes here;
-		userInfo = userDAO.createUser(userInfo);
+		ModelAndView mv = new ModelAndView("redirect:index.do");
+		
+		User newUser = userDAO.createUser(userInfo, userAddress, userLogin);
+		session.setAttribute("authenticatedUser", newUser);
+		session.setAttribute("loggedIn", true);
 		
 		return mv;
 		
