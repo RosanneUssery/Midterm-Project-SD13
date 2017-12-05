@@ -143,11 +143,11 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (1, '18904 E Berry Dr', ' Aurora', ' Colorado', ' 80015');
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (2, '225 S Newton St', ' Denver', ' Colorado', ' 80219');
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (3, '22340 E Princeton Dr', ' Aurora', ' Colorado', ' 80018');
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (4, '7400 E Orchard Rd', ' Greenwood Village', ' Colorado', ' 80111');
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (5, '2370 W Alameda Ave', ' Denver', ' Colorado', ' 80223');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (1, '18904 E Berry Dr', 'Aurora', 'Colorado', '80015');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (2, '225 S Newton St', 'Denver', 'Colorado', '80219');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (3, '22340 E Princeton Dr', 'Aurora', 'Colorado', '80018');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (4, '7400 E Orchard Rd', 'Greenwood Village', 'Colorado', '80111');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (5, '2370 W Alameda Ave', 'Denver', 'Colorado', '80223');
 
 COMMIT;
 
@@ -157,11 +157,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (1, 'Vivian', ' Caethe', '5551234567', ' vivian.caethe@gmail.com',  1,  1);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (2, 'Greg', ' Norwood', '5551234567', ' greg.norwood@gmail.com',  2,  1);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (3, 'Jason', ' Caldwell', '5551234567', ' jason.caldwell@gmail.com',  3,  1);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (4, 'Chris', ' Gehrke', '5551234567', ' chris.gehrke@gmail.com',  4,  1);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (5, 'Alexis', ' Low', '5551234567', ' alexis.low@gmail.com',  5,  1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (1, 'Vivian', 'Caethe', '5551234567', 'vivian.caethe@gmail.com', 1, 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (2, 'Greg', 'Norwood', '5551234567', 'greg.norwood@gmail.com', 2, 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (3, 'Jason', 'Caldwell', '5551234567', 'jason.caldwell@gmail.com', 3, 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (4, 'Chris', 'Gehrke', '5551234567', 'chris.gehrke@gmail.com', 4, 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (5, 'Alexis', 'Low', '5551234567', 'alexis.low@gmail.com', 5, 1);
 
 COMMIT;
 
@@ -171,21 +171,21 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (1, 'kennel', ' it is a kennel',  1,  0,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (2, 'towel', ' a magical towel that absorbs liquid',  1,  0,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (3, 'seeds', ' delicious plants',  1,  1,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (4, 'kennel', ' wow a kennel',  2,  0,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (5, 'hat', ' put it on yr head',  2,  0,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (6, 'dremel', ' grinds beaks',  2,  0,  0);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (7, 'towel', ' like a sponge but not',  3,  0,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (8, 'kennel', ' put human men in it',  3,  0,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (9, 'seeds', ' yummy seeds',  3,  1,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (10, 'book', ' has words in',  4,  0,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (11, 'kennel', ' holds alive people',  4,  0,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (12, 'seeds', ' omnomnom',  4,  1,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (13, 'kennel', ' get in i promise i wont lock it',  5,  0,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (14, 'book', ' meny werds',  5,  0,  1);
-INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (15, 'towel', ' wins against liquids',  5,  0,  1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (1, 'kennel', ' it is a kennel', 1, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (2, 'towel', ' a magical towel that absorbs liquid', 1, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (3, 'seeds', ' delicious plants', 1, 1, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (4, 'kennel', ' wow a kennel', 2, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (5, 'hat', ' put it on yr head', 2, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (6, 'dremel', ' grinds beaks', 2, 0, 0);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (7, 'towel', ' like a sponge but not', 3, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (8, 'kennel', ' put human men in it', 3, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (9, 'seeds', ' yummy seeds', 3, 1, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (10, 'book', ' has words in', 4, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (11, 'kennel', ' holds alive people', 4, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (12, 'seeds', ' omnomnom', 4, 1, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (13, 'kennel', ' get in i promise i wont lock it', 5, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (14, 'book', ' meny werds', 5, 0, 1);
+INSERT INTO `item` (`id`, `title`, `description`, `owner_id`, `is_supply`, `is_available`) VALUES (15, 'towel', ' wins against liquids', 5, 0, 1);
 
 COMMIT;
 
@@ -195,16 +195,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (1,  1,  4, NULL, NULL, DEFAULT);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (2, 1,  10, NULL, NULL, DEFAULT);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (3, 2,  1, NULL, NULL, DEFAULT);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (4, 2,  2, NULL, NULL, DEFAULT);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (5, 3,  11, NULL, NULL, DEFAULT);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (6, 3,  13, NULL, NULL, DEFAULT);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (7, 4,  15, NULL, NULL, DEFAULT);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (8, 4,  14, NULL, NULL, DEFAULT);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (9, 5,  7, NULL, NULL, DEFAULT);
-INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (10, 5,  5, NULL, NULL, DEFAULT);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (1, 1, 4, NULL, NULL, DEFAULT);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (2, 1, 10, NULL, NULL, DEFAULT);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (3, 2, 1, NULL, NULL, DEFAULT);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (4, 2, 2, NULL, NULL, DEFAULT);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (5, 3, 11, NULL, NULL, DEFAULT);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (6, 3, 13, NULL, NULL, DEFAULT);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (7, 4, 15, NULL, NULL, DEFAULT);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (8, 4, 14, NULL, NULL, DEFAULT);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (9, 5, 7, NULL, NULL, DEFAULT);
+INSERT INTO `activity` (`id`, `borrower_id`, `item_id`, `date_lent`, `due_date`, `is_returned`) VALUES (10, 5, 5, NULL, NULL, DEFAULT);
 
 COMMIT;
 
