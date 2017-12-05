@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import data.ActivityDAO;
 import data.AddressDAO;
 import data.ItemDAO;
+import data.NewUserDTO;
 import data.UserDAO;
 import entities.Activity;
 import entities.Address;
@@ -230,66 +231,78 @@ public class UserController {
 	@RequestMapping(path = "getNewUser.do", method = RequestMethod.GET)
 	public ModelAndView getNewUser() {
 		ModelAndView mv = new ModelAndView("join");
-		Login modelLogin = new Login();
-		mv.addObject("modelLogin", modelLogin);
-		return mv;
-	}
-
-	/**
-	 * Shows page where user can enter personal info
-	 * Second mapping in user registration sequence
-	 * @param userLogin	-- command object created from getNewUser.do, spring form in join.jsp
-	 * @param redir		-- holds new login entity and empty modelUser for spring form in join.jsp 
-	 * @return			-- ModelAndView object
-	 */
-	@RequestMapping(path = "processJoinEmail.do", method = RequestMethod.POST)
-	public ModelAndView processJoinEmail(Login userLogin, RedirectAttributes redir, HttpSession session) {
-		ModelAndView mv = new ModelAndView("redirect:join.do");
-		User modelUser = new User();
-		redir.addFlashAttribute("modelUser", modelUser);
-		session.setAttribute("userLogin", userLogin);
+//		Login modelLogin = new Login();
+//		mv.addObject("modelLogin", modelLogin);
+		mv.addObject("newUserDTO", new NewUserDTO());
 		return mv;
 	}
 	
-	/**
-	 * Shows page where user can enter address info
-	 * Third mapping in user registration sequence
-	 * @param userInfo		-- command object created from processJoinEmail.do, spring form in join.jsp
-	 * @param userLogin		-- login entity from redirect
-	 * @param redir			-- holds user entities and modelAddress for spring form in join.jsp
-	 * @return				-- ModelAndView object
-	 */
-	@RequestMapping(path = "processJoinUser.do", method = RequestMethod.POST)
-	public ModelAndView processJoinUser(User userInfo, RedirectAttributes redir, HttpSession session) {
-		ModelAndView mv = new ModelAndView("redirect:join.do");
-		Address modelAddress = new Address();
-		redir.addFlashAttribute("modelAddress", modelAddress);
-		session.setAttribute("userInfo", userInfo);
-		
-		return mv;
-	}
-	
-	/**
-	 * Completes user registration and redirects to index.do
-	 * Final mapping in user registration sequence
-	 * @param userAddress	-- command object created from processJoinUser.do, spring form in join.jsp
-	 * @param userLogin		-- login entity from redirect
-	 * @param userInfo		-- user entity from redirect
-	 * @param session		-- to log new user into site
-	 * @return				-- ModelAndView object
-	 */
-	@RequestMapping(path = "processJoinAddress.do", method = RequestMethod.POST) 
-	public ModelAndView processJoinAddress(Address userAddress, HttpSession session) {
-		ModelAndView mv = new ModelAndView("redirect:index.do");
-		Login login = (Login) session.getAttribute("userLogin");
-		User userInfo= (User) session.getAttribute("userInfo");
-		User newUser = userDAO.createUser(userInfo, userAddress, login);
+	@RequestMapping(path = "processJoin.do", method = RequestMethod.POST)
+	public ModelAndView processJoin(NewUserDTO dto, HttpSession session) {
+		ModelAndView mv = new ModelAndView("HomePage");
+		User newUser = userDAO.createUser(dto);
 		session.setAttribute("authenticatedUser", newUser);
 		session.setAttribute("loggedIn", true);
-		
 		return mv;
-		
 	}
+//
+//	/**
+//	 * Shows page where user can enter personal info
+//	 * Second mapping in user registration sequence
+//	 * @param userLogin	-- command object created from getNewUser.do, spring form in join.jsp
+//	 * @param redir		-- holds new login entity and empty modelUser for spring form in join.jsp 
+//	 * @return			-- ModelAndView object
+//	 */
+//	@RequestMapping(path = "processJoinEmail.do", method = RequestMethod.POST)
+//	public ModelAndView processJoinEmail(Login userLogin, HttpSession session) {
+//		ModelAndView mv = new ModelAndView("join");
+//		User modelUser = new User();
+//		mv.addObject("modelUser", modelUser);
+//		session.setAttribute("userLogin", userLogin);
+//		System.out.println("processJoinEmail says its userLogin's email is; " + session.getAttribute("userLogin").toString());
+//		return mv;
+//	}
+//	
+//	/**
+//	 * Shows page where user can enter address info
+//	 * Third mapping in user registration sequence
+//	 * @param userInfo		-- command object created from processJoinEmail.do, spring form in join.jsp
+//	 * @param userLogin		-- login entity from redirect
+//	 * @param redir			-- holds user entities and modelAddress for spring form in join.jsp
+//	 * @return				-- ModelAndView object
+//	 */
+//	@RequestMapping(path = "processJoinUser.do", method = RequestMethod.POST)
+//	public ModelAndView processJoinUser(User userInfo, HttpSession session) {
+//		ModelAndView mv = new ModelAndView("join");
+//		Address modelAddress = new Address();
+//		mv.addObject("modelAddress", modelAddress);
+//		System.out.println("processJoinUser says session's userLogin's email is; " + session.getAttribute("userLogin").toString());
+//		session.setAttribute("userInfo", userInfo);
+//		
+//		return mv;
+//	}
+//	
+//	/**
+//	 * Completes user registration and redirects to index.do
+//	 * Final mapping in user registration sequence
+//	 * @param userAddress	-- command object created from processJoinUser.do, spring form in join.jsp
+//	 * @param userLogin		-- login entity from redirect
+//	 * @param userInfo		-- user entity from redirect
+//	 * @param session		-- to log new user into site
+//	 * @return				-- ModelAndView object
+//	 */
+//	@RequestMapping(path = "processJoinAddress.do", method = RequestMethod.POST) 
+//	public ModelAndView processJoinAddress(Address userAddress, HttpSession session,
+//			@ModelAttribute("userLogin") Login userLogin,
+//			@ModelAttribute("userInfo") User userInfo) {
+//		ModelAndView mv = new ModelAndView("redirect:index.do");
+//		User newUser = userDAO.createUser(userInfo, userAddress, userLogin);
+//		session.setAttribute("authenticatedUser", newUser);
+//		session.setAttribute("loggedIn", true);
+//		
+//		return mv;
+//		
+//	}
 	
 //	public ModelAndView userCreated( ) {
 //		
