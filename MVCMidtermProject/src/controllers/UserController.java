@@ -201,17 +201,16 @@ public class UserController {
 	@RequestMapping(path = "getRequestsSentToUser.do", method = RequestMethod.GET)
 	public ModelAndView getRequestsSentToUser(HttpSession session) {
 		ModelAndView mv = new ModelAndView("userRequest");
-		User user = (User) session.getAttribute("authenticatedUser");
-		if (user.getPermissionLevel() > 0) {
-
-			List<Activity> receivedRequests = activityDAO.getNewRequestsByUser(user);
-			receivedRequests.size();
-			mv.addObject("receivedRequests", receivedRequests);
-			return mv;
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		if (authUser.getPermissionLevel() > 0) {
+			List<Activity> userBorrows = activityDAO.viewActivityByUser(authUser);
+			List<Activity> userLends = activityDAO.getNewRequestsByUser(authUser);
+			mv.addObject("userBorrows", userBorrows);
+			mv.addObject("userLends", userLends);
 		} else {
 			mv.setViewName("redirect:showLogin.do");
-			return mv;
 		}
+		return mv;
 	}
 	
 	@RequestMapping(path ="join.do", method = RequestMethod.GET)
