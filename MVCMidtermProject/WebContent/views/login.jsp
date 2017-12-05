@@ -32,11 +32,10 @@
 			</div>
 
 			<div class="container">
-				<label><b>Your email</b></label> <input type="text"
-					value="${user.userEmail}" placeholder="Enter Email"
-					name="userEmail" required> <label><b>Password</b></label> <input
-					type="password" value="${user.pwd}" placeholder="Enter Password"
-					name="userPass" required>
+				<label><b>Your email</b></label> 
+				<input type="text" value="${user.userEmail}" placeholder="Enter Email" name="userEmail" required> 
+				<label><b>Password</b></label> 
+				<input type="password" value="${user.pwd}" placeholder="Enter Password" name="userPass" required>
 
 				<button type="submit">Login</button>
 				<input type="checkbox" checked="checked"> Remember me

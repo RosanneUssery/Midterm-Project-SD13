@@ -12,21 +12,30 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	
-		<form action="" method="get">
+		<form action="getRequestsSentToUser.do" method="get">
 	
- 	<c:if test="${itemDetail != null }">
+ 	<c:if test="${receivedRequest != null }">
 	<%-- <c:forEach items = "" var = "">
 	</c:forEach>  --%>
 	
+		<div>
+			User Id: ${receivedRequest.userId.id} <br>
+			User Info: <br>
+			
+			${receivedRequest.userId.firstName} ${receivedRequest.userId.lastName} <br>
+			${receivedRequest.userId.phone} ${receivedRequest.userId.email} <br>
+		</div>
+	
 	<div>
-			Item Id: ${itemDetail.id}
+			Item Id: ${receivedRequest.id}
 		</div>
 		<div>
-			Item Title: ${itemDetail.title }
+			Item Title: ${receivedRequest.title }
 		</div>
 		<div>
-			Item Description: ${itemDetail.description }
+			Item Description: ${receivedRequest.description }
 		</div>
+		
 	
 	
  	</c:if> 
