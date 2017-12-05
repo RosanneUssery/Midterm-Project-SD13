@@ -54,6 +54,7 @@ public class ItemController {
 	/**
 	 * shows a list of items filtered by title
 	 * @param equipmentType	-- needed to get results
+	 * @param equipmentZip  	-- used to get address results
 	 * @return				-- the ModelAndView object
 	 */
 	@RequestMapping(path = "searchResults.do", method = RequestMethod.GET)
@@ -139,12 +140,12 @@ public class ItemController {
 	 * @return			-- the ModelAndView object
 	 */
 	@RequestMapping(path = "processAddItem.do", method = RequestMethod.POST)
-	public ModelAndView processAddItem(Item addedItem, HttpSession session, RedirectAttributes redir) {
+	public ModelAndView processAddItem(Item addedItem, HttpSession session) {
 		ModelAndView mv = new ModelAndView("itemDetail");
 		User authUser = (User) session.getAttribute("authenticatedUser");
 		addedItem.setOwner(authUser);
 		addedItem = itemDAO.createItem(addedItem);
-		redir.addFlashAttribute("itemId", addedItem.getId());
+		mv.addObject("itemDetail", addedItem);
 		return mv;
 	}
 	

@@ -27,16 +27,16 @@
 			Item Description: ${itemDetail.description }
 		</div>
 		<div>
-			Item Returnable: ${itemDetail.supply }
+			Item Returnable: ${itemDetail.isSupply }
 		</div>
 		<div>
-			Item Available: ${itemDetail.available }
+			Item Available: ${itemDetail.isAvailable }
 		</div>
 		<div>
-			Owner Id: ${itemDetail.ownerId.id} <br>
+			Owner Id: ${itemDetail.owner.id} <br>
 			Owner Info: <br>
-			${itemDetail.ownerId.firstName} ${itemDetail.ownerId.lastName} <br>
-			${itemDetail.ownerId.phone} ${itemDetail.ownerId.email} <br>
+			${itemDetail.owner.firstName} ${itemDetail.owner.lastName} <br>
+			${itemDetail.owner.phone} ${itemDetail.owner.email} <br>
 		</div>
 	</div>
 	</c:if>

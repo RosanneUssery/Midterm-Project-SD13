@@ -13,67 +13,53 @@
 	<div class="container">
 		<div class="row">
 			<div class="column">
-				<br> <br> <br>
+				<br> <br>
 			</div>
 		</div>
 
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2.5 searchBoxSearch">
+			<div class="col-md-3 searchBoxSearch">
 				<form action="/MVCMidtermProject/searchResults.do" method="GET">
 					<input type="text" name="EquipmentType" value="${item.title}"
 						placeholder="Equipment Type" required><br> <br>
 					<input type="text" name="EquipmentZip" placeholder="zip code"
-						value="${address.zip}"><br>
-					<br> <input type="submit" value="submit">
+						value="${address.zip}"><br> <br> <input
+						type="submit" value="submit">
 				</form>
 			</div>
-			<div class="col-md-1"></div>
-			<div class="col-md-8">
+			<!-- <div class="col-md-1"></div> -->
+			<div class="col-md-8 searchBoxSearch searchResultsSearch">
 				<div class="row">
-					<c:if test="${not empty searchResults}">
-						<c:forEach items="${searchResults}" var="searchResults">
-							<!-- <div class="col-sm-6">
-									<img src=" " alt="image of equipment">
-								</div> -->
-							<div class="col-md-12">
-								<iframe width="100%" height="300" frameborder="0"
-									style="border: 0"
-									src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o
-									    &q=${map}"
-									allowfullscreen> </iframe>
-
+					<div class="col-md-12">
+						<iframe width="100%" height="300" frameborder="0"
+							style="border: 0"
+							src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o
+									    &q=${map}+in+colorado"
+							allowfullscreen> </iframe>
+						<c:if test="${not empty searchResults}">
+							<c:forEach items="${searchResults}" var="item">
 
 								<!-- API Key: AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o -->
-
-							
-							</div>
-							<div class="container searchBoxSearch">
-								<div class="col-md-12"></div>
-								<span class="title">Item:</span> ${searchResults.title } <br> 
-								<span class="title">Description:</span> ${searchResults.description } <br>
-
-
-							</div>
-						</c:forEach>
-
-					</c:if>
-					<%-- <c:if test="${empty searchResults }">
-							<div class="row container">
-							<div class="col-sm-4"></div>
-							<div class="col-sm-8 match">
-							<h3>No Match</h3>
-							</div>
-							</div>
-						</c:if> --%>
-
+					
+								<span class="title">Item:</span> ${item.title } <br>
+								<span class="title">Description:</span> ${item.description } <br>
+								<span class="title">Contact:</span> <br>
+								${item.owner.firstName} ${item.owner.lastName}<br>
+								${item.owner.email} <br>
+								${item.owner.phone }<br>
+								${item.owner.address.street} <br>
+								${item.owner.address.city}
+								
+								<br>
+								<br>
+							</c:forEach>
+						</c:if>
+					</div>
 				</div>
-
 			</div>
 		</div>
-
-
 	</div>
 	<%@ include file="footer.jsp"%>
 </body>
