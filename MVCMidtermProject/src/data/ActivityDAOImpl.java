@@ -48,7 +48,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 	
 	@Override
 	public List<Activity> getNewRequestsByUser(User user) {
-		String query = "SELECT a FROM Activity a JOIN Item i ON a.item_id = i.id WHERE i.owner_id = :id";
+		String query = "SELECT a FROM Activity a WHERE a.item.owner.id = :id";
 		return em.createQuery(query, Activity.class).setParameter("id", user.getId()).getResultList();
 	}
 

@@ -38,7 +38,7 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<c:if test="${sessionScope.loggedIn == false}">
+				<c:if test="${sessionScope.loggedIn == false || sessionScope.loggedIn == null}">
 					<li>
 						<a href="getNewUser.do">
 							<span class="glyphicon glyphicon-user"></span> 
@@ -49,6 +49,14 @@
 						<a href="showLogin.do">
 							<span class="glyphicon glyphicon-log-in"></span> 
 							Login
+						</a>
+					</li>
+				</c:if>
+				<c:if test="${sessionScope.loggedIn == true}">
+					<li>
+						<a href="userLogout.do">
+							<span class="glyphicon glyphicon-user"></span> 
+							Logout
 						</a>
 					</li>
 				</c:if>

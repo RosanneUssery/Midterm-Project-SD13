@@ -63,6 +63,10 @@ public class Address {
 		return "Address [id=" + id + ", street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip
 				+ "]";
 	}
+	
+	public String formatAddress() {
+		return street +" " + city + " " + state + " " + zip; 
+	}
 
 	@Override
 	public int hashCode() {
