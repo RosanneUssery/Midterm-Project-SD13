@@ -4,16 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ERROR</title>
-<%@ include file="header.jsp"%>
+<title>Error</title>
 </head>
-<body id="body-error">
-	<%@ include file="navbar.jsp"%>
-
-<h1>ERROR</h1>
-
-
-
-<%@ include file="footer.jsp"%>
+<body>
+    <h1>${errorMsg}</h1>
+    <img src="${sadkitty.jpeg}" />
 </body>
 </html>

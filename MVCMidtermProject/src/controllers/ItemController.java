@@ -140,8 +140,9 @@ public class ItemController {
 	 */
 	@RequestMapping(path = "processAddItem.do", method = RequestMethod.POST)
 	public ModelAndView processAddItem(Item addedItem, HttpSession session, RedirectAttributes redir) {
-		ModelAndView mv = new ModelAndView("redirect:itemDetail.do");
-		addedItem.setOwner((User) session.getAttribute("authenticatedUser"));
+		ModelAndView mv = new ModelAndView("itemDetail");
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		addedItem.setOwner(authUser);
 		addedItem = itemDAO.createItem(addedItem);
 		redir.addFlashAttribute("itemId", addedItem.getId());
 		return mv;
