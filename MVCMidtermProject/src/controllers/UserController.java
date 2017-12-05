@@ -304,6 +304,12 @@ public class UserController {
 //		
 //	}
 	
+	@RequestMapping(path = "error.do", method = RequestMethod.GET)
+	public ModelAndView userHasErrorLoggingIn() {
+		ModelAndView mv = new ModelAndView("error");
+		return mv;
+	}
+	
 //	public ModelAndView userCreated( ) {
 //		
 //	}
