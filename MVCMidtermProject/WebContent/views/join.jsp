@@ -16,7 +16,6 @@
 	<!-- Empty user object is passed in as modelUser -->
 	
 
-<form>
 				 
 	<c:choose>
 	
@@ -57,7 +56,6 @@
 		</c:when>
 		
 		</c:choose>
-		</form>
 		
 <%-- 		<c:when test="${modelUser != null}">
 			
