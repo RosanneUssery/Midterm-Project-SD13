@@ -43,9 +43,7 @@
 				<!-- Make this do something -->
 
 			</div>
-			<c:if test="${loginfail}">
-			Login failed. Please try again. 
-			</c:if>
+			<span id="login_failed">Login Failed. Please try again.</span>
 			<!-- create a third box that's hidden that can show the above error on error generation -->
 			<div class="container" style="background-color: #f1f1f1">
 				<button type="button"
@@ -70,40 +68,17 @@
 		</script> -->
 	</div>
 
-	<script>
-		// Get the modal
-		var modal = document.getElementById('id01');
+	<script type="text/javascript">
+		var login_success = false; /* set this to true if the login was a success */
 
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
+		if (login_success == false) {
+			document.getElementById("login_failed").innerHTML = "Login Failed.";
+		} else {
+			window.location = "HomePage";
 		}
 	</script>
-	<%-- <main class="container">
 
-	<div class="row">
-		<div class="col-md-6">
-			<div class="loginForm">
-				<form action="completeLogin.do" method="POST">
-					Your email: <input type="text" name="userEmail"
-						value="${user.userEmail}" placeholder="email" required> <br>
-					<br> Your password: <input type="password" name="userPass"
-						value="${user.pwd}" placeholder="password" required> <br>
-					<br> <input type="submit" value="Login">
 
-				</form>
-				<br>
-				<button type="button" class="cancelbtn">Cancel</button>
-				<br> <br> <span class="psw"><a href="#">Forgot
-						password?</a></span>
-			</div>
-		</div>
-
-		<div class="col-md-6"></div>
-	</div>
-	</main> --%>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

@@ -57,11 +57,11 @@ public class ItemController {
 	 * @return				-- the ModelAndView object
 	 */
 	@RequestMapping(path = "searchResults.do", method = RequestMethod.GET)
-	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType, @RequestParam("EquipmentCity") String equipmentCity) {
+	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType, @RequestParam("EquipmentZip") String equipmentZip) {
 		ModelAndView mv = new ModelAndView("searchpage");
 		List<Item> searchResults = itemDAO.getOfferedItemsByTitle(equipmentType);
 		mv.addObject("searchResults", searchResults);
-		mv.addObject("map", gmap.gMapsEmbedFormatter(equipmentCity));
+		mv.addObject("map", gmap.gMapsEmbedFormatter(searchResults.get(0).getOwnerId().getAddress().formatAddress()));
 		return mv;
 	}
 	

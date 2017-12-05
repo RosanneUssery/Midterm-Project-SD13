@@ -24,7 +24,7 @@
 				<form action="/MVCMidtermProject/searchResults.do" method="GET">
 					<input type="text" name="EquipmentType" value="${item.title}"
 						placeholder="Equipment Type" required><br> <br>
-					<input type="text" name="EquipmentCity" placeholder="zip code"
+					<input type="text" name="EquipmentZip" placeholder="zip code"
 						value="${address.zip}"><br>
 					<br> <input type="submit" value="submit">
 				</form>
@@ -46,7 +46,6 @@
 
 
 								<!-- API Key: AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o -->
-								<!-- Replace Denver with ${maps} once there is actually non-null values -->
 
 							
 							</div>
