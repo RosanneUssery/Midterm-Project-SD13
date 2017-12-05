@@ -37,11 +37,11 @@ public class Activity {
 	private boolean isReturned;
 	
 
-	public boolean isReturned() {
+	public boolean getIsReturned() {
 		return isReturned;
 	}
 
-	public void setReturned(boolean isReturned) {
+	public void setIsReturned(boolean isReturned) {
 		this.isReturned = isReturned;
 	}
 

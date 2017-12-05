@@ -93,10 +93,14 @@ padding:        5px 20px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	
-  
-  
-	
 }
+
+ #body-error{
+ background-image: url("../images/sadkitty.jpeg");
+	background-size: cover;
+	background-repeat: no-repeat;
+ 
+ }
 	
 label{
 	color:white;

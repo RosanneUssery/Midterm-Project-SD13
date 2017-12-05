@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Error</title>
 </head>
-<body>
-    <h1>${errorMsg}</h1>
-    <img src="${sadkitty.jpeg}" />
+<body id ="body-error">
+      <h1>${errorMsg}</h1>
+    <img src="${errorImg}" />
 </body>
 </html>

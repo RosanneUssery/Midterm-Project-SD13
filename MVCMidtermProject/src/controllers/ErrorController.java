@@ -13,10 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class ErrorController {
 	
 	    
-	    @RequestMapping(path = "/errors.do", method = RequestMethod.GET)
+	    @RequestMapping(path = "errors.do", method = RequestMethod.GET)
 	    public ModelAndView renderErrorPage(HttpServletRequest httpRequest) {
-	         
-	        ModelAndView mv = new ModelAndView("errorPage.jsp");
+	        System.out.println("IN ERROR CATCH");
+	        ModelAndView mv = new ModelAndView("error"); 
 	        String errorMsg = "";
 	        String errorImg = "";
 	        int httpErrorCode = getErrorCode(httpRequest);
