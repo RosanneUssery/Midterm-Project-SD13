@@ -12,16 +12,45 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	
+	<h1>User Requests</h1>
+	
+	<form action="getRequestsSentToUser.do" method="get">
+	
+	<%--  <c:if test="${receivedRequest != null }">
+        <div>${receivedRequest.userId.id }</div>
+    </c:if> --%>
+	
+	 </form> 
+	 
+	 <c:choose>
+	 	<c:when test="${not empty receivedRequests}">
+	 	<%-- <c:forEach items = "${receivedRequests }" var = "user"> --%>
+	 	
+	 	<div>
+	 	${receivedRequests}
+	 	</div>
+	<%--  	<div>
+	 	${receivedRequests.id}
+	 	</div> --%>
+	 
+	 	
+	<%--  </c:forEach> --%>
+	 </c:when>
+	 </c:choose>
+<%-- 	<div class="container">
+	<div class="row">
 		<form action="getRequestsSentToUser.do" method="get">
 	
  	<c:if test="${receivedRequest != null }">
-	<%-- <c:forEach items = "" var = "">
-	</c:forEach>  --%>
+	<c:forEach items = "" var = "">
+	</c:forEach> 
 	
 		<div>
-			User Id: ${receivedRequest.userId.id} <br>
+			User Id: ${receivedRequest.id} <br>
 			User Info: <br>
 			
+			${receivedRequest.firstName} ${receivedRequest.lastName} <br>
+			${receivedRequest.phone} ${receivedRequest.email} <br>
 			${receivedRequest.userId.firstName} ${receivedRequest.userId.lastName} <br>
 			${receivedRequest.userId.phone} ${receivedRequest.userId.email} <br>
 		</div>
@@ -43,7 +72,39 @@
 	
 		</form>
 	
+	</div>
 	
+	</div> --%>
+	
+				<div class="container">
+			  <div class="row">
+			
+			    <div class="col-sm">
+			
+			   
+			    
+			      One of three columns
+			      User Id: ${receivedRequest.userId.id} <br>
+						User Info: <br>
+						
+						${receivedRequest.firstName} ${receivedRequest.lastName} <br>
+						${receivedRequest.phone} ${receivedRequest.email} <br>
+					
+			    </div>
+			    
+			    
+			    <div class="col-sm">
+			      One of three columns
+			    </div>
+			    <div class="col-sm">
+			      One of three columns
+			    </div>
+			    
+			
+			    
+			  </div>
+			 </div>
+
 	
 	
 <%@ include file="footer.jsp"%>
