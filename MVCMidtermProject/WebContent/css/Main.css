@@ -261,3 +261,7 @@ span.psw {
 .title {
 	color:black;
 }
+
+#map {
+       height: 300px;
+     }

@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -62,7 +63,12 @@ public class ItemController {
 		ModelAndView mv = new ModelAndView("searchpage");
 		List<Item> searchResults = itemDAO.getOfferedItemsByTitle(equipmentType);
 		mv.addObject("searchResults", searchResults);
-		mv.addObject("map", gmap.gMapsEmbedFormatter(searchResults.get(0).getOwner().getAddress().formatAddress()));
+		List<String> addresses = new ArrayList<>();
+		for (Item item : searchResults) {
+			addresses.add(item.getOwner().getAddress().formatAddress());
+		}
+		
+		mv.addObject("addresses", addresses);
 		return mv;
 	}
 	

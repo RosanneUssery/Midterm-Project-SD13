@@ -33,11 +33,46 @@
 			<div class="col-md-8 searchBoxSearch searchResultsSearch">
 				<div class="row">
 					<div class="col-md-12">
-						<iframe width="100%" height="300" frameborder="0"
-							style="border: 0"
-							src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o
-									    &q=${map}+in+colorado"
-							allowfullscreen> </iframe>
+<!-- MAP STUFF HERE -->					
+						<c:forEach var="address" items="${addresses}">
+      						<div class="markers" data-address="${address}"></div>
+						</c:forEach>
+
+    <!-- THIS IS WHERE THE MAP IS ADDED -->
+    						<div id="map"></div>
+    
+					    	<script>
+					      function initMap() {
+					        var addresses = document.getElementsByClassName("markers");
+					
+					        var geocoder = new google.maps.Geocoder();
+					
+					        var map = new google.maps.Map(document.getElementById('map'), {
+					          center: {lat: -34.397, lng: 150.644},
+					          zoom: 10
+					        });
+					
+					        for (var i = 0 ; i < addresses.length ; i++) {
+					          geocoder.geocode( { 'address': addresses[i].getAttribute("data-address")}, function(results, status) {
+					            if (status == 'OK') {
+					              map.setCenter(results[0].geometry.location);
+					              var marker = new google.maps.Marker({
+					                  map: map,
+					                  position: results[0].geometry.location
+					              });
+					            } else {
+					              alert('Geocode was not successful for the following reason: ' + status);
+					            }
+					          });
+					        }
+					        // Create a map object and specify the DOM element for display.
+					
+					      }
+					
+					    </script>
+					    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o&callback=initMap"
+					    async defer></script>
+<!-- END MAP STUFF -->
 						<c:if test="${not empty searchResults}">
 							<c:forEach items="${searchResults}" var="item">
 
