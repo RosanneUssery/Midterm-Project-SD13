@@ -61,7 +61,7 @@ public class ItemController {
 		ModelAndView mv = new ModelAndView("searchpage");
 		List<Item> searchResults = itemDAO.getOfferedItemsByTitle(equipmentType);
 		mv.addObject("searchResults", searchResults);
-		mv.addObject("map", gmap.gMapsEmbedFormatter(searchResults.get(0).getOwnerId().getAddress().formatAddress()));
+		mv.addObject("map", gmap.gMapsEmbedFormatter(searchResults.get(0).getOwner().getAddress().formatAddress()));
 		return mv;
 	}
 	
