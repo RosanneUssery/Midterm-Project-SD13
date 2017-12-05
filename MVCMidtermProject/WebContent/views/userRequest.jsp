@@ -12,15 +12,34 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	
-	<h1>User Requests</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h3>User Borrows</h3>
+				<!-- list of borrows -->
+				<c:choose>
+				 	<c:when test="${not empty userBorrows}">
+					 	<c:forEach items = "${userBorrows}" var = "borrow"> 
+							${borrow.id}
+						</c:forEach> 
+					 </c:when>
+				 </c:choose>
+			</div>		
+			<div class="col">
+				<h3>User Lends</h3>
+				<!-- list of lends -->
+					<c:choose>
+				 	<c:when test="${not empty userLends}">
+					 	<c:forEach items = "${userLends }" var = "lend"> 
+							${lend.id}
+						</c:forEach> 
+					 </c:when>
+				 </c:choose>
+			</div>
+		</div>
+	</div>
 	
-	<form action="getRequestsSentToUser.do" method="get">
-	 </form> 
-	 
-	 <div class="container userRequest">
-	 <c:choose>
-	 	<c:when test="${not empty receivedRequests}">
-	 	<c:forEach items = "${receivedRequests }" var = "requests"> 
+	
 	 	
 <ul class="list-group">
  <li class="list-group-item active">${requests.item.title}<br>
@@ -32,9 +51,9 @@
 </ul>
 	
 	 	
-	</c:forEach> 
-	 </c:when>
-	 </c:choose>
+
+	 
+	 </div>
 	 
 </div>
 		 
