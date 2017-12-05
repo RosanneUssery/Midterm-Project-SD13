@@ -15,33 +15,38 @@
 	<!-- This page should allow the anon user to create an account and log in -->
 	<!-- Empty user object is passed in as modelUser -->
 	
-<<<<<<< HEAD
-	<!-- <!-- <div class="userForm"> --> 
-=======
-	<!-- <!-- <div class="userForm"> -->
->>>>>>> 320baeb4f6c896d91a004e0da7595b260640939b
-	
+
+<form>
+				 
 	<c:choose>
 	
 		<c:when test="${newUserDTO != null }">
 			<form:form action="processJoin.do" method="post" modelAttribute="newUserDTO">
-				Email:
+				 <div class="form-row">
+    				<div class="form-group col-md-6">			
+				<label>Email:</label>
 				<form:input path="email"/>
-				Password:
+				<label>Password:</label>
 				<form:password path="pwd"/>
-				First Name:
+				</div>
+				</div>
+				 <div class="form-row">
+    				<div class="form-group col-md-8">
+				<label>First Name:</label>
 				<form:input path="firstName"/>
-				Last Name:
+				<label>Last Name:</label>
 				<form:input path="lastName"/>
-				Phone:
+				<label>Phone:</label>
 				<form:input path="phone"/>
-				Street
+				</div>
+				</div>
+				<label>Street</label>
 				<form:input path="street"/>
-				City
+				<label>City</label>
 				<form:input path="city"/>
-				State
+				<label>State</label>
 				<form:input path="state"/>
-				Zip
+				<label>Zip</label>
 				<form:input path="zip"/>
 				
 				<input type="submit" value="Submit">
@@ -50,6 +55,10 @@
 			
 			
 		</c:when>
+		
+		</c:choose>
+		</form>
+		
 <%-- 		<c:when test="${modelUser != null}">
 			
 			<form:form action="processJoinUser.do" method="post" modelAttribute="modelUser">
@@ -76,7 +85,7 @@
 			
 		</c:when>
 	
- --%>	</c:choose>
+ --%>	
 	
 	
 	
@@ -129,13 +138,9 @@
   <button type="submit" class="btn btn-primary">Sign in</button>
    </div>
   </div>
-</form>
+</form>--%>
 	
 
-	
-	</div> --%>
-	
-	
 	
 	
 	

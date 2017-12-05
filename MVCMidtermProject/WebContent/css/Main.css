@@ -81,6 +81,18 @@ padding:        5px 20px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	
+  
+  
+	
+}
+	
+label{
+	color:white;
+	background-color: #007a99;
+}
+	
+	
+	
 }
   
 @media screen and (min-width: 600px) { /*The following CSS runs only for displays with a width (in pixels) of more than 800px*/
@@ -238,3 +250,7 @@ span.psw {
 	left: 43%;
 	
 }   
+
+	
+	
+
