@@ -48,7 +48,10 @@
 								<span class="title">Contact:</span> <br>
 								${item.owner.firstName} ${item.owner.lastName}<br>
 								${item.owner.email} <br>
-								${item.owner.phone }
+								${item.owner.phone }<br>
+								${item.owner.address.street} <br>
+								${item.owner.address.city}
+								
 								<br>
 								<br>
 							</c:forEach>
