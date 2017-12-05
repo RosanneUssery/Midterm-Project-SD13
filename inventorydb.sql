@@ -214,11 +214,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `login` (`user_email`, `pwd`) VALUES ('vivian.caethe@gmail.com', ' vivian');
-INSERT INTO `login` (`user_email`, `pwd`) VALUES ('greg.norwood@gmail.com', ' greg');
-INSERT INTO `login` (`user_email`, `pwd`) VALUES ('jason.caldwell@gmail.com', ' jason');
-INSERT INTO `login` (`user_email`, `pwd`) VALUES ('chris.gehrke@gmail.com', ' chris');
-INSERT INTO `login` (`user_email`, `pwd`) VALUES ('alexis.low@gmail.com', ' alexis');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('vivian.caethe@gmail.com', 'vivian');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('greg.norwood@gmail.com', 'greg');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('jason.caldwell@gmail.com', 'jason');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('chris.gehrke@gmail.com', 'chris');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('alexis.low@gmail.com', 'alexis');
 
 COMMIT;
 
