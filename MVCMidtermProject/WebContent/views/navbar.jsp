@@ -32,7 +32,7 @@
 				</li>
 				<c:if test="${sessionScope.loggedIn == true}">
 					<li>
-						<a href="#">Lend</a>
+						<a href="showAddItem.do">Lend</a>
 					</li>
 					<li>
 						<a href="getRequestsSentToUser.do"> Requests</a>
