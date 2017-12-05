@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
 <body>
-
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
 		<a class="navbar-brand" href="views/HomePage.jsp" target="_blank"> 
 			<img src="images/chickenicon.jpeg" width="30" height="30" class="d-inline-block align-top" alt="microsanctuary logo">
@@ -20,17 +19,11 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-
-
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<ul class="nav navbar-nav">
 				<li class="active">
 					<a href="index.do">Home</a>
 				</li>
-	
-	
-				<!-- when a loggin process has been completed hide these buttons -->
-				<!-- <div hiddenloggedIn class="login-user state-hidden"> -->
 				<li>
 					<a href="showSearchPage.do">
 						<span class="glyphicon glyphicon-user"></span>
@@ -41,17 +34,10 @@
 					<a href="#">Lend</a>
 				</li>
 				<li>
-					<a href="">Requests</a>
+					<a href="getRequestsSentToUser.do"> Requests</a>
 				</li>
-	
-				<!-- </div> -->
-				<!-- request button requires a boolean value -->
-	
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-	
-				<!-- when a a sign up and loggin is successful use a process to hide sign up and toggle log in to log out-->
-				
 				<c:if test="${sessionScope.loggedIn == false}">
 					<li>
 						<a href="getNewUser.do">
@@ -66,22 +52,13 @@
 						</a>
 					</li>
 				</c:if>
-	
-	
-	
 			</ul>
 			<a class="btn btn-social btn-facebook" href="https://www.facebook.com/Microsanctuary/" target="_blank" title="Colorado Microsanctuary Network Facebook"> 
 				<span class="fa fa-facebook"></span> 
 				Microsanctuary FB
 			</a>
 		</div>
-
 	</nav>
-
-
-
-
-
 </body>
 </html>
 
