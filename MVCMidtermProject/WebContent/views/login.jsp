@@ -13,14 +13,15 @@
 <body id="body-login">
 	<%@ include file="navbar.jsp"%>
 
-<div row="container row">
-<div row="col-sm-12">
-<div class="buttonMiddle">
-	<button onclick="document.getElementById('id01').style.display='block'"
-		style="width: auto;">Login</button>
-</div>
-</div>
-</div>
+	<div row="container row">
+		<div row="col-sm-12">
+			<div class="buttonMiddle">
+				<button
+					onclick="document.getElementById('id01').style.display='block'"
+					style="width: auto;">Login</button>
+			</div>
+		</div>
+	</div>
 	<div id="id01" class="modal">
 
 		<form class="modal-content animate" action="completeLogin.do">
@@ -31,24 +32,42 @@
 			</div>
 
 			<div class="container">
-				<label><b>Your email</b></label> <input type="text"  value="${user.userEmail}"
-					placeholder="Enter Email" name="userEmail" required> 
-				<label><b>Password</b></label>
-				<input type="password" value="${user.pwd}" placeholder="Enter Password" name="userPass"
-					required>
+				<label><b>Your email</b></label> <input type="text"
+					value="${user.userEmail}" placeholder="Enter Email"
+					name="userEmail" required> <label><b>Password</b></label> <input
+					type="password" value="${user.pwd}" placeholder="Enter Password"
+					name="userPass" required>
 
 				<button type="submit">Login</button>
-				<input type="checkbox" checked="checked"> Remember me <!-- Make this do something -->
-				
-			</div>
+				<input type="checkbox" checked="checked"> Remember me
+				<!-- Make this do something -->
 
+			</div>
+			<c:if test="${loginfail}">
+			Login failed. Please try again. 
+			</c:if>
+			<!-- create a third box that's hidden that can show the above error on error generation -->
 			<div class="container" style="background-color: #f1f1f1">
 				<button type="button"
 					onclick="document.getElementById('id01').style.display='none'"
 					class="cancelbtn">Cancel</button>
 				<span class="psw">Forgot <a href="#">password?</a></span>
+
 			</div>
 		</form>
+
+		<!-- <script>
+		function check(){
+			   if(${user.userEmail}.value = ${user.userEmail} && ${user.pwd}.value = ${user.pwd}) {
+			   /* document.getElementById("victory").value == "victory") { */
+			        return true;
+			   }
+			   else {    
+			        alert("wrong keyword entry");
+			        return false;
+			   }
+			 }
+		</script> -->
 	</div>
 
 	<script>
