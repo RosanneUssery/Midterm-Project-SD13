@@ -33,22 +33,22 @@ public class UserTest {
 	
 	@Test
 	public void test_user_mapping() {
-		assertEquals("Heero", user.getFirstName());
-		assertEquals("Yuy", user.getLastName());
-		assertEquals("1111111111", user.getPhone());
-		assertEquals("wingzero@gw.com", user.getEmail());
-		assertEquals(2, user.getPermissionLevel());
+		assertEquals("Vivian", user.getFirstName());
+		assertEquals("Caethe", user.getLastName());
+		assertEquals("5551234567", user.getPhone());
+		assertEquals("vivian.caethe@gmail.com", user.getEmail());
+		assertEquals(1, user.getPermissionLevel());
 	}
 	
 	@Test
 	public void test_address_to_user_mapping() {
-		assertEquals("Primary", user.getAddress().getCity());
+		assertEquals("Aurora", user.getAddress().getCity());
 	}
 	
 	@Test
 	public void test_public_user() {
-		user = em.find(User.class, 6);
-		assertTrue(user.getPermissionLevel() == 0);
+		user = em.find(User.class, 4);
+		assertTrue(user.getPermissionLevel() == 1);
 	}
 	
 	@After

@@ -33,10 +33,10 @@ public class AddressTest {
     
     @Test
     public void test_address_mappings() {
-        assertEquals("1st", address.getStreet());
-        assertEquals("Primary", address.getCity());
-        assertEquals("One", address.getState());
-        assertEquals("11111", address.getZip());
+        assertEquals("18904 E Berry Dr", address.getStreet());
+        assertEquals("Aurora", address.getCity());
+        assertEquals("Colorado", address.getState());
+        assertEquals("80015", address.getZip());
     }
     
     @After
