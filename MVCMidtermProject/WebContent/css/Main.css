@@ -8,6 +8,14 @@
   top: 50%;
 }
 
+.userRequest {
+	background-color: rgb(66, 179, 244);
+	/* padding: 30px; */
+	 @media (min-width: @screen-lg-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+
+}
 .searchBox {
 	background-color: rgb(66, 179, 244);
 	padding: 30px;
