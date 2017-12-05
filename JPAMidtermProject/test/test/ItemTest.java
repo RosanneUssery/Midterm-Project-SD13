@@ -35,14 +35,14 @@ public class ItemTest {
 	public void test_item_mapping() {
 		assertEquals("kennel", item.getTitle());
 		assertEquals(" it is a kennel", item.getDescription());
-		assertEquals(false, item.isSupply());
-		assertEquals(true, item.isAvailable());
+		assertEquals(false, item.getIsSupply());
+		assertEquals(true, item.getIsAvailable());
 		
 		item = em.find(Item.class, 9);
 		assertEquals("seeds", item.getTitle());
 		assertNotEquals(" yummy seeds ", item.getDescription());
-		assertEquals(true, item.isSupply());
-		assertEquals(true, item.isAvailable());
+		assertEquals(true, item.getIsSupply());
+		assertEquals(true, item.getIsAvailable());
 	}
 	
 	@Test 
