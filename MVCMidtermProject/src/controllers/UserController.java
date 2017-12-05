@@ -108,7 +108,7 @@ public class UserController {
 	 *            -- used to add user to session if successful
 	 * @return -- the ModelAndView object
 	 */
-	@RequestMapping(path = "completeLogin.do", method = RequestMethod.GET)
+	@RequestMapping(path = "completeLogin.do", method = RequestMethod.POST)
 	public ModelAndView completeLogin(@RequestParam("userEmail") String userEmail,
 			@RequestParam("userPass") String userPass, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
