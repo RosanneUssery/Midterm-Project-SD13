@@ -38,6 +38,7 @@
 			${itemDetail.owner.firstName} ${itemDetail.owner.lastName} <br>
 			${itemDetail.owner.phone} ${itemDetail.owner.email} <br>
 		</div>
+		<a href="processRequest.do?itemId=${itemDetail.id}">Borrow This Item</a>
 	</div>
 	</c:if>
 	
