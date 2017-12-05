@@ -15,7 +15,7 @@
 	<!-- This page should allow the anon user to create an account and log in -->
 	<!-- Empty user object is passed in as modelUser -->
 	
-	<!-- <!-- <div class="userForm"> --> -->
+	<!-- <!-- <div class="userForm"> --> 
 	
 	<c:choose>
 	
