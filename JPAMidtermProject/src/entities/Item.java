@@ -52,8 +52,8 @@ public class Item {
 		return owner;
 	}
 
-	public void setOwner(User ownerId) {
-		this.owner = ownerId;
+	public void setOwner(User owner) {
+		this.owner = owner;
 	}
 
 	public boolean isSupply() {

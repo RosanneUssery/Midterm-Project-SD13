@@ -54,6 +54,7 @@ public class ItemController {
 	/**
 	 * shows a list of items filtered by title
 	 * @param equipmentType	-- needed to get results
+	 * @param equipmentZip  	-- used to get address results
 	 * @return				-- the ModelAndView object
 	 */
 	@RequestMapping(path = "searchResults.do", method = RequestMethod.GET)
@@ -61,7 +62,7 @@ public class ItemController {
 		ModelAndView mv = new ModelAndView("searchpage");
 		List<Item> searchResults = itemDAO.getOfferedItemsByTitle(equipmentType);
 		mv.addObject("searchResults", searchResults);
-		mv.addObject("map", gmap.gMapsEmbedFormatter(searchResults.get(0).getOwnerId().getAddress().formatAddress()));
+		mv.addObject("map", gmap.gMapsEmbedFormatter(searchResults.get(0).getOwner().getAddress().formatAddress()));
 		return mv;
 	}
 	
