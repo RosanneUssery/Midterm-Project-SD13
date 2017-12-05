@@ -22,14 +22,16 @@
 	 	<c:when test="${not empty receivedRequests}">
 	 	<c:forEach items = "${receivedRequests }" var = "requests"> 
 	 	
-<ul class="list-group">
- <li class="list-group-item active">${requests.item.title}<br>
- <li class="list-group-item active">${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+<!-- <ul class="list-group"> -->
+<!--  <li class="list-group-item active"> -->${requests.item.title}<br>
+<!--  <li class="list-group-item active"> -->${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+
+	<input type="submit" value="Confirm Request" onclick ="" />
  
- 
+<!--  
  </li>
 
-</ul>
+</ul> -->
 	
 	 	
 	</c:forEach> 
