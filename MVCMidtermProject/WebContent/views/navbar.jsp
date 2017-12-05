@@ -30,12 +30,14 @@
 						Borrow
 					</a>
 				</li>
-				<li>
-					<a href="#">Lend</a>
-				</li>
-				<li>
-					<a href="getRequestsSentToUser.do"> Requests</a>
-				</li>
+				<c:if test="${sessionScope.loggedIn == true}">
+					<li>
+						<a href="showAddItem.do">Lend</a>
+					</li>
+					<li>
+						<a href="getRequestsSentToUser.do"> Requests</a>
+					</li>
+				</c:if>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${sessionScope.loggedIn == false || sessionScope.loggedIn == null}">

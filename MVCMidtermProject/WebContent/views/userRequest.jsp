@@ -12,40 +12,60 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	
-		<form action="getRequestsSentToUser.do" method="get">
+	<h1>User Requests</h1>
 	
- 	<c:if test="${receivedRequest != null }">
-	<%-- <c:forEach items = "" var = "">
-	</c:forEach>  --%>
+	<form action="getRequestsSentToUser.do" method="get">
+	 </form> 
+	 
+	 <div class="container userRequest">
+	 <c:choose>
+	 	<c:when test="${not empty receivedRequests}">
+	 	<c:forEach items = "${receivedRequests }" var = "requests"> 
+	 	
+<ul class="list-group">
+ <li class="list-group-item active">${requests.item.title}<br>
+ <li class="list-group-item active">${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+ 
+ 
+ </li>
+
+</ul>
 	
-		<div>
-			User Id: ${receivedRequest.userId.id} <br>
-			User Info: <br>
-			
-			${receivedRequest.userId.firstName} ${receivedRequest.userId.lastName} <br>
-			${receivedRequest.userId.phone} ${receivedRequest.userId.email} <br>
-		</div>
-	
-	<div>
-			Item Id: ${receivedRequest.id}
-		</div>
-		<div>
-			Item Title: ${receivedRequest.title }
-		</div>
-		<div>
-			Item Description: ${receivedRequest.description }
-		</div>
-		
-	
-	
- 	</c:if> 
-	
-	
-		</form>
-	
-	
-	
+	 	
+	</c:forEach> 
+	 </c:when>
+	 </c:choose>
+	 
+</div>
+		 
 	
 <%@ include file="footer.jsp"%>
 </body>
 </html>
+	 	<!-- 	<div class="container"> -->
+			<!--   <div class="row"> -->
+			
+<%-- 			    <div class="container userRequest">
+	 	<div>
+	 	${requests.dateLent}<br>
+	 	${requests.item}<br>
+	 	${requests.borrower}<br>
+	 	${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+	 	${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+	 	${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+	 	</div>
+	 	</div> --%>
+	 	
+	 	   
+			<%--     <div class="col-sm">
+			      One of three columns
+			      ${requests.item.id}
+			    </div>
+			    <div class="col-sm">
+			      One of three columns
+			    </div>
+			    <div class="col-sm">
+			      One of three columns
+			    </div> --%>
+	 	
+			<!--  </div> -->

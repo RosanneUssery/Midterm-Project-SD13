@@ -44,7 +44,7 @@ public class JPQLActivityTest {
 	@Test
 	public void test_new_request_by_user() {
 		assertEquals(3, activity.getItem().getId());
-		assertEquals(2, activity.getItem().getOwnerId().getId());
+		assertEquals(2, activity.getItem().getOwner().getId());
 	}
 }
 

@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -32,19 +33,18 @@ public class ActivityTest {
 	
 	@Test
 	public void test_activity_mapping() {
-		assertEquals("2018-01-01", activity.getDateLent().toString());
-		assertEquals("2018-02-01", activity.getDueDate().toString());
-		assertEquals(true, activity.isReturned());
+		assertNull(activity.getDateLent());
+		assertEquals(false, activity.isReturned());
 	}
 	
 	@Test
 	public void test_activity_to_borrower_mapping() {
-		assertEquals("Heero", activity.getBorrower().getFirstName());
+		assertEquals("Vivian", activity.getBorrower().getFirstName());
 	}
 	
 	@Test
 	public void test_activity_to_item_mapping() {
-		assertEquals("Cat Litter", activity.getItem().getTitle());
+		assertEquals("kennel", activity.getItem().getTitle());
 	}
 	
 	@After

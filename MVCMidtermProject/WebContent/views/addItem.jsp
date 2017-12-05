@@ -15,8 +15,19 @@
 	<div class="container">
 		<h3>Enter information about the item you'd like to add.</h3>
 		
+		<form:form action = "processAddItem.do" method = "post" modelAttribute = "modelItem">
+			Name of item:
+			<form:input path="title" />
+			Description of item:
+			<form:input path="description" />
+			Is this item a supply of an expendable item? (Example: seed, medicine)
+			<form:checkbox path = "isSupply" />
+			Is this item available for others to request?
+			<form:checkbox path = "isAvailable" />
+			<input type="submit" value="Submit">
+		</form:form>
 		
-		<form action="showAddItem.do" method="get">
+<%-- 		<form action="showAddItem.do" method="get">
 				Title: <input type="text" name="title">
 			<br>
 				Description: <input type="text" name="description">
@@ -29,7 +40,7 @@
 			<br>
 			<br>
 			<input class="btn btn-default" type="submit" value="Add Item">
-		</form>
+		</form> --%>
 	</div>
 	<%@ include file="footer.jsp"%>
 </body>

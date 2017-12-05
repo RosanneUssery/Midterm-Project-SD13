@@ -33,21 +33,21 @@ public class ItemTest {
 	
 	@Test
 	public void test_item_mapping() {
-		assertEquals("Blankets", item.getTitle());
-		assertEquals("Blankets", item.getDescription());
-		assertEquals(true, item.isSupply());
-		assertEquals(true, item.isAvailable());
+		assertEquals("kennel", item.getTitle());
+		assertEquals(" it is a kennel", item.getDescription());
+		assertEquals(false, item.getIsSupply());
+		assertEquals(true, item.getIsAvailable());
 		
 		item = em.find(Item.class, 9);
-		assertEquals("Gift Cards to Pet Supply Stores", item.getTitle());
-		assertNotEquals("Blankets", item.getDescription());
-		assertEquals(false, item.isSupply());
-		assertEquals(false, item.isAvailable());
+		assertEquals("seeds", item.getTitle());
+		assertNotEquals(" yummy seeds ", item.getDescription());
+		assertEquals(true, item.getIsSupply());
+		assertEquals(true, item.getIsAvailable());
 	}
 	
 	@Test 
 	public void test_item_to_user() {
-		assertEquals("Heero", item.getOwnerId().getFirstName());
+		assertEquals("Vivian", item.getOwner().getFirstName());
 	}
 	
 	@After

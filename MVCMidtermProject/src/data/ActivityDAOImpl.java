@@ -26,7 +26,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 
 		Activity a = new Activity();
 		Item managedItem = em.find(Item.class, item.getId());
-		managedItem.setAvailable(false);
+		managedItem.setIsAvailable(false);
 		a.setItem(managedItem);
 		a.setBorrower(borrower);
 		em.persist(a);
@@ -69,7 +69,7 @@ public class ActivityDAOImpl implements ActivityDAO {
 		managedActivity.setReturned(true);
 		
 		Item managedItem = em.find(Item.class, activity.getItem().getId());
-		managedItem.setAvailable(true);
+		managedItem.setIsAvailable(true);
 
 		return managedActivity;
 	}

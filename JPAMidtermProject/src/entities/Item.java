@@ -56,19 +56,19 @@ public class Item {
 		this.owner = owner;
 	}
 
-	public boolean isSupply() {
+	public boolean getIsSupply() {
 		return isSupply;
 	}
 
-	public void setSupply(boolean isSupply) {
+	public void setIsSupply(boolean isSupply) {
 		this.isSupply = isSupply;
 	}
 
-	public boolean isAvailable() {
+	public boolean getIsAvailable() {
 		return isAvailable;
 	}
 
-	public void setAvailable(boolean available) {
+	public void setIsAvailable(boolean available) {
 		this.isAvailable = available;
 	}
 
