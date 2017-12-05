@@ -24,7 +24,7 @@
 	</div>
 	<div id="id01" class="modal">
 
-		<form class="modal-content animate" action="completeLogin.do">
+		<form class="modal-content animate" action="completeLogin.do" method="post">
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('id01').style.display='none'"
 					class="close" title="Close Modal">&times;</span> <img

@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import data.ActivityDAO;
 import data.ItemDAO;
 import data.UserDAO;
+import entities.Activity;
 import entities.Item;
 import entities.User;
 import helpers.GoogleAddressHelper;
@@ -26,6 +29,9 @@ public class ItemController {
 	
 	@Autowired
 	UserDAO userDAO;
+	
+	@Autowired
+	ActivityDAO activityDAO;
 	
 	@Autowired
 	GoogleAddressHelper gmap;
@@ -62,7 +68,12 @@ public class ItemController {
 		ModelAndView mv = new ModelAndView("searchpage");
 		List<Item> searchResults = itemDAO.getOfferedItemsByTitle(equipmentType);
 		mv.addObject("searchResults", searchResults);
-		mv.addObject("map", gmap.gMapsEmbedFormatter(searchResults.get(0).getOwner().getAddress().formatAddress()));
+		List<String> addresses = new ArrayList<>();
+		for (Item item : searchResults) {
+			addresses.add(item.getOwner().getAddress().formatAddress());
+		}
+		
+		mv.addObject("addresses", addresses);
 		return mv;
 	}
 	
@@ -148,5 +159,55 @@ public class ItemController {
 		mv.addObject("itemDetail", addedItem);
 		return mv;
 	}
+	
+	@RequestMapping(path = "processRequest.do", method = RequestMethod.GET)
+	public ModelAndView processRequest(HttpSession session,
+			@RequestParam("itemId") int id) {
+		ModelAndView mv = new ModelAndView("userRequest");
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		Item requestedItem = itemDAO.getItemById(id);
+		Activity newRequest = activityDAO.createItemRequest(requestedItem, authUser);
+		List<Activity> userBorrows = activityDAO.viewActivityByUser(authUser);
+		List<Activity> userLends = activityDAO.getNewRequestsByUser(authUser);
+		mv.addObject("userBorrows", userBorrows);
+		mv.addObject("userLends", userLends);
+		
+		return mv;
+	}
+	
+	@RequestMapping(path ="processConfirm.do", method = RequestMethod.GET)
+	public ModelAndView processConfirm(HttpSession session,
+					@RequestParam("activityId") int id) {
+		ModelAndView mv = new ModelAndView("userRequest");
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		Activity getActivity = activityDAO.getActivityById(id);
+		Activity confirmLend = activityDAO.confirmLend(getActivity);
+		List<Activity> userBorrows = activityDAO.viewActivityByUser(authUser);
+		List<Activity> userLends = activityDAO.getNewRequestsByUser(authUser);
+		mv.addObject("userBorrows", userBorrows);
+		mv.addObject("userLends", userLends);
+		
+		
+		return mv;
+		
+	}
+	@RequestMapping(path ="processReturn.do", method = RequestMethod.GET)
+	public ModelAndView confirmReturn(HttpSession session,
+			@RequestParam("activityId") int id) {
+		ModelAndView mv = new ModelAndView("userRequest");
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		Activity getActivity = activityDAO.getActivityById(id);
+		Activity confirmReturn = activityDAO.confirmReturn(getActivity);
+		List<Activity> userBorrows = activityDAO.viewActivityByUser(authUser);
+		List<Activity> userLends = activityDAO.getNewRequestsByUser(authUser);
+		mv.addObject("userBorrows", userBorrows);
+		mv.addObject("userLends", userLends);
+		
+		
+		return mv;
+		
+	}
+	
+	
 	
 }
