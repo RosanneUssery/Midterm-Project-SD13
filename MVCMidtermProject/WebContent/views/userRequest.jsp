@@ -15,98 +15,57 @@
 	<h1>User Requests</h1>
 	
 	<form action="getRequestsSentToUser.do" method="get">
-	
-	<%--  <c:if test="${receivedRequest != null }">
-        <div>${receivedRequest.userId.id }</div>
-    </c:if> --%>
-	
 	 </form> 
 	 
+	 <div class="container userRequest">
 	 <c:choose>
 	 	<c:when test="${not empty receivedRequests}">
-	 	<%-- <c:forEach items = "${receivedRequests }" var = "user"> --%>
+	 	<c:forEach items = "${receivedRequests }" var = "requests"> 
 	 	
-	 	<div>
-	 	${receivedRequests}
-	 	</div>
-	<%--  	<div>
-	 	${receivedRequests.id}
-	 	</div> --%>
-	 
+<ul class="list-group">
+ <li class="list-group-item active">${requests.item.title}<br>
+ <li class="list-group-item active">${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+ 
+ 
+ </li>
+
+</ul>
+	
 	 	
-	<%--  </c:forEach> --%>
+	</c:forEach> 
 	 </c:when>
 	 </c:choose>
-<%-- 	<div class="container">
-	<div class="row">
-		<form action="getRequestsSentToUser.do" method="get">
-	
- 	<c:if test="${receivedRequest != null }">
-	<c:forEach items = "" var = "">
-	</c:forEach> 
-	
-		<div>
-			User Id: ${receivedRequest.id} <br>
-			User Info: <br>
-			
-			${receivedRequest.firstName} ${receivedRequest.lastName} <br>
-			${receivedRequest.phone} ${receivedRequest.email} <br>
-			${receivedRequest.userId.firstName} ${receivedRequest.userId.lastName} <br>
-			${receivedRequest.userId.phone} ${receivedRequest.userId.email} <br>
-		</div>
-	
-	<div>
-			Item Id: ${receivedRequest.id}
-		</div>
-		<div>
-			Item Title: ${receivedRequest.title }
-		</div>
-		<div>
-			Item Description: ${receivedRequest.description }
-		</div>
-		
-	
-	
- 	</c:if> 
-	
-	
-		</form>
-	
-	</div>
-	
-	</div> --%>
-	
-				<div class="container">
-			  <div class="row">
-			
-			    <div class="col-sm">
-			
-			   
-			    
-			      One of three columns
-			      User Id: ${receivedRequest.userId.id} <br>
-						User Info: <br>
-						
-						${receivedRequest.firstName} ${receivedRequest.lastName} <br>
-						${receivedRequest.phone} ${receivedRequest.email} <br>
-					
-			    </div>
-			    
-			    
-			    <div class="col-sm">
-			      One of three columns
-			    </div>
-			    <div class="col-sm">
-			      One of three columns
-			    </div>
-			    
-			
-			    
-			  </div>
-			 </div>
-
-	
+	 
+</div>
+		 
 	
 <%@ include file="footer.jsp"%>
 </body>
 </html>
+	 	<!-- 	<div class="container"> -->
+			<!--   <div class="row"> -->
+			
+<%-- 			    <div class="container userRequest">
+	 	<div>
+	 	${requests.dateLent}<br>
+	 	${requests.item}<br>
+	 	${requests.borrower}<br>
+	 	${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+	 	${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+	 	${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+	 	</div>
+	 	</div> --%>
+	 	
+	 	   
+			<%--     <div class="col-sm">
+			      One of three columns
+			      ${requests.item.id}
+			    </div>
+			    <div class="col-sm">
+			      One of three columns
+			    </div>
+			    <div class="col-sm">
+			      One of three columns
+			    </div> --%>
+	 	
+			<!--  </div> -->
