@@ -37,7 +37,7 @@ public class User {
 	@Column(name = "permission_level")
 	private int permissionLevel;
 	
-	@OneToMany(mappedBy = "ownerId")
+	@OneToMany(mappedBy = "owner")
 	List<Item> items;
 
 	public String getFirstName() {

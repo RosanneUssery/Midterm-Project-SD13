@@ -27,7 +27,7 @@ import entities.Login;
 import entities.User;
 
 @Controller
-@SessionAttributes({ "authenticatedUser", "loggedIn", "userLogin", "userInfo"})
+//@SessionAttributes({ "authenticatedUser", "loggedIn", "userLogin", "userInfo"})
 public class UserController {
 
 	@Autowired
@@ -42,35 +42,35 @@ public class UserController {
 	@Autowired
 	ItemDAO itemDAO;
 
-	/**
-	 * initializes anonymous user into session user has no other attributes set
-	 * 
-	 * @return
-	 */
-	@ModelAttribute("authenticatedUser")
-	public User initAuthenticatedUser() {
-		User u = new User();
-		u.setPermissionLevel(0);
-		return u;
-	}
-
-	/**
-	 * initializes loggedIn boolean to false
-	 * 
-	 * @return false
-	 */
-	@ModelAttribute("loggedIn")
-	public boolean initLoggedIn() {
-		return false;
-	}
-	@ModelAttribute("userLogin")
-	public Login initUserLogin() {
-		return new Login();
-	}
-	@ModelAttribute("userInfo")
-	public User initUserInfo() {
-		return new User();
-	}
+//	/**
+//	 * initializes anonymous user into session user has no other attributes set
+//	 * 
+//	 * @return
+//	 */
+//	@ModelAttribute("authenticatedUser")
+//	public User initAuthenticatedUser() {
+//		User u = new User();
+//		u.setPermissionLevel(0);
+//		return u;
+//	}
+//
+//	/**
+//	 * initializes loggedIn boolean to false
+//	 * 
+//	 * @return false
+//	 */
+//	@ModelAttribute("loggedIn")
+//	public boolean initLoggedIn() {
+//		return false;
+//	}
+//	@ModelAttribute("userLogin")
+//	public Login initUserLogin() {
+//		return new Login();
+//	}
+//	@ModelAttribute("userInfo")
+//	public User initUserInfo() {
+//		return new User();
+//	}
 	
 	
 
@@ -132,9 +132,12 @@ public class UserController {
 	 * @return -- the ModelAndView object
 	 */
 	@RequestMapping(path = "userLogout.do", method = RequestMethod.GET)
-	public ModelAndView userLogout(SessionStatus status) {
+	public ModelAndView userLogout(HttpSession session) {
 		ModelAndView mv = new ModelAndView("logout");
-		status.setComplete();
+		session.setAttribute("loggedIn", false);
+		User u = new User();
+		u.setPermissionLevel(0);
+		session.setAttribute("authenticatedUser", u);
 		return mv;
 	}
 
@@ -197,7 +200,7 @@ public class UserController {
 	 */
 	@RequestMapping(path = "getRequestsSentToUser.do", method = RequestMethod.GET)
 	public ModelAndView getRequestsSentToUser(HttpSession session) {
-		ModelAndView mv = new ModelAndView("userRequestDetail");
+		ModelAndView mv = new ModelAndView("userRequest");
 		User user = (User) session.getAttribute("authenticatedUser");
 		if (user.getPermissionLevel() > 0) {
 

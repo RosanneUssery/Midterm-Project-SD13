@@ -23,7 +23,7 @@ public class Item {
 	
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
-	private User ownerId;
+	private User owner;
 	// failed test due to int ownerId problem. Changed to object to solve.
 	
 	@Column(name = "is_supply")
@@ -48,12 +48,12 @@ public class Item {
 		this.description = description;
 	}
 
-	public User getOwnerId() {
-		return ownerId;
+	public User getOwner() {
+		return owner;
 	}
 
-	public void setOwnerId(User ownerId) {
-		this.ownerId = ownerId;
+	public void setOwner(User ownerId) {
+		this.owner = ownerId;
 	}
 
 	public boolean isSupply() {

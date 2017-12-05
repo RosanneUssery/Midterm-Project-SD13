@@ -82,10 +82,10 @@ public class ItemController {
 		User authUser = (User) session.getAttribute("authenticatedUser");
 		
 		if (authUser.getPermissionLevel() > 0) {		//they're are logged in and can see stuff
-			User itemOwner = userDAO.getUserById(itemDetail.getOwnerId().getId());
+			User itemOwner = userDAO.getUserById(itemDetail.getOwner().getId());
 			mv.addObject("itemOwner", itemOwner);
 		}
-		if (authUser.equals(itemDetail.getOwnerId())) {	//they're the owner of the item, so they can update it
+		if (authUser.equals(itemDetail.getOwner())) {	//they're the owner of the item, so they can update it
 			mv.addObject("authUserIsItemOwner", true);	//add a boolean to indicate that, so view can create an update link
 		}
 		return mv;
@@ -139,7 +139,7 @@ public class ItemController {
 	@RequestMapping(path = "processAddItem.do", method = RequestMethod.POST)
 	public ModelAndView processAddItem(Item addedItem, HttpSession session, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView("redirect:itemDetail.do");
-		addedItem.setOwnerId((User) session.getAttribute("authenticatedUser"));
+		addedItem.setOwner((User) session.getAttribute("authenticatedUser"));
 		addedItem = itemDAO.createItem(addedItem);
 		redir.addFlashAttribute("itemId", addedItem.getId());
 		return mv;
