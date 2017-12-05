@@ -126,6 +126,8 @@ public class ItemController {
 	@RequestMapping(path = "showAddItem.do", method = RequestMethod.GET)
 	public ModelAndView showAddItem() {
 		ModelAndView mv = new ModelAndView("addItem");
+		Item modelItem = new Item();
+		mv.addObject("modelItem", modelItem);
 		return mv;
 	}
 	
