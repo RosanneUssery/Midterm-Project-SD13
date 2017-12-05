@@ -4,9 +4,11 @@
   <welcome-file-list>
     <welcome-file>index.do</welcome-file>
   </welcome-file-list>
+  
    <error-page>
             <location>/errors.do</location>
     </error-page>
+    
   <servlet>
     <servlet-name>midterm</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet
