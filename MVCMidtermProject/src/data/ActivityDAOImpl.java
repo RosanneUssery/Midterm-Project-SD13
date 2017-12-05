@@ -59,14 +59,14 @@ public class ActivityDAOImpl implements ActivityDAO {
 		managedActivity.setDateLent(Date.valueOf(LocalDate.now()));
 		managedActivity.setDueDate(Date.valueOf(LocalDate.now().plusDays(30)));
 		
-		managedActivity.setReturned(false);
+		managedActivity.setIsReturned(false);
 		return managedActivity;
 	}
 
 	@Override
 	public Activity confirmReturn(Activity activity) {
 		Activity managedActivity = em.find(Activity.class, activity.getId());
-		managedActivity.setReturned(true);
+		managedActivity.setIsReturned(true);
 		
 		Item managedItem = em.find(Item.class, activity.getItem().getId());
 		managedItem.setIsAvailable(true);
@@ -82,6 +82,11 @@ public class ActivityDAOImpl implements ActivityDAO {
 			return true;
 		}
 		return false;
+	}
+	@Override
+	public Activity getActivityById(int id) {
+		return em.find(Activity.class, id);
+	
 	}
 
 }
