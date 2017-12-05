@@ -41,7 +41,7 @@ public class JPQLItemTest {
 	
 	@Test
 	public void test_owner_availability() {
-	 	assertEquals(true, item.isAvailable());
+	 	assertEquals(true, item.getIsAvailable());
 	 	assertEquals(1, item.getId());
 
 	}
