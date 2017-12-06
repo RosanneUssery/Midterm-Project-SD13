@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
 <body> --%>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark"> 
 		<a class="navbar-brand" href="index.do"> 
 			<img src="images/chickenicon.jpeg" width="30" height="30" class="d-inline-block align-top" alt="microsanctuary logo">
 			Microsanctuary Equipment Exchange
@@ -40,7 +40,7 @@
 						<a href="">My Items</a>
 					</li>
 					<li>
-						<a href="">Account</a>
+						<a href="showUserUpdateInfo.do">Account</a>
 					</li>
 					
 				</c:if>

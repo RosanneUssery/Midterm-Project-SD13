@@ -13,6 +13,7 @@ public interface ActivityDAO {
 	public Activity createItemRequest(Item item, User borrower);
 	
 	//read activity
+	public List<Activity> getAllActivity();
 	public List<Activity> viewActivityByItem(Item item);
 	public List<Activity> viewActivityByUser(User user);
 	public List<Activity> getNewRequestsByUser(User user);
@@ -21,6 +22,7 @@ public interface ActivityDAO {
 	//update activity
 	public Activity confirmLend(Activity activity);
 	public Activity confirmReturn(Activity activity);
+	public Activity updateActivity(Activity activity);
 	
 	//delete activity
 	public boolean deleteActivity(Activity activity);

@@ -207,6 +207,8 @@ public class UserController {
 	public ModelAndView showAdminPage() {
 		ModelAndView mv = new ModelAndView("admin");
 		mv.addObject("allUsers", userDAO.getAllUsers());
+		mv.addObject("allItems", itemDAO.getAllItems());
+		mv.addObject("allActivity", activityDAO.getAllActivity());
 		return mv;
 	}
 	
@@ -241,21 +243,60 @@ public class UserController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "adminUpdateItem.do", method = RequestMethod.POST)
-	public ModelAndView testthing(Item item) {
+	@RequestMapping(path = "processAdminUpdateItem.do", method = RequestMethod.POST)
+	public ModelAndView processAdminUpdateItem(Item item) {
 		ModelAndView mv = new ModelAndView("adminUpdateItem");
 		Item updatedItem = itemDAO.updateItem(item);
 		mv.addObject("requestedItem", updatedItem);
 		return mv;
 	}
 	
-	@RequestMapping(path = "processAdminUpdateItem.do", method = RequestMethod.POST)
-	public ModelAndView processAdminUpdateItem(Item item) {
-		ModelAndView mv = new ModelAndView("adminUpdateItem");
-		Item oldItem = itemDAO.getItemById(item.getId());
-		item.setOwner(oldItem.getOwner());
+	@RequestMapping(path = "showAdminUpdateActivity.do", method = RequestMethod.GET)
+	public ModelAndView showAdminUpdateActivity(@RequestParam("activityId") int id) {
+		ModelAndView mv = new ModelAndView("adminUpdateActivity");
+		mv.addObject("requestedActivity", activityDAO.getActivityById(id));
+		return mv;
+	}
+	
+	@RequestMapping(path ="processAdminUpdateActivity.do", method = RequestMethod.POST)
+	public ModelAndView processAdminUpdateActivity(Activity activity) {
+		ModelAndView mv = new ModelAndView("adminUpdateActivity");
+		Activity updatedActivity = activityDAO.updateActivity(activity);
+		mv.addObject("requestedActivity", updatedActivity);
+		return mv;
+	}
+	
+	@RequestMapping(path = "showUserUpdateInfo.do", method = RequestMethod.GET)
+	public ModelAndView showUserUpdateInfo(HttpSession session) {
+		ModelAndView mv = new ModelAndView("userUpdateInfo");
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		mv.addObject("requestedUserDTO", userDAO.getUserDtoByUserId(authUser.getId()));
+		mv.addObject("userItems", itemDAO.getOfferedItemsByUserId(authUser.getId()));
+		return mv;
+	}
+	
+	@RequestMapping(path = "processUserUpdateInfo.do", method = RequestMethod.POST)
+	public ModelAndView processUserUpdateInfo(UserDTO dto, HttpSession session) {
+		ModelAndView mv = new ModelAndView("userUpdateInfo");
+		User updatedUser = userDAO.updateUserByDto(dto);
+		session.setAttribute("authenticatedUser", updatedUser);
+		mv.addObject("requestedUserDTO", userDAO.getUserDtoByUserId(updatedUser.getId()));
+		mv.addObject("userItems", itemDAO.getOfferedItemsByUserId(updatedUser.getId()));
+		return mv;
+	}
+	
+	@RequestMapping(path = "showUserUpdateItem.do", method = RequestMethod.GET)
+	public ModelAndView showUserUpdateItem(@RequestParam("itemId") int id) {
+		ModelAndView mv = new ModelAndView("userUpdateItem");
+		mv.addObject("userItem", itemDAO.getItemById(id));
+		return mv;
+	}
+	
+	@RequestMapping(path = "processUserUpdateItem.do", method = RequestMethod.POST)
+	public ModelAndView processUserUpdateItem(Item item) {
+		ModelAndView mv = new ModelAndView("userUpdateItem");
 		Item updatedItem = itemDAO.updateItem(item);
-		mv.addObject("requestedItem", updatedItem);
+		mv.addObject("userItem", updatedItem);
 		return mv;
 	}
 	

@@ -33,6 +33,16 @@ public class ActivityDAOImpl implements ActivityDAO {
 		em.flush();
 		return a;
 	}
+	
+	
+
+	@Override
+	public List<Activity> getAllActivity() {
+		String query = "SELECT a FROM Activity a";
+		return em.createQuery(query, Activity.class).getResultList();
+	}
+
+
 
 	@Override
 	public List<Activity> viewActivityByItem(Item item) {
@@ -73,6 +83,19 @@ public class ActivityDAOImpl implements ActivityDAO {
 
 		return managedActivity;
 	}
+	
+	
+
+	@Override
+	public Activity updateActivity(Activity activity) {
+		Activity managedActivity = em.find(Activity.class, activity.getId());
+		managedActivity.setDateLent(activity.getDateLent());
+		managedActivity.setDueDate(activity.getDueDate());
+		managedActivity.setIsReturned(activity.getIsReturned());
+		return managedActivity;
+	}
+
+
 
 	@Override
 	public boolean deleteActivity(Activity activity) {
