@@ -1,6 +1,6 @@
 package data;
 
-public class NewUserDTO {
+public class UserDTO {
 	
 	private String email;
 	
