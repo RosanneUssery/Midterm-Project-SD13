@@ -1,4 +1,7 @@
 @charset "UTF-8";
+body {
+	background-color:#007a99;
+}
 
 .mainBox {
   position: absolute;
