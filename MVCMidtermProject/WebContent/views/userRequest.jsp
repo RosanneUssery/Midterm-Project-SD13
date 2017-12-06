@@ -40,12 +40,12 @@
 	</div>
 	
 	
-	 	
+<%-- 	 	
 <!-- <ul class="list-group"> -->
 <!--  <li class="list-group-item active"> -->${requests.item.title}<br>
 <!--  <li class="list-group-item active"> -->${requests.borrower.firstName} ${requests.borrower.lastName}<br>
 
-	<input type="submit" value="Confirm Request" onclick ="" />
+	<input type="submit" value="Confirm Request" onclick ="" /> --%>
  
 <!--  
  </li>
