@@ -18,7 +18,7 @@ public interface ItemDAO {
 	public Item getItemById(int id);
 	
 	//search item
-	public List<Item> getItemsByOwnerAddressWithZipCode(String zip, String title);
+	public List<Item> getItemsByOwnerAddressWithZipCode(String title, String zip);
 	
 	//update item
 	public Item updateItem(Item item);
