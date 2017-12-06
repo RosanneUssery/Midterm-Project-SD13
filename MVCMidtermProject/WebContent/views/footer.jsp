@@ -1,19 +1,24 @@
 
 <footer class="footer">
+<div class="fixed-bottom">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
+				<!-- Add horizontal line to troubleshoot where computer thinks footer starts -->
+				<hr>
 				No-&copy; 2017
 				<script>
 					new Date().getFullYear() >= 2017
-							&& document.write("-" + new Date().getFullYear());
-				</script> Jason Caldwell, Rosanne Ussery, Alexis Low, Chris Gehrke, Greg
-				Norwood <a href="https://github.com/RosanneUssery/Midterm-Project-SD13">View
+							&& document.write("- " + new Date().getFullYear());
+				</script> | Alexis Low, Rosanne Ussery, Jason Caldwell, Greg
+				Norwood, Chris Gehrke | <a href="https://github.com/RosanneUssery/Midterm-Project-SD13">View
 					Code</a>
 				</a>
 			</div>
 		</div>
 	</div>
+</div>
+	
 </footer>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

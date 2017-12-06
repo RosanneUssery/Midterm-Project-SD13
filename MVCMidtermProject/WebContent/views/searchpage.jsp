@@ -7,6 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Borrow</title>
 <%@ include file="header.jsp"%>
+<link rel="stylesheet" href="css/search.css">
+<style>
+
+</style>
 </head>
 <body id="body-search">
 	<%@ include file="navbar.jsp"%>
@@ -31,48 +35,13 @@
 			</div>
 			<!-- <div class="col-md-1"></div> -->
 			<div class="col-md-8 searchBoxSearch searchResultsSearch">
-				<div class="row">
-					<div class="col-md-12">
-<!-- MAP STUFF HERE -->					
 						<c:forEach var="address" items="${addresses}">
       						<div class="markers" data-address="${address}"></div>
 						</c:forEach>
 
     <!-- THIS IS WHERE THE MAP IS ADDED -->
-    						<div id="map"></div>
+    						<div id="googleMap"></div>
     
-					    	<script>
-					      function initMap() {
-					        var addresses = document.getElementsByClassName("markers");
-					
-					        var geocoder = new google.maps.Geocoder();
-					
-					        var map = new google.maps.Map(document.getElementById('map'), {
-					          center: {lat: -34.397, lng: 150.644},
-					          zoom: 10
-					        });
-					
-					        for (var i = 0 ; i < addresses.length ; i++) {
-					          geocoder.geocode( { 'address': addresses[i].getAttribute("data-address")}, function(results, status) {
-					            if (status == 'OK') {
-					              map.setCenter(results[0].geometry.location);
-					              var marker = new google.maps.Marker({
-					                  map: map,
-					                  position: results[0].geometry.location
-					              });
-					            } else {
-					              alert('Geocode was not successful for the following reason: ' + status);
-					            }
-					          });
-					        }
-					        // Create a map object and specify the DOM element for display.
-					
-					      }
-					
-					    </script>
-					    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o&callback=initMap"
-					    async defer></script>
-<!-- END MAP STUFF -->
 						<c:if test="${not empty searchResults}">
 							<c:forEach items="${searchResults}" var="item">
 
@@ -94,8 +63,59 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 	<%@ include file="footer.jsp"%>
+	
+					    	<script>
+					      function initMap() {
+					    	  
+					    	 	var infoWin = new google.maps.InfoWindow();
+					    	 	console.log(infoWin)
+					    	  
+					    	  	var addresses = document.getElementsByClassName("markers");
+					    	  	console.log(addresses)
+					
+					        var geocoder = new google.maps.Geocoder();
+					    	  	console.log(geocoder)
+					
+					        var map = new google.maps.Map(document.getElementById('googleMap'), {
+					          center: {lat: -34.397, lng: 150.644},
+					          zoom: 10
+					        });
+					        
+					        console.log(map)
+					
+					        for (var i = 0 ; i < addresses.length ; i++) {
+					        	console.log(addresses[i].getAttribute("data-address"));
+					          geocoder.geocode( { 'address': addresses[i].getAttribute("data-address")}, function(results, status) {
+					            if (status == 'OK') {
+					            	var location = { 
+					                	  	lat : results[0].geometry.location.lat(), 
+					                	  	lng : results[0].geometry.location.lng(),
+					                  };
+					            		console.log(results[0]);
+					              map.setCenter(location);
+					              var marker = new google.maps.Marker({
+					                  map: map,
+					                  position: location,
+					                  // Any information you want to display in the info window
+					                  dataLabel : results[0].formatted_address
+					              });
+					                 google.maps.event.addListener(marker, 'click', function(evt) {
+					                	 console.log(marker);
+					                    infoWin.setContent(marker.dataLabel);
+					                    infoWin.open(map, marker); 
+					                 });
+					            } else {
+					              alert('Geocode was not successful for the following reason: ' + status);
+					            }
+					          });
+					        }
+					        // Create a map object and specify the DOM element for display.
+					
+					      }
+					
+					    </script>
+					    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o&callback=initMap"
+					    async defer></script>
 </body>
 </html>

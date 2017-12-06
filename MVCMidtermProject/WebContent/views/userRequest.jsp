@@ -20,7 +20,12 @@
 				<c:choose>
 				 	<c:when test="${not empty userBorrows}">
 					 	<c:forEach items = "${userBorrows}" var = "borrow"> 
-							${borrow.id}
+							<ul>
+							<li>${borrow.item.title} from ${borrow.item.owner.firstName}  <br>
+							 <input type="submit" value="submit">
+							</li>
+							</ul>
+							<%--  ${borrow.firstName}  --%>
 						</c:forEach> 
 					 </c:when>
 				 </c:choose>
@@ -31,7 +36,14 @@
 					<c:choose>
 				 	<c:when test="${not empty userLends}">
 					 	<c:forEach items = "${userLends }" var = "lend"> 
-							${lend.id}
+								<ul>
+							<li>
+							${lend.item.title} to ${lend.borrower.firstName}<br>
+							 <input type="submit" value="submit">
+							</li>
+							</ul>
+							
+							<%-- ${lend.firstName} --%>
 						</c:forEach> 
 					 </c:when>
 				 </c:choose>
@@ -40,15 +52,17 @@
 	</div>
 	
 	
-	 	
-<ul class="list-group">
- <li class="list-group-item active">${requests.item.title}<br>
- <li class="list-group-item active">${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+<%-- 	 	
+<!-- <ul class="list-group"> -->
+<!--  <li class="list-group-item active"> -->${requests.item.title}<br>
+<!--  <li class="list-group-item active"> -->${requests.borrower.firstName} ${requests.borrower.lastName}<br>
+
+	<input type="submit" value="Confirm Request" onclick ="" /> --%>
  
- 
+<!--  
  </li>
 
-</ul>
+</ul> -->
 	
 	 	
 
