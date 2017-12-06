@@ -34,7 +34,7 @@ public class ActivityTest {
 	@Test
 	public void test_activity_mapping() {
 		assertNull(activity.getDateLent());
-		assertEquals(false, activity.isReturned());
+		assertEquals(false, activity.getIsReturned());
 	}
 	
 	@Test
