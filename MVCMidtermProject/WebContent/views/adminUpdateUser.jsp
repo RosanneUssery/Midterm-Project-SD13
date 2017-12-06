@@ -7,8 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Admin Update User</title>
+<%@ include file="header.jsp"%>
 </head>
 <body>
+	<%@ include file="navbar.jsp"%>
 	<c:if test="${requestedUserDTO != null}">
 		<form:form action="processAdminUpdateUser.do" method="post" modelAttribute="requestedUserDTO">
 			<form:hidden path="userId" />
@@ -56,6 +58,6 @@
 			</c:forEach>
 		</c:if>
 	</table>
-	
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

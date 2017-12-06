@@ -6,8 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Administrator Page</title>
+<%@ include file="header.jsp"%>
 </head>
 <body>
+	<%@ include file="navbar.jsp"%>
 	<!-- should show links to actions admins can take on lists of items, users (and associated logins and addresses) 
 		update user info by id
 		update item by id
@@ -23,6 +25,29 @@
 			<input type="submit" value="Show User Info">
 		</form>
 	</c:if>
-	
+	<c:if test="${not empty allItems}">
+	<table>
+		<thead>
+			<th>Item ID</th>
+			<th>Owner</th>
+			<th>Item Name</th>
+			<th>Item Description</th>
+			<th>Supply?</th>
+			<th>Available?</th>
+		</thead>
+		<c:forEach items="${allItems}" var="item">
+			<tr>
+				<td>${item.id}</td>
+				<td>${item.owner.firstName} ${item.owner.lastName}</td>
+				<td>${item.title}</td>
+				<td>${item.description}</td>
+				<td>${item.isSupply}</td>
+				<td>${item.isAvailable}</td>
+				<td><a href="showAdminUpdateItem.do?itemId=${item.id}">Update Item</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+	</c:if>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>
