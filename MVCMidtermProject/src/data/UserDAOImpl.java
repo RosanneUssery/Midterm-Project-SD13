@@ -74,15 +74,17 @@ public class UserDAOImpl implements UserDAO {
 		Address userAddress = user.getAddress();
 		Login userLogin = em.find(Login.class, user.getEmail());
 		
+		dto.setUserId(user.getId());
 		dto.setFirstName(user.getFirstName());
 		dto.setLastName(user.getLastName());
 		dto.setPhone(user.getPhone());
 		dto.setEmail(user.getEmail());
+		dto.setPermissionLevel(user.getPermissionLevel());
 		dto.setPwd(userLogin.getPwd());
 		dto.setStreet(userAddress.getStreet());
-		dto.setStreet(userAddress.getCity());
-		dto.setStreet(userAddress.getState());
-		dto.setStreet(userAddress.getZip());
+		dto.setCity(userAddress.getCity());
+		dto.setState(userAddress.getState());
+		dto.setZip(userAddress.getZip());
 		
 		return dto;
 	}
@@ -110,6 +112,37 @@ public class UserDAOImpl implements UserDAO {
         User managed = em.find(User.class, user.getId());
         managed = user;
         return managed;
+	}
+	
+	
+
+	@Override
+	public User updateUserByDto(UserDTO dto) {
+		
+		User updateUser = getUserById(dto.getUserId());
+		Address updateAddress = updateUser.getAddress();
+		Login updateLogin = em.find(Login.class, updateUser.getEmail());
+		
+		updateUser.setFirstName(dto.getFirstName());
+		updateUser.setLastName(dto.getLastName());
+		updateUser.setPhone(dto.getPhone());
+		updateUser.setEmail(dto.getEmail());
+		updateUser.setPermissionLevel(dto.getPermissionLevel());
+		
+		updateAddress.setStreet(dto.getStreet());
+		updateAddress.setCity(dto.getCity());
+		updateAddress.setState(dto.getState());
+		updateAddress.setZip(dto.getZip());
+		
+		updateLogin.setUserEmail(dto.getEmail());
+		updateLogin.setPwd(dto.getPwd());
+		
+		em.persist(updateUser);
+		em.persist(updateLogin);
+		em.persist(updateAddress);
+		em.flush();
+		
+		return updateUser;
 	}
 
 	@Override

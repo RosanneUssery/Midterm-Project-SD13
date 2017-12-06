@@ -62,6 +62,13 @@
 						</a>
 					</li>
 				</c:if>
+				<c:if test="${sessionScope.authenticatedUser.permissionLevel == 2}">
+					<li>
+						<a href="showAdminPage.do">
+							Admin
+						</a>
+					</li>
+				</c:if>
 			</ul>
 			<a class="btn btn-social btn-facebook" href="https://www.facebook.com/Microsanctuary/" target="_blank" title="Colorado Microsanctuary Network Facebook"> 
 				<span class="fa fa-facebook"></span> 

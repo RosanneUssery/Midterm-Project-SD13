@@ -2,6 +2,8 @@ package data;
 
 public class UserDTO {
 	
+	private int userId;
+	
 	private String email;
 	
 	private String pwd;
@@ -19,6 +21,24 @@ public class UserDTO {
 	private String state;
 	
 	private String zip;
+	
+	private int permissionLevel;
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public int getPermissionLevel() {
+		return permissionLevel;
+	}
+
+	public void setPermissionLevel(int permissionLevel) {
+		this.permissionLevel = permissionLevel;
+	}
 
 	public String getEmail() {
 		return email;
