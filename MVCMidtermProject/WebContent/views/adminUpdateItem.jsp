@@ -9,6 +9,7 @@
 <title>Admin Update Item</title>
 </head>
 <body>
+	<%@ include file="navbar.jsp"%>
 	<c:if test="${requestedItem != null}">
 		<h3>${requestedItem.id}</h3>
 		<form:form action="adminUpdateItem.do" method="post" modelAttribute="requestedItem">
@@ -25,5 +26,6 @@
 			<input type="submit" value="Update Item">
 		</form:form>
 	</c:if>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>
