@@ -22,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	
 	@Override
-	public User createUser(NewUserDTO dto) {
+	public User createUser(UserDTO dto) {
 		User newUser = new User();
 		Login newLogin = new Login();
 		Address newAddress = new Address();
@@ -51,30 +51,6 @@ public class UserDAOImpl implements UserDAO {
 		
 		return newUser;
 	}
-
-//	@Override
-//	public User createUser(User user, Address address, Login login) {
-//		
-//		//first insert the address, get back the id
-//        em.persist(address);
-//        em.flush();
-//        
-//        //attach address and email to user
-//        user.setAddress(address);
-//        user.setEmail(login.getUserEmail());
-//        System.out.println("userDAOImpl.createUser says this is the login object's email:" + login.getUserEmail());
-//        System.out.println("userDAOImpl.createUser says this is the user object's email:" + user.getEmail());
-//        //persist user before login, because login table depends on user email being present
-//        em.persist(user);
-//        
-//        //now we can persist login
-//        em.persist(login);
-//
-//        //get it all back
-//        em.flush();
-//        
-//		return user;
-//	}
 
 	@Override
 	public List<User> getAllUsers() {
