@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Administrator Page</title>
 </head>
 <body>
 	<!-- should show links to actions admins can take on lists of items, users (and associated logins and addresses) 
@@ -13,13 +13,14 @@
 		update item by id
 		update item by user
 	-->
-	<c:if test="${allUsers not empty}">
+	<c:if test="${not empty allUsers}">
 		<form action="showAdminUpdateUser.do" method="get">
-			<select>
+			<select name="userId">
 				<c:forEach items="${allUsers}" var="user">
 					<option value="${user.id}" label="${user.firstName} ${user.lastName}">
 				</c:forEach>
 			</select>
+			<input type="submit" value="Show User Info">
 		</form>
 	</c:if>
 	
