@@ -16,10 +16,7 @@
 	<!-- Empty user object is passed in as modelUser -->
 	
 
-<<<<<<< HEAD
 
-=======
->>>>>>> e753a9913310ab419e86f2727682f86dc94602a0
 				 
 	<c:choose>
 	
@@ -60,10 +57,7 @@
 		</c:when>
 		
 		</c:choose>
-<<<<<<< HEAD
-		
-=======
->>>>>>> e753a9913310ab419e86f2727682f86dc94602a0
+
 		
 <%-- 		<c:when test="${modelUser != null}">
 			

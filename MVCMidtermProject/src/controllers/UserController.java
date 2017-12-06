@@ -212,6 +212,7 @@ public class UserController {
 	@RequestMapping(path = "showAdminPage.do", method = RequestMethod.GET)
 	public ModelAndView showAdminPage() {
 		ModelAndView mv = new ModelAndView("admin");
+		mv.addObject("allUsers", userDAO.getAllUsers());
 		return mv;
 	}
 	
