@@ -62,8 +62,13 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public Item updateItem(Item item) {
+		System.out.println(item);
 		Item managed = em.find(Item.class, item.getId());
-        managed = item;
+		System.out.println(managed);
+		managed.setTitle(item.getTitle());
+		managed.setDescription(item.getDescription());
+		managed.setIsSupply(item.getIsSupply());
+		managed.setIsAvailable(item.getIsAvailable());
         return managed;
 	}
 
