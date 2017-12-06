@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+
+#googleMap {
+	height : 300px;
+	width: 100%;
+	color: black;
+} 
+.searchResultsSearch {
+	height: 100%;
+	width: 400 px;
+	overflow-y : scroll !important;
+}
+
+.title {
+	color:black;
+}

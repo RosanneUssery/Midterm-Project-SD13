@@ -25,7 +25,7 @@
 	background-color: rgb(66, 179, 244);
 	padding: 30px;
 	width: 300px;
-	height: 400px;
+	height: 600px;
 	color: white;
 	align-content: center;
 }
@@ -109,10 +109,6 @@ label{
 	background-color: #007a99;
 }
 	
-	
-	
-}
-  
 @media screen and (min-width: 600px) { /*The following CSS runs only for displays with a width (in pixels) of more than 800px*/
     body {
         background-color:#007a99 ;
@@ -258,16 +254,7 @@ span.psw {
 /*End of modal box stuff  */
 
 
-.searchResultsSearch {
-	height: 400 px;
-	width: 400 px;
-	overflow: scroll;
-}
-	
-.title {
-	color:black;
-}
 
-#map {
-       height: 300px;
-     }
+	
+
+
