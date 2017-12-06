@@ -9,7 +9,7 @@ import entities.User;
 public interface UserDAO {
 
 		//create user
-		public User createUser(NewUserDTO dto);
+		public User createUser(UserDTO dto);
 		
 		//read user
 		public List<User> getAllUsers();

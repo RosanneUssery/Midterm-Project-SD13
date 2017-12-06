@@ -22,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	
 	@Override
-	public User createUser(NewUserDTO dto) {
+	public User createUser(UserDTO dto) {
 		User newUser = new User();
 		Login newLogin = new Login();
 		Address newAddress = new Address();
