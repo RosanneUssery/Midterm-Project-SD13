@@ -66,7 +66,7 @@ public class ItemController {
 	@RequestMapping(path = "searchResults.do", method = RequestMethod.GET)
 	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType, @RequestParam("EquipmentZip") String equipmentZip) {
 		ModelAndView mv = new ModelAndView("searchpage");
-		List<Item> searchResults = itemDAO.getOfferedItemsByTitle(equipmentType);
+		List<Item> searchResults = itemDAO.getItemsByOwnerAddressWithZipCode(equipmentType,equipmentZip);
 		mv.addObject("searchResults", searchResults);
 		List<String> addresses = new ArrayList<>();
 		for (Item item : searchResults) {

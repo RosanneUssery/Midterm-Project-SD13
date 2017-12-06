@@ -1,10 +1,10 @@
 package data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -77,16 +77,34 @@ public class ItemDAOImpl implements ItemDAO {
 		return false;
 	}
 
-    public List<Item> getItemsByOwnerAddressWithZipCode(String zip, String title) {
-        String query = "SELECT i FROM Item i WHERE i.owner.address.zip = :zip AND LOWERCASE(i.title) LIKE :title";
-        return em.createQuery(query, Item.class)
-                .setParameter("zip", zip)
-                .setParameter("title", "%" + title.toLowerCase() + "%") //% allows for plural and modified matches
+    public List<Item> getItemsByOwnerAddressWithZipCode(String title, String zip ) {
+    		String query;
+    		TypedQuery<Item> itemQuery; 
+    		if (zip.equals("")) {
+    			query = "SELECT i FROM Item i WHERE LOWER(i.title) LIKE :title";
+    			itemQuery = em.createQuery(query, Item.class)
+        				.setParameter("title", "%" + title.toLowerCase() + "%"); 
+    		} else {
+    			query = "SELECT i FROM Item i WHERE i.owner.address.zip = :zip AND LOWER(i.title) LIKE :title";
+    			itemQuery = em.createQuery(query, Item.class)
+        				.setParameter("title", "%" + title.toLowerCase() + "%") 
+    					.setParameter("zip", zip);
+    		}
+    		List<Item> items = itemQuery
                 .getResultList();
         
+//    		String query = "SELECT * FROM item WHERE LOWER(title) LIKE ?";
+//    		List<Item> items = em.createNativeQuery(query, Item.class)
+//    							.setParameter(1, "%"+title+"%")
+//    							.getResultList();
+        if (items.size() > 0) {
+        		items.forEach((i) -> System.out.println(i.getTitle()));
+        } else {
+        		System.err.println("NO RESULTS");
+        }
         //SELECT a.street, a.city, a.state, a.zip, i.title FROM address a JOIN user u ON a.id = u.address_id 
         //JOIN item i ON u.id = i.owner_id WHERE a.zip = 80111 AND i.title = 'nuts';
-
+        return items;
     }
 
 }
