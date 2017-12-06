@@ -10,24 +10,23 @@
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
 <body id="body-home">
-<%@ include file="navbar.jsp"%>
+	<%@ include file="navbar.jsp"%>
 
 
-<div class="container">	
-<div class="homeparagraph">
-random sayings to see this work
-we are going to get a script
-from the sanctuary that will
-go here. I just wanted to
-see a nice paragraph for
-testing purposes.
-</div>
-</div>
+	<div class="container">
+		<div class="homeparagraph col-md-4 col-xs-12">The Microsanctuary Movement is an
+			initiative to help vegans rescue and care for farmed animals. It
+			centers on a radical revisioning of “sanctuary” on a grassroots
+			level, with the goal being to inspire and empower more people to use
+			whatever resources they have available right now to provide safe,
+			nurturing homes to non-humans who are typically seen only as
+			commodities.</div>
+	</div>
 
 
 
 
-<%@ include file="footer.jsp"%> 
+	<%@ include file="footer.jsp"%>
 
 </body>
 </html>

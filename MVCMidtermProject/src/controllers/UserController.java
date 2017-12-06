@@ -6,24 +6,18 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import data.ActivityDAO;
 import data.AddressDAO;
 import data.ItemDAO;
-import data.UserDTO;
 import data.UserDAO;
+import data.UserDTO;
 import entities.Activity;
-import entities.Address;
 import entities.Item;
-import entities.Login;
 import entities.User;
 
 @Controller
@@ -218,7 +212,7 @@ public class UserController {
 	
 	@RequestMapping(path = "showAdminUpdateUser.do", method = RequestMethod.GET)
 	public ModelAndView showAdminUpdateUser(@RequestParam("userId") int id) {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("adminUpdateUser");
 		UserDTO dto = userDAO.getUserDtoByUserId(id);
 		List<Item> requestedUserItems = itemDAO.getOfferedItemsByUserId(id);
 		requestedUserItems.size();
@@ -228,20 +222,40 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "showAdminUpdateItem.do", method = RequestMethod.GET)
-	public ModelAndView showAdminUpdateItm(@RequestParam("itemId") int id) {
-		ModelAndView mv = new ModelAndView();
-		
-		
-		
+	public ModelAndView showAdminUpdateItem(@RequestParam("itemId") int id) {
+		ModelAndView mv = new ModelAndView("adminUpdateItem");
+		Item updateItem = itemDAO.getItemById(id);
+		mv.addObject("requestedItem", updateItem);
 		return mv;
 	}
 	
 	@RequestMapping(path = "processAdminUpdateUser.do", method = RequestMethod.POST)
 	public ModelAndView processAdminUpdateUser(UserDTO dto) {
-		ModelAndView mv = new ModelAndView();
-		
-		
-		
+		ModelAndView mv = new ModelAndView("adminUpdateUser");
+		User updatedUser = userDAO.updateUserByDto(dto);
+		dto = userDAO.getUserDtoByUserId(updatedUser.getId());
+		List<Item> requestedUserItems = itemDAO.getOfferedItemsByUserId(updatedUser.getId());
+		requestedUserItems.size();
+		mv.addObject("requestedUserDTO", dto);
+		mv.addObject("requestedUserItems", requestedUserItems);
+		return mv;
+	}
+	
+	@RequestMapping(path = "adminUpdateItem.do", method = RequestMethod.POST)
+	public ModelAndView testthing(Item item) {
+		ModelAndView mv = new ModelAndView("adminUpdateItem");
+		Item updatedItem = itemDAO.updateItem(item);
+		mv.addObject("requestedItem", updatedItem);
+		return mv;
+	}
+	
+	@RequestMapping(path = "processAdminUpdateItem.do", method = RequestMethod.POST)
+	public ModelAndView processAdminUpdateItem(Item item) {
+		ModelAndView mv = new ModelAndView("adminUpdateItem");
+		Item oldItem = itemDAO.getItemById(item.getId());
+		item.setOwner(oldItem.getOwner());
+		Item updatedItem = itemDAO.updateItem(item);
+		mv.addObject("requestedItem", updatedItem);
 		return mv;
 	}
 	
