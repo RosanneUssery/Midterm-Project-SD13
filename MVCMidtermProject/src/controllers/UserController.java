@@ -271,7 +271,6 @@ public class UserController {
 		ModelAndView mv = new ModelAndView("userUpdateInfo");
 		User authUser = (User) session.getAttribute("authenticatedUser");
 		mv.addObject("requestedUserDTO", userDAO.getUserDtoByUserId(authUser.getId()));
-		mv.addObject("userItems", itemDAO.getOfferedItemsByUserId(authUser.getId()));
 		return mv;
 	}
 	
@@ -281,7 +280,7 @@ public class UserController {
 		User updatedUser = userDAO.updateUserByDto(dto);
 		session.setAttribute("authenticatedUser", updatedUser);
 		mv.addObject("requestedUserDTO", userDAO.getUserDtoByUserId(updatedUser.getId()));
-		mv.addObject("userItems", itemDAO.getOfferedItemsByUserId(updatedUser.getId()));
+		
 		return mv;
 	}
 	
@@ -297,6 +296,14 @@ public class UserController {
 		ModelAndView mv = new ModelAndView("userUpdateItem");
 		Item updatedItem = itemDAO.updateItem(item);
 		mv.addObject("userItem", updatedItem);
+		return mv;
+	}
+	
+	@RequestMapping(path = "showUserItems.do", method = RequestMethod.GET)
+	public ModelAndView showUserItems(HttpSession session) {
+		ModelAndView mv = new ModelAndView("userItems");
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		mv.addObject("userItems", itemDAO.getOfferedItemsByUserId(authUser.getId()));
 		return mv;
 	}
 	
