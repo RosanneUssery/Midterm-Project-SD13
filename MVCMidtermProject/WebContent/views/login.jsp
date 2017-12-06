@@ -42,6 +42,8 @@
 				<!-- Make this do something -->
 
 			</div>
+			<button type="button" onclick="">Update account</button>
+			<button type="button" onclick="">Remove user account</button>
 			<span id="login_failed">Login Failed. Please try again.</span>
 			<!-- create a third box that's hidden that can show the above error on error generation -->
 			<div class="container" style="background-color: #f1f1f1">

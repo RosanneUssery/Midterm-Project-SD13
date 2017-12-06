@@ -22,6 +22,7 @@
 	
 		<c:when test="${newUserDTO != null }">
 			<form:form action="processJoin.do" method="post" modelAttribute="newUserDTO">
+				
 				 <div class="form-row">
     				<div class="form-group col-md-6">			
 				<label>Email:</label>
@@ -50,6 +51,7 @@
 				<form:input path="zip"/>
 				
 				<input type="submit" value="Submit">
+				
 			</form:form>
 			
 			
