@@ -36,7 +36,7 @@ public class JPQLItemTest {
 	
 	@Test
 	public void test_item() {
-    	assertEquals("Blankets", item.getTitle());
+    	assertEquals("kennel", item.getTitle());
 	}
 	
 	@Test

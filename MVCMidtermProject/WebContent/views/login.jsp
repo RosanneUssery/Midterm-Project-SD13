@@ -8,7 +8,7 @@
 <title>Login</title>
 
 <%@ include file="header.jsp"%>
-<link rel="stylesheet" href="css/viv.css">
+<link rel="stylesheet" href="css/login.css">
 </head>
 <body id="body-login">
 	<%@ include file="navbar.jsp"%>
@@ -24,7 +24,8 @@
 	</div>
 	<div id="id01" class="modal">
 
-		<form class="modal-content animate" action="completeLogin.do" method="post">
+		<form class="modal-content animate" action="completeLogin.do"
+			method="post">
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('id01').style.display='none'"
 					class="close" title="Close Modal">&times;</span> <img
@@ -32,19 +33,24 @@
 			</div>
 
 			<div class="container">
-				<label><b>Your email</b></label> 
-				<input type="text" value="${user.userEmail}" placeholder="Enter Email" name="userEmail" required> 
-				<label><b>Password</b></label> 
-				<input type="password" value="${user.pwd}" placeholder="Enter Password" name="userPass" required>
+				<label><b>Your email</b></label> <input type="text"
+					value="${user.userEmail}" placeholder="Enter Email"
+					name="userEmail" required> <label><b>Password</b></label> <input
+					type="password" value="${user.pwd}" placeholder="Enter Password"
+					name="userPass" required>
 
 				<button type="submit">Login</button>
-				<input type="checkbox" checked="checked"> Remember me
+<<<<<<< HEAD
+				
+=======
+				<!-- <input type="checkbox" checked="checked"> Remember me -->
 				<!-- Make this do something -->
+>>>>>>> e631e4e3293b2187ba30252884f0e9e691bfa0df
 
 			</div>
 			<button type="button" onclick="">Update account</button>
 			<button type="button" onclick="">Remove user account</button>
-			<span id="login_failed">Login Failed. Please try again.</span>
+			<!-- <span id="login_failed">Login Failed. Please try again.</span> -->
 			<!-- create a third box that's hidden that can show the above error on error generation -->
 			<div class="container" style="background-color: #f1f1f1">
 				<button type="button"
@@ -69,15 +75,7 @@
 		</script> -->
 	</div>
 
-	<script type="text/javascript">
-		var login_success = false; /* set this to true if the login was a success */
-
-		if (login_success == false) {
-			document.getElementById("login_failed").innerHTML = "Login Failed.";
-		} else {
-			window.location = "HomePage";
-		}
-	</script>
+	
 
 
 	<%@ include file="footer.jsp"%>
