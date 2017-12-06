@@ -276,4 +276,13 @@ public class UserController {
 		return mv;
 	}
 	
+	@RequestMapping(path = "showUserUpdateInfo.do", method = RequestMethod.GET)
+	public ModelAndView showUserUpdateInfo(HttpSession session) {
+		ModelAndView mv = new ModelAndView("userUpdateInfo");
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		mv.addObject("requestedUserDTO", userDAO.getUserDtoByUserId(authUser.getId()));
+		mv.addObject("userItems", itemDAO.getOfferedItemsByUserId(authUser.getId()));
+		return mv;
+	}
+	
 }
