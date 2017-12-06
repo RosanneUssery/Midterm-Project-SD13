@@ -219,8 +219,11 @@ public class UserController {
 	public ModelAndView adminUpdateUser(HttpSession session,
 			@RequestParam("userId") int id) {
 		ModelAndView mv = new ModelAndView();
-		
-		
+		User requestedUser = userDAO.getUserById(id);
+		List<Item> requestedUserItems = itemDAO.getOfferedItemsByUserId(requestedUser.getId());
+		requestedUserItems.size();
+		mv.addObject("requestedUser", requestedUser);
+		mv.addObject("requestedUserItems", requestedUserItems);
 		return mv;
 	}
 }
