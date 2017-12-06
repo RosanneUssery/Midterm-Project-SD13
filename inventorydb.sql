@@ -148,6 +148,8 @@ INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (2, '225 S
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (3, '22340 E Princeton Dr', 'Aurora', 'Colorado', '80018');
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (4, '7400 E Orchard Rd', 'Greenwood Village', 'Colorado', '80111');
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (5, '2370 W Alameda Ave', 'Denver', 'Colorado', '80223');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (6, '1333 S Noland Rd', 'Independence', 'Missouri', '64055');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (7, '7295 S Highway 94', 'Saint Charles', 'Missouri', '63304');
 
 COMMIT;
 
@@ -157,11 +159,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `inventorydb`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (1, 'Vivian', 'Caethe', '5551234567', 'vivian.caethe@gmail.com', 1, 1);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (2, 'Greg', 'Norwood', '5551234567', 'greg.norwood@gmail.com', 2, 1);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (3, 'Jason', 'Caldwell', '5551234567', 'jason.caldwell@gmail.com', 3, 1);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (4, 'Chris', 'Gehrke', '5551234567', 'chris.gehrke@gmail.com', 4, 1);
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (5, 'Alexis', 'Low', '5551234567', 'alexis.low@gmail.com', 5, 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (1, 'Vivian', 'Caethe', '5551234567', 'vivian.caethe@gmail.com', 1, 2);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (2, 'Greg', 'Norwood', '5551234567', 'greg.norwood@gmail.com', 2, 2);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (3, 'Jason', 'Caldwell', '5551234567', 'jason.caldwell@gmail.com', 3, 2);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (4, 'Chris', 'Gehrke', '5551234567', 'chris.gehrke@gmail.com', 4, 2);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (5, 'Alexis', 'Low', '5551234567', 'alexis.low@gmail.com', 5, 2);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (6, 'Kris', 'Kane', '5551234567', 'kris.kane@gmail.com', 6, 1);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `phone`, `email`, `address_id`, `permission_level`) VALUES (7, 'Andrew', 'Conlan', '5551234567', 'andrew.conlin@gmail.com', 7, 1);
 
 COMMIT;
 
@@ -219,6 +223,8 @@ INSERT INTO `login` (`user_email`, `pwd`) VALUES ('greg.norwood@gmail.com', 'gre
 INSERT INTO `login` (`user_email`, `pwd`) VALUES ('jason.caldwell@gmail.com', 'jason');
 INSERT INTO `login` (`user_email`, `pwd`) VALUES ('chris.gehrke@gmail.com', 'chris');
 INSERT INTO `login` (`user_email`, `pwd`) VALUES ('alexis.low@gmail.com', 'alexis');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('kris.kane@gmail.com', 'kris');
+INSERT INTO `login` (`user_email`, `pwd`) VALUES ('andrew.conlan@gmail.com', 'andrew');
 
 COMMIT;
 
