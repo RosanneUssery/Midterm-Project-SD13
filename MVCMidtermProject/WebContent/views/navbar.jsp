@@ -40,7 +40,7 @@
 						<a href="">My Items</a>
 					</li>
 					<li>
-						<a href="">Account</a>
+						<a href="showUserUpdateInfo.do">Account</a>
 					</li>
 					
 				</c:if>
