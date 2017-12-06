@@ -37,7 +37,7 @@
 						<a href="getRequestsSentToUser.do"> Requests</a>
 					</li>
 					<li>
-						<a href="">My Items</a>
+						<a href="showUserItems.do">My Items</a>
 					</li>
 					<li>
 						<a href="showUserUpdateInfo.do">Account</a>
