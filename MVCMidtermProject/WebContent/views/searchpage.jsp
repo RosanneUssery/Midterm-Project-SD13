@@ -28,7 +28,7 @@
 				<form action="/MVCMidtermProject/searchResults.do" method="GET">
 					<input type="text" name="EquipmentType" value="${item.title}"
 						placeholder="Equipment Type" required><br> <br>
-					<input type="text" name="EquipmentZip" placeholder="zip code"
+					<input type="text" name="EquipmentZip" placeholder="zip code (optional)"
 						value="${address.zip}"><br> <br> <input
 						type="submit" value="submit">
 				</form>
@@ -78,7 +78,7 @@
 					    	  	console.log(geocoder)
 					
 					        var map = new google.maps.Map(document.getElementById('googleMap'), {
-					          center: {lat: -34.397, lng: 150.644},
+					          center: {lat: 39.7392, lng: -104.9903},
 					          zoom: 10
 					        });
 					        

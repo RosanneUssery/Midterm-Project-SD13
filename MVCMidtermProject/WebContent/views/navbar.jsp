@@ -13,7 +13,7 @@
 </head>
 <body> --%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
-		<a class="navbar-brand" href="views/HomePage.jsp" target="_blank"> 
+		<a class="navbar-brand" href="index.do"> 
 			<img src="images/chickenicon.jpeg" width="30" height="30" class="d-inline-block align-top" alt="microsanctuary logo">
 			Microsanctuary Equipment Exchange
 		</a>
@@ -22,9 +22,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<ul class="nav navbar-nav">
-				<li class="active">
-					<a href="index.do">Home</a>
-				</li>
+				
 				<li>
 					<a href="showSearchPage.do">
 						<span class="glyphicon glyphicon-user"></span>
@@ -38,6 +36,13 @@
 					<li>
 						<a href="getRequestsSentToUser.do"> Requests</a>
 					</li>
+					<li>
+						<a href="">My Items</a>
+					</li>
+					<li>
+						<a href="">Account</a>
+					</li>
+					
 				</c:if>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
