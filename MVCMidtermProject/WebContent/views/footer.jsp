@@ -13,7 +13,6 @@
 				</script> | Alexis Low, Rosanne Ussery, Jason Caldwell, Greg
 				Norwood, Chris Gehrke | <a href="https://github.com/RosanneUssery/Midterm-Project-SD13">View
 					Code</a>
-				</a>
 			</div>
 		</div>
 	</div>
