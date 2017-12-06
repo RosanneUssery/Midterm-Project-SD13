@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,7 +24,7 @@
 			the list of items is named "requestedUserItems"
 	 -->
 	<c:if test="${requestedUserDTO != null}">
-		<form:form action="processUpdateUser.do" method="post" modelAttribute="requestedUserDTO">
+		<form:form action="processUserUpdateInfo.do" method="post" modelAttribute="requestedUserDTO">
 			<form:hidden path="userId" />
 			<form:hidden path="permissionLevel" />
 			Email:
