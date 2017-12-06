@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%-- The head and body isn't needed here b/c it is referenced in the other jsp
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +11,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
-<body>
+<body> --%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
 		<a class="navbar-brand" href="views/HomePage.jsp" target="_blank"> 
 			<img src="images/chickenicon.jpeg" width="30" height="30" class="d-inline-block align-top" alt="microsanctuary logo">
@@ -76,6 +77,6 @@
 			</a>
 		</div>
 	</nav>
-</body>
-</html>
+<!-- </body>
+</html> -->
 
