@@ -11,6 +11,7 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
+	<a href="showAdminPage.do">Return to Administrator Page</a>
 	<c:if test="${requestedUserDTO != null}">
 		<form:form action="processAdminUpdateUser.do" method="post" modelAttribute="requestedUserDTO">
 			<form:hidden path="userId" />

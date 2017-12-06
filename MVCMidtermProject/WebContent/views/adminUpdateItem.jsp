@@ -7,9 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Admin Update Item</title>
+<%@ include file="header.jsp"%>
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
+	<a href="showAdminPage.do">Return to Administrator Page</a>
+	<a href="showAdminUpdateUser.do?userId=${requestedItem.owner.id}">Edit ${requestedItem.owner.firstName} ${requestedItem.owner.lastName}</a>
 	<c:if test="${requestedItem != null}">
 		<h3>${requestedItem.id}</h3>
 		<form:form action="adminUpdateItem.do" method="post" modelAttribute="requestedItem">

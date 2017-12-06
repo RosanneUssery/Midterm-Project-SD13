@@ -48,6 +48,32 @@
 		</c:forEach>
 	</table>
 	</c:if>
+	<c:if test="${not empty allActivity}">
+		<table>
+			<thead>
+				<th>ID</th>		
+				<th>Borrower</th>		
+				<th>Owner</th>		
+				<th>Item</th>		
+				<th>Date Lent</th>		
+				<th>Due Date</th>		
+				<th>Returned?</th>		
+				<th>Detail</th>
+			</thead>
+			<c:forEach items="${allActivity}" var="activity">
+				<tr>
+					<td>${activity.id}</td>			
+					<td>${activity.borrower.firstName} ${activity.borrower.lastName}</td>			
+					<td>${activity.item.owner.firstName} ${activity.item.owner.lastName}</td>			
+					<td>${activity.item.title}</td>			
+					<td>${activity.dateLent}</td>			
+					<td>${activity.dueDate}</td>			
+					<td>${activity.isReturned}</td>			
+					<td><a href="showAdminUpdateActivity.do?activityId=${activity.id}">View Detail</a></td>			
+				</tr>
+			</c:forEach>
+		</table>
+	</c:if>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
