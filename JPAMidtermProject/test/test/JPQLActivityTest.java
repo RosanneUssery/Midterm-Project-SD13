@@ -38,12 +38,12 @@ public class JPQLActivityTest {
 	public void test_activity() {
     	assertEquals(1, activity.getId());
     	assertEquals(1, activity.getBorrower().getId());
-    	assertEquals("Heero", activity.getBorrower().getFirstName());
+    	assertEquals("Vivian", activity.getBorrower().getFirstName());
 	}
 	
 	@Test
 	public void test_new_request_by_user() {
-		assertEquals(3, activity.getItem().getId());
+		assertEquals(4, activity.getItem().getId());
 		assertEquals(2, activity.getItem().getOwner().getId());
 	}
 }

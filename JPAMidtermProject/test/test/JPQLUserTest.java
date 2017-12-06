@@ -22,7 +22,7 @@ public class JPQLUserTest {
 	public void setUp() throws Exception {
 		this.emf = Persistence.createEntityManagerFactory("MidtermPU");
 		this.em = emf.createEntityManager();
-		login = em.find(Login.class, "wingzero@gw.com");
+		login = em.find(Login.class, "alexis.low@gmail.com");
 		user = em.find(User.class, 1);
 
 	}
@@ -40,13 +40,8 @@ public class JPQLUserTest {
 	
 	@Test
 	public void test_user_login_email() {
-    	assertEquals("wingzero@gw.com",login.getUserEmail());
-    	assertEquals("one",login.getPwd());
-    	
-    	assertEquals(1, user.getId());
-    	assertEquals("wingzero@gw.com", user.getEmail());
-    	assertEquals(login.getUserEmail(), user.getEmail());
-    	
+	    	assertEquals("alexis.low@gmail.com",login.getUserEmail());
+	    	assertEquals("alexis",login.getPwd());
 	}
 	
 }

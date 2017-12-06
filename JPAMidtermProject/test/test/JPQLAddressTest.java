@@ -38,18 +38,17 @@ public class JPQLAddressTest {
 	
 	@Test
 	public void test_address_maping() {
-    	assertEquals(1, address.getId());
-    	assertEquals("1st", address.getStreet());
-    	assertEquals("Primary", address.getCity());
-    	assertEquals("One", address.getState());
-    	assertEquals("11111", address.getZip());
-    	
-    	address = em.find(Address.class, 2);
-    	assertEquals(2, address.getId());
-    	assertEquals("2nd", address.getStreet());
-    	assertEquals("Secondary", address.getCity());
-    	assertEquals("Two", address.getState());
-    	assertEquals("22222", address.getZip());
+	    	assertEquals("18904 E Berry Dr", address.getStreet());
+	    	assertEquals("Aurora", address.getCity());
+	    	assertEquals("Colorado", address.getState());
+	    	assertEquals("80015", address.getZip());
+	    	
+	    	address = em.find(Address.class, 2);
+	    	assertEquals(2, address.getId());
+	    	assertEquals("225 S Newton St", address.getStreet());
+	    	assertEquals("Denver", address.getCity());
+	    	assertEquals("Colorado", address.getState());
+	    	assertEquals("80219", address.getZip());
 	}
 	
 }
