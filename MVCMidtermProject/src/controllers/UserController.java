@@ -207,6 +207,8 @@ public class UserController {
 	public ModelAndView showAdminPage() {
 		ModelAndView mv = new ModelAndView("admin");
 		mv.addObject("allUsers", userDAO.getAllUsers());
+		mv.addObject("allItems", itemDAO.getAllItems());
+		mv.addObject("allActivity", activityDAO.getAllActivity());
 		return mv;
 	}
 	
@@ -256,6 +258,21 @@ public class UserController {
 		item.setOwner(oldItem.getOwner());
 		Item updatedItem = itemDAO.updateItem(item);
 		mv.addObject("requestedItem", updatedItem);
+		return mv;
+	}
+	
+	@RequestMapping(path = "showAdminUpdateActivity.do", method = RequestMethod.GET)
+	public ModelAndView showAdminUpdateActivity(@RequestParam("activityId") int id) {
+		ModelAndView mv = new ModelAndView("adminUpdateActivity");
+		mv.addObject("requestedActivity", activityDAO.getActivityById(id));
+		return mv;
+	}
+	
+	@RequestMapping(path ="processAdminUpdateActivity.do", method = RequestMethod.POST)
+	public ModelAndView processAdminUpdateActivity(Activity activity) {
+		ModelAndView mv = new ModelAndView("adminUpdateActivity");
+		Activity updatedActivity = activityDAO.updateActivity(activity);
+		mv.addObject("requestedActivity", updatedActivity);
 		return mv;
 	}
 	
