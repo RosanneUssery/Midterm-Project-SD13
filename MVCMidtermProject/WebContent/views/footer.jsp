@@ -1,16 +1,18 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
 <footer class="footer">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
+			<!-- Add horizontal rule to see where computer thought footer started. -->
+				<hr>
 				No-&copy; 2017
 				<script>
-					new Date().getFullYear() >= 2017
-							&& document.write("-" + new Date().getFullYear());
-				</script> Jason Caldwell, Rosanne Ussery, Alexis Low, Chris Gehrke, Greg
-				Norwood <a href="https://github.com/RosanneUssery/Midterm-Project-SD13">View
+					new Date().getFullYear() >= 2017 && document.write("- " + new Date().getFullYear());
+				</script> | Alexis Low, Rosanne Ussery, Jason Caldwell, Greg
+				Norwood, Chris Gehrke | <a href="https://github.com/RosanneUssery/Midterm-Project-SD13">View
 					Code</a>
-				</a>
 			</div>
 		</div>
 	</div>
