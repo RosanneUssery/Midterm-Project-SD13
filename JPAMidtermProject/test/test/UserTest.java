@@ -37,7 +37,7 @@ public class UserTest {
 		assertEquals("Caethe", user.getLastName());
 		assertEquals("5551234567", user.getPhone());
 		assertEquals("vivian.caethe@gmail.com", user.getEmail());
-		assertEquals(1, user.getPermissionLevel());
+		assertEquals(2, user.getPermissionLevel());
 	}
 	
 	@Test
@@ -45,11 +45,12 @@ public class UserTest {
 		assertEquals("Aurora", user.getAddress().getCity());
 	}
 	
-	@Test
-	public void test_public_user() {
-		user = em.find(User.class, 4);
-		assertTrue(user.getPermissionLevel() == 1);
-	}
+//	No longer have public user
+//	@Test
+//	public void test_public_user() {
+//		user = em.find(User.class, 4);
+//		assertTrue(user.getPermissionLevel() == 1);
+//	}
 	
 	@After
 	public void tearDown() throws Exception {
