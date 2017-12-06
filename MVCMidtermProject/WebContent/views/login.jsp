@@ -13,6 +13,7 @@
 <body id="body-login">
 	<%@ include file="navbar.jsp"%>
 
+
 	<div row="container row">
 		<div row="col-xl-12">
 			<div class="buttonMiddle">
@@ -40,12 +41,7 @@
 					name="userPass" required>
 
 				<button type="submit">Login</button>
-<<<<<<< HEAD
-				
-=======
-				<!-- <input type="checkbox" checked="checked"> Remember me -->
-				<!-- Make this do something -->
->>>>>>> e631e4e3293b2187ba30252884f0e9e691bfa0df
+
 
 			</div>
 			<button type="button" onclick="">Update account</button>
