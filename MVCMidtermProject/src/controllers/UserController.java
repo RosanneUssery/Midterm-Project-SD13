@@ -243,19 +243,9 @@ public class UserController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "adminUpdateItem.do", method = RequestMethod.POST)
-	public ModelAndView testthing(Item item) {
-		ModelAndView mv = new ModelAndView("adminUpdateItem");
-		Item updatedItem = itemDAO.updateItem(item);
-		mv.addObject("requestedItem", updatedItem);
-		return mv;
-	}
-	
 	@RequestMapping(path = "processAdminUpdateItem.do", method = RequestMethod.POST)
 	public ModelAndView processAdminUpdateItem(Item item) {
 		ModelAndView mv = new ModelAndView("adminUpdateItem");
-		Item oldItem = itemDAO.getItemById(item.getId());
-		item.setOwner(oldItem.getOwner());
 		Item updatedItem = itemDAO.updateItem(item);
 		mv.addObject("requestedItem", updatedItem);
 		return mv;
@@ -282,6 +272,31 @@ public class UserController {
 		User authUser = (User) session.getAttribute("authenticatedUser");
 		mv.addObject("requestedUserDTO", userDAO.getUserDtoByUserId(authUser.getId()));
 		mv.addObject("userItems", itemDAO.getOfferedItemsByUserId(authUser.getId()));
+		return mv;
+	}
+	
+	@RequestMapping(path = "processUserUpdateInfo.do", method = RequestMethod.POST)
+	public ModelAndView processUserUpdateInfo(UserDTO dto, HttpSession session) {
+		ModelAndView mv = new ModelAndView("userUpdateInfo");
+		User updatedUser = userDAO.updateUserByDto(dto);
+		session.setAttribute("authenticatedUser", updatedUser);
+		mv.addObject("requestedUserDTO", userDAO.getUserDtoByUserId(updatedUser.getId()));
+		mv.addObject("userItems", itemDAO.getOfferedItemsByUserId(updatedUser.getId()));
+		return mv;
+	}
+	
+	@RequestMapping(path = "showUserUpdateItem.do", method = RequestMethod.GET)
+	public ModelAndView showUserUpdateItem(@RequestParam("itemId") int id) {
+		ModelAndView mv = new ModelAndView("userUpdateItem");
+		mv.addObject("userItem", itemDAO.getItemById(id));
+		return mv;
+	}
+	
+	@RequestMapping(path = "processUserUpdateItem.do", method = RequestMethod.POST)
+	public ModelAndView processUserUpdateItem(Item item) {
+		ModelAndView mv = new ModelAndView("userUpdateItem");
+		Item updatedItem = itemDAO.updateItem(item);
+		mv.addObject("userItem", updatedItem);
 		return mv;
 	}
 	

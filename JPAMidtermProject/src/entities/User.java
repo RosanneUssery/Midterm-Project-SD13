@@ -99,6 +99,10 @@ public class User {
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
