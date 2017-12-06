@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import data.ActivityDAO;
 import data.AddressDAO;
 import data.ItemDAO;
-import data.NewUserDTO;
+import data.UserDTO;
 import data.UserDAO;
 import entities.Activity;
 import entities.Address;
@@ -190,12 +190,12 @@ public class UserController {
 	@RequestMapping(path = "getNewUser.do", method = RequestMethod.GET)
 	public ModelAndView getNewUser() {
 		ModelAndView mv = new ModelAndView("join");
-		mv.addObject("newUserDTO", new NewUserDTO());
+		mv.addObject("newUserDTO", new UserDTO());
 		return mv;
 	}
 	
 	@RequestMapping(path = "processJoin.do", method = RequestMethod.POST)
-	public ModelAndView processJoin(NewUserDTO dto, HttpSession session) {
+	public ModelAndView processJoin(UserDTO dto, HttpSession session) {
 		ModelAndView mv = new ModelAndView("HomePage");
 		User newUser = userDAO.createUser(dto);
 		session.setAttribute("authenticatedUser", newUser);
@@ -215,15 +215,33 @@ public class UserController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "adminUpdateUser.do", method = RequestMethod.GET)
-	public ModelAndView adminUpdateUser(HttpSession session,
-			@RequestParam("userId") int id) {
+	@RequestMapping(path = "showAdminUpdateUser.do", method = RequestMethod.GET)
+	public ModelAndView showAdminUpdateUser(@RequestParam("userId") int id) {
 		ModelAndView mv = new ModelAndView();
-		User requestedUser = userDAO.getUserById(id);
-		List<Item> requestedUserItems = itemDAO.getOfferedItemsByUserId(requestedUser.getId());
+		UserDTO dto = userDAO.getUserDtoByUserId(id);
+		List<Item> requestedUserItems = itemDAO.getOfferedItemsByUserId(id);
 		requestedUserItems.size();
-		mv.addObject("requestedUser", requestedUser);
+		mv.addObject("requestedUserDTO", dto);
 		mv.addObject("requestedUserItems", requestedUserItems);
 		return mv;
 	}
+
+	@RequestMapping(path = "showAdminUpdateItem.do", method = RequestMethod.GET)
+	public ModelAndView showAdminUpdateItm(@RequestParam("itemId") int id) {
+		ModelAndView mv = new ModelAndView();
+		
+		
+		
+		return mv;
+	}
+	
+	@RequestMapping(path = "processAdminUpdateUser.do", method = RequestMethod.POST)
+	public ModelAndView processAdminUpdateUser(UserDTO dto) {
+		ModelAndView mv = new ModelAndView();
+		
+		
+		
+		return mv;
+	}
+	
 }

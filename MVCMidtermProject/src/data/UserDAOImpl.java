@@ -67,6 +67,25 @@ public class UserDAOImpl implements UserDAO {
 		return u;
 	}
 	
+	@Override
+	public UserDTO getUserDtoByUserId(int id) {
+		UserDTO dto = new UserDTO();
+		User user = getUserById(id);
+		Address userAddress = user.getAddress();
+		Login userLogin = em.find(Login.class, user.getEmail());
+		
+		dto.setFirstName(user.getFirstName());
+		dto.setLastName(user.getLastName());
+		dto.setPhone(user.getPhone());
+		dto.setEmail(user.getEmail());
+		dto.setPwd(userLogin.getPwd());
+		dto.setStreet(userAddress.getStreet());
+		dto.setStreet(userAddress.getCity());
+		dto.setStreet(userAddress.getState());
+		dto.setStreet(userAddress.getZip());
+		
+		return dto;
+	}
 
 	@Override
 	public User userLogin(String userEmail, String userPass) {
