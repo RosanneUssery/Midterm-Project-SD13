@@ -27,7 +27,6 @@ import entities.Login;
 import entities.User;
 
 @Controller
-//@SessionAttributes({ "authenticatedUser", "loggedIn", "userLogin", "userInfo"})
 public class UserController {
 
 	@Autowired
@@ -41,38 +40,6 @@ public class UserController {
 
 	@Autowired
 	ItemDAO itemDAO;
-
-//	/**
-//	 * initializes anonymous user into session user has no other attributes set
-//	 * 
-//	 * @return
-//	 */
-//	@ModelAttribute("authenticatedUser")
-//	public User initAuthenticatedUser() {
-//		User u = new User();
-//		u.setPermissionLevel(0);
-//		return u;
-//	}
-//
-//	/**
-//	 * initializes loggedIn boolean to false
-//	 * 
-//	 * @return false
-//	 */
-//	@ModelAttribute("loggedIn")
-//	public boolean initLoggedIn() {
-//		return false;
-//	}
-//	@ModelAttribute("userLogin")
-//	public Login initUserLogin() {
-//		return new Login();
-//	}
-//	@ModelAttribute("userInfo")
-//	public User initUserInfo() {
-//		return new User();
-//	}
-	
-	
 
 	/**
 	 * Shows the index page TODO--1+ users should see if they have new requests
@@ -187,11 +154,6 @@ public class UserController {
 		return mv;
 	}
 
-	/*
-	 * Need a way to display a list of users. Need a way to show a filtered list of
-	 * users. -->do this last
-	 */
-
 	/**
 	 * Shows a page with all requests that user has been sent
 	 * Returns them to login page if they do not have permissions
@@ -220,11 +182,6 @@ public class UserController {
 		return mv;
 	}
 	
-	
-	
-
-	
-	
 	/**
 	 * Shows a page where a user can enter login info (email/pw), beginning registration process
 	 * First mapping in user registration sequence
@@ -233,8 +190,6 @@ public class UserController {
 	@RequestMapping(path = "getNewUser.do", method = RequestMethod.GET)
 	public ModelAndView getNewUser() {
 		ModelAndView mv = new ModelAndView("join");
-//		Login modelLogin = new Login();
-//		mv.addObject("modelLogin", modelLogin);
 		mv.addObject("newUserDTO", new NewUserDTO());
 		return mv;
 	}
@@ -247,64 +202,6 @@ public class UserController {
 		session.setAttribute("loggedIn", true);
 		return mv;
 	}
-//
-//	/**
-//	 * Shows page where user can enter personal info
-//	 * Second mapping in user registration sequence
-//	 * @param userLogin	-- command object created from getNewUser.do, spring form in join.jsp
-//	 * @param redir		-- holds new login entity and empty modelUser for spring form in join.jsp 
-//	 * @return			-- ModelAndView object
-//	 */
-//	@RequestMapping(path = "processJoinEmail.do", method = RequestMethod.POST)
-//	public ModelAndView processJoinEmail(Login userLogin, HttpSession session) {
-//		ModelAndView mv = new ModelAndView("join");
-//		User modelUser = new User();
-//		mv.addObject("modelUser", modelUser);
-//		session.setAttribute("userLogin", userLogin);
-//		System.out.println("processJoinEmail says its userLogin's email is; " + session.getAttribute("userLogin").toString());
-//		return mv;
-//	}
-//	
-//	/**
-//	 * Shows page where user can enter address info
-//	 * Third mapping in user registration sequence
-//	 * @param userInfo		-- command object created from processJoinEmail.do, spring form in join.jsp
-//	 * @param userLogin		-- login entity from redirect
-//	 * @param redir			-- holds user entities and modelAddress for spring form in join.jsp
-//	 * @return				-- ModelAndView object
-//	 */
-//	@RequestMapping(path = "processJoinUser.do", method = RequestMethod.POST)
-//	public ModelAndView processJoinUser(User userInfo, HttpSession session) {
-//		ModelAndView mv = new ModelAndView("join");
-//		Address modelAddress = new Address();
-//		mv.addObject("modelAddress", modelAddress);
-//		System.out.println("processJoinUser says session's userLogin's email is; " + session.getAttribute("userLogin").toString());
-//		session.setAttribute("userInfo", userInfo);
-//		
-//		return mv;
-//	}
-//	
-//	/**
-//	 * Completes user registration and redirects to index.do
-//	 * Final mapping in user registration sequence
-//	 * @param userAddress	-- command object created from processJoinUser.do, spring form in join.jsp
-//	 * @param userLogin		-- login entity from redirect
-//	 * @param userInfo		-- user entity from redirect
-//	 * @param session		-- to log new user into site
-//	 * @return				-- ModelAndView object
-//	 */
-//	@RequestMapping(path = "processJoinAddress.do", method = RequestMethod.POST) 
-//	public ModelAndView processJoinAddress(Address userAddress, HttpSession session,
-//			@ModelAttribute("userLogin") Login userLogin,
-//			@ModelAttribute("userInfo") User userInfo) {
-//		ModelAndView mv = new ModelAndView("redirect:index.do");
-//		User newUser = userDAO.createUser(userInfo, userAddress, userLogin);
-//		session.setAttribute("authenticatedUser", newUser);
-//		session.setAttribute("loggedIn", true);
-//		
-//		return mv;
-//		
-//	}
 	
 	@RequestMapping(path = "error.do", method = RequestMethod.GET)
 	public ModelAndView userHasErrorLoggingIn() {
@@ -312,14 +209,18 @@ public class UserController {
 		return mv;
 	}
 	
-//	public ModelAndView userCreated( ) {
-//		
-//	}
-	// show a page where a user can register -- POST REDIRECT
-	// TODO--should only be available to 0 users
-	// sign up completed page
-
-	// show a page to update user info -- POST REDIRECT
-	// TODO-- 1+ user level
-	// update completed page
+	@RequestMapping(path = "showAdminPage.do", method = RequestMethod.GET)
+	public ModelAndView showAdminPage() {
+		ModelAndView mv = new ModelAndView("admin");
+		return mv;
+	}
+	
+	@RequestMapping(path = "adminUpdateUser.do", method = RequestMethod.GET)
+	public ModelAndView adminUpdateUser(HttpSession session,
+			@RequestParam("userId") int id) {
+		ModelAndView mv = new ModelAndView();
+		
+		
+		return mv;
+	}
 }
