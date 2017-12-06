@@ -80,14 +80,19 @@ public class ItemDAOImpl implements ItemDAO {
     public List<Item> getItemsByOwnerAddressWithZipCode(String title, String zip ) {
     		String query;
     		TypedQuery<Item> itemQuery; 
+    		String shortened = title;
+    		if (title.charAt(title.length()-1) == 's') {
+    			shortened = title.substring(0, title.length()-1);
+    		}
+    		System.out.println(shortened);
     		if (zip.equals("")) {
     			query = "SELECT i FROM Item i WHERE LOWER(i.title) LIKE :title";
     			itemQuery = em.createQuery(query, Item.class)
-        				.setParameter("title", "%" + title.toLowerCase() + "%"); 
+        				.setParameter("title", "%" + shortened.toLowerCase() + "%"); 
     		} else {
     			query = "SELECT i FROM Item i WHERE i.owner.address.zip = :zip AND LOWER(i.title) LIKE :title";
     			itemQuery = em.createQuery(query, Item.class)
-        				.setParameter("title", "%" + title.toLowerCase() + "%") 
+        				.setParameter("title", "%" + shortened.toLowerCase() + "%") 
     					.setParameter("zip", zip);
     		}
     		List<Item> items = itemQuery
