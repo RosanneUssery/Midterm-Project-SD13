@@ -85,12 +85,12 @@
 										<c:choose>
 											<c:when test="${lend.dateLent == null}">
 												<td class="table-warning">
-													<a href="processConfirm.do?activityId=${lend.id}">Confirm Lend</a>
+													<a class="btn btn-danger btn-sm" href="processConfirm.do?activityId=${lend.id}">Confirm Lend</a>
 												</td>
 											</c:when>
 											<c:when test="${lend.isReturned == false}">
 												<td class="table-info">
-													<a href="processReturn.do?activityId=${lend.id}">Confirm Return</a>
+													<a class="btn btn-danger btn-sm" href="processReturn.do?activityId=${lend.id}">Confirm Return</a>
 												</td>
 											</c:when>
 											<c:otherwise>
