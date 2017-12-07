@@ -12,22 +12,28 @@
 	<!-- this page should display a form for a user to add a new item -->
 
 	<div class="container">
-		<h3>Enter information about the item you'd like to add.</h3>
-		
-		<form:form action = "processAddItem.do" method = "post" modelAttribute = "modelItem">
-			Name of item:
-			<form:input path="title" />
-			Description of item:
-			<form:input path="description" />
-			Is this item a supply of an expendable item? (Example: seed, medicine)
-			<form:checkbox path = "isSupply" />
-			<br>
-			Is this item available for others to request?
-			<form:checkbox path = "isAvailable" />
-			<br>
-			<input type="submit" value="Submit">
-		</form:form>
-		
+		<div class="row">
+			<div class="col-8 mx-auto">
+				<div class="card p-3">
+					<h3>Enter information about the item you'd like to add.</h3>
+					<form:form action = "processAddItem.do" method = "post" modelAttribute = "modelItem">
+						Name of item:
+						<form:input path="title" />
+						Description of item:
+						<form:input path="description" />
+						<div class="m-1">
+							<form:checkbox path = "isSupply" />
+							Is this an expendable item? (Example: seeds)
+						</div>
+						<div class="m-1">
+							<form:checkbox path = "isAvailable" />
+							Is this item available for others to request?
+						</div>
+						<input class="d-block mx-auto my-3" type="submit" value="Submit">
+					</form:form>
+				</div>
+			</div>
+		</div>
 	</div>
 	<%@ include file="footer.jsp"%>
 </body>
