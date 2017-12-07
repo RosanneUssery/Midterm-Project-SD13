@@ -9,6 +9,7 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
+	<div class="container">
 		<table>
 		<thead>
 			<th>Item ID</th>
@@ -30,7 +31,7 @@
 			</c:forEach>
 		</c:if>
 	</table>
-		
+		</div>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
