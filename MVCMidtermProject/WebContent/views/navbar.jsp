@@ -32,26 +32,26 @@
 			<ul class="nav navbar-nav">
 				
 				<li>
-					<a href="showSearchPage.do">
+					<a class="text-white" href="showSearchPage.do">
 						<span class="glyphicon glyphicon-user"></span>
 						Borrow
 					</a>
 				</li>
 				<li>
-					<a href="showAllItems.do">Browse</a>
+					<a class="text-white" href="showAllItems.do">Browse</a>
 				</li>
 				<c:if test="${sessionScope.loggedIn == true}">
 					<li>
-						<a href="showAddItem.do">Lend</a>
+						<a class="text-white" href="showAddItem.do">Lend</a>
 					</li>
 					<li>
-						<a href="getRequestsSentToUser.do"> Requests</a>
+						<a class="text-white" href="getRequestsSentToUser.do"> Requests</a>
 					</li>
 					<li>
-						<a href="showUserItems.do">My Items</a>
+						<a class="text-white" href="showUserItems.do">My Items</a>
 					</li>
 					<li>
-						<a href="showUserUpdateInfo.do">Account</a>
+						<a class="text-white" href="showUserUpdateInfo.do">Account</a>
 					</li>
 					
 				</c:if>
@@ -59,13 +59,13 @@
 			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${sessionScope.loggedIn == false || sessionScope.loggedIn == null}">
 					<li>
-						<a href="getNewUser.do">
+						<a class="text-white" href="getNewUser.do">
 							<span class="glyphicon glyphicon-user"></span> 
 							Sign Up
 						</a>
 					</li>
 					<li>
-						<a href="showLogin.do">
+						<a class="text-white" href="showLogin.do">
 							<span class="glyphicon glyphicon-log-in"></span> 
 							Login
 						</a>
@@ -73,7 +73,7 @@
 				</c:if>
 				<c:if test="${sessionScope.loggedIn == true}">
 					<li>
-						<a href="userLogout.do">
+						<a class="text-white" href="userLogout.do">
 							<span class="glyphicon glyphicon-user"></span> 
 							Logout
 						</a>
@@ -81,7 +81,7 @@
 				</c:if>
 				<c:if test="${sessionScope.authenticatedUser.permissionLevel == 2}">
 					<li>
-						<a href="showAdminPage.do">
+						<a class="text-white" href="showAdminPage.do">
 							Admin
 						</a>
 					</li>
