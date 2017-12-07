@@ -77,6 +77,22 @@ public class ItemController {
 		return mv;
 	}
 	
+	@RequestMapping(path = "showAllItems.do", method = RequestMethod.GET)
+	public ModelAndView showAllItems() {
+		ModelAndView mv = new ModelAndView("searchpage");
+		List<Item> searchResults = itemDAO.getAllItems();
+		mv.addObject("searchResults", searchResults);
+		List<String> addresses = new ArrayList<>();
+		for (Item item : searchResults) {
+			String address = item.getOwner().getAddress().formatAddress();
+			if (!addresses.contains(address)) {
+				addresses.add(address);
+			}
+		}
+		mv.addObject("addresses", addresses);
+		return mv;
+	}
+	
 	/**
 	 * shows detailed item view, also some user info based on currentUser permission level
 	 * if user is permission level 1+, adds item owner info
