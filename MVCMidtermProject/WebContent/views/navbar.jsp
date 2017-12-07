@@ -12,15 +12,23 @@
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
 <body> --%>
-	<nav class="navbar navbar-expand-md navbar-dark bg-dark"> 
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
 		<a class="navbar-brand" href="index.do"> 
 			<img src="images/chickenicon.jpeg" width="30" height="30" class="d-inline-block align-top" alt="microsanctuary logo">
 			Microsanctuary Equipment Exchange
 		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		<a class="btn btn-social btn-facebook" href="https://www.facebook.com/Microsanctuary/" target="_blank" title="Colorado Microsanctuary Network Facebook"> 
+				<span class="fa fa-facebook"></span> 
+				Microsanctuary FB
+			</a>
+	</nav>
+	
+	<!-- 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+		
+		<div class="navbar navbar-expand-md navbar-dark bg-dark">
 			<ul class="nav navbar-nav">
 				
 				<li>
@@ -76,10 +84,8 @@
 					</li>
 				</c:if>
 			</ul>
-			<a class="btn btn-social btn-facebook" href="https://www.facebook.com/Microsanctuary/" target="_blank" title="Colorado Microsanctuary Network Facebook"> 
-				<span class="fa fa-facebook"></span> 
-				Microsanctuary FB
-			</a>
+			</div>
+			
 		</div>
 	</nav>
 <!-- </body>
