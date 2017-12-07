@@ -10,28 +10,33 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
-		<table>
-		<thead>
-			<th>Item ID</th>
-			<th>Item Name</th>
-			<th>Item Description</th>
-			<th>Supply?</th>
-			<th>Available?</th>
-		</thead>
-		<c:if test="${not empty userItems}">
-			<c:forEach items="${userItems}" var="item">
-				<tr>
-					<td>${item.id}</td>
-					<td>${item.title}</td>
-					<td>${item.description}</td>
-					<td>${item.isSupply}</td>
-					<td>${item.isAvailable}</td>
-					<td><a href="showUserUpdateItem.do?itemId=${item.id}">Update Item</a></td>
-				</tr>
-			</c:forEach>
-		</c:if>
-	</table>
+		<div class="row">
+			<div class="col-9 mx-auto">
+				<table>
+					<thead>
+						<th>ID</th>
+						<th>Item Name</th>
+						<th>Item Description</th>
+						<th>Supply?</th>
+						<th>Available?</th>
+						<th>Update Item</th>
+					</thead>
+					<c:if test="${not empty userItems}">
+						<c:forEach items="${userItems}" var="item">
+							<tr>
+								<td>${item.id}</td>
+								<td>${item.title}</td>
+								<td>${item.description}</td>
+								<td>${item.isSupply}</td>
+								<td>${item.isAvailable}</td>
+								<td><a href="showUserUpdateItem.do?itemId=${item.id}">Update Item</a></td>
+							</tr>
+						</c:forEach>
+					</c:if>
+				</table>
+			</div>
 		</div>
+	</div>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
