@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Administrator Page</title>
 <%@ include file="header.jsp"%>
+<link rel="stylesheet" href="css/requests.css">
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
