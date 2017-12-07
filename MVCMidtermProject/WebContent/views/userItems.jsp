@@ -11,29 +11,46 @@
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
 		<div class="row">
-			<div class="col-9 mx-auto">
-				<table>
-					<thead>
-						<th>ID</th>
-						<th>Item Name</th>
-						<th>Item Description</th>
-						<th>Supply?</th>
-						<th>Available?</th>
-						<th>Update Item</th>
-					</thead>
-					<c:if test="${not empty userItems}">
-						<c:forEach items="${userItems}" var="item">
-							<tr>
-								<td>${item.id}</td>
-								<td>${item.title}</td>
-								<td>${item.description}</td>
-								<td>${item.isSupply}</td>
-								<td>${item.isAvailable}</td>
-								<td><a href="showUserUpdateItem.do?itemId=${item.id}">Update Item</a></td>
-							</tr>
-						</c:forEach>
-					</c:if>
-				</table>
+			<div class="col-9 mx-auto align-items-center">
+				<div class="card p-3 align-items-center">
+					<h3 class="pb-2">My Items</h3>
+					<table>
+						<thead>
+							<th>ID</th>
+							<th>Item Name</th>
+							<th>Item Description</th>
+							<th>Supply?</th>
+							<th>Available?</th>
+							<th>Update Item</th>
+						</thead>
+						<c:if test="${not empty userItems}">
+							<c:forEach items="${userItems}" var="item">
+								<tr>
+									<td>${item.id}</td>
+									<td>${item.title}</td>
+									<td>${item.description}</td>
+									<c:choose>
+										<c:when test="${item.isSupply == true}">
+											<td>Yes</td>
+										</c:when>
+										<c:otherwise>
+											<td>No</td>
+										</c:otherwise>
+									</c:choose>
+									<c:choose>
+										<c:when test="${item.isAvailable == true}">
+											<td>Yes</td>
+										</c:when>
+										<c:otherwise>
+											<td>No</td>
+										</c:otherwise>
+									</c:choose>
+									<td><a href="showUserUpdateItem.do?itemId=${item.id}">Update Item</a></td>
+								</tr>
+							</c:forEach>
+						</c:if>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
