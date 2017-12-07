@@ -37,6 +37,9 @@
 						Borrow
 					</a>
 				</li>
+				<li>
+					<a href="showAllItems.do">Browse</a>
+				</li>
 				<c:if test="${sessionScope.loggedIn == true}">
 					<li>
 						<a href="showAddItem.do">Lend</a>
