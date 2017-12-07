@@ -1,4 +1,4 @@
-/* table{
+table{
 	border: 2px solid black;
 }
 th {
@@ -15,4 +15,4 @@ table, th, td {
 }
 tr:hover {
 	background-color:#f5f5f5;
-	} */
+	} 
