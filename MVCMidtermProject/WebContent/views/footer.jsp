@@ -11,7 +11,7 @@
 					new Date().getFullYear() >= 2017
 							&& document.write("- " + new Date().getFullYear());
 				</script> | Alexis Low, Rosanne Ussery, Jason Caldwell, Greg
-				Norwood, Chris Gehrke | <a href="https://github.com/RosanneUssery/Midterm-Project-SD13">View
+				Norwood, Chris Gehrke | <a id="footer_link" href="https://github.com/RosanneUssery/Midterm-Project-SD13">View
 					Code</a>
 			</div>
 		</div>

@@ -217,7 +217,19 @@ span.psw {
 
 /*End of modal box stuff  */
 
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 0px;
+}
 
+a {
+    color: gold;
+}
+
+#footer_link {
+	color: blue;
+}
 
 	
 

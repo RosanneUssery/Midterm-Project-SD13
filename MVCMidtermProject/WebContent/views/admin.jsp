@@ -16,6 +16,7 @@
 		update item by user
 	-->
 	<c:if test="${not empty allUsers}">
+		<br>
 		<form action="showAdminUpdateUser.do" method="get">
 			<select name="userId">
 				<c:forEach items="${allUsers}" var="user">
@@ -26,6 +27,8 @@
 		</form>
 	</c:if>
 	<c:if test="${not empty allItems}">
+	<br>
+		<h2> Items </h2>
 	<table>
 		<thead>
 			<th>Item ID</th>
@@ -49,6 +52,8 @@
 	</table>
 	</c:if>
 	<c:if test="${not empty allActivity}">
+		<br>
+		<h2> Activity </h2>
 		<table>
 			<thead>
 				<th>ID</th>		
