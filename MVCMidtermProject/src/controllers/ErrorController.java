@@ -34,7 +34,7 @@ public class ErrorController {
 	            }
 	            case 500: {
 	                errorMsg = "Http Error Code: 500. Internal Server Error";
-	                errorImg = "https://fthmb.tqn.com/khRFVrXPVo2F7Uf8H3A_i5ycuYE=/768x0/filters:no_upscale()/please-stand-by-500879062-56fd7b5f3df78c7d9efc4ed2.jpg";
+	                errorImg = "../images/sadkitty.jpeg";
 	                break;
 	            }
 	        }

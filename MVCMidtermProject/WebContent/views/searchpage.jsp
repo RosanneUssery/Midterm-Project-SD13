@@ -49,13 +49,11 @@
 					
 								<span class="title">Item:</span> ${item.title } <br>
 								<span class="title">Description:</span> ${item.description } <br>
-								<span class="title">Contact:</span> <br>
-								${item.owner.firstName} ${item.owner.lastName}<br>
-								${item.owner.email} <br>
+								<span class="title">Contact:</span> 
+								${item.owner.firstName} ${item.owner.lastName} ${item.owner.email} <br>
 								${item.owner.phone }<br>
-								${item.owner.address.street} <br>
-								${item.owner.address.city}
-								
+								${item.owner.address.street} ${item.owner.address.city}
+								<a href="">Borrow Item</a>
 								<br>
 								<br>
 							</c:forEach>

@@ -79,7 +79,7 @@ public class UserController {
 			session.setAttribute("loggedIn", true); // change loggedIn to true to hide login button
 			mv.setViewName("HomePage"); // redirect to index view
 		} else { // login not successful
-			mv.addObject("loginFail", true); // add boolean to model indicating such
+			mv.addObject("loginFail", true); // add boolean to modal indicating such
 			mv.setViewName("login");
 		}
 		return mv;
