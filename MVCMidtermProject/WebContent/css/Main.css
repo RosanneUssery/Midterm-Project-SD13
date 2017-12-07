@@ -32,18 +32,18 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
- #body-join {
+/*  #body-join {
 	background-image: url("../images/sheep.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-}
+} */
 
-#body-search {
+  #body-search {
 	background-image: url("../images/duck.jpg");
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; 
 }
-
+ 
 #body-error {
 	background-image: url("../images/sadkitty.jpg");
 	background-size: cover;
@@ -250,4 +250,8 @@ a {
 
 #footer_link {
 	color: blue;
+}
+
+#id02{
+	background-color:#f5f5f5
 }
