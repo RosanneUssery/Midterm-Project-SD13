@@ -16,14 +16,6 @@
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
 		<div class="row">
-			<div class="column">
-				<br> <br>
-			</div>
-		</div>
-
-	</div>
-	<div class="container">
-		<div class="row">
 			<div class="col-md-3 searchBoxSearch">
 				<form action="/MVCMidtermProject/searchResults.do" method="GET">
 					<input type="text" name="EquipmentType" value="${item.title}"
@@ -33,34 +25,58 @@
 						type="submit" value="submit">
 				</form>
 			</div>
-			<!-- <div class="col-md-1"></div> -->
 			<div class="col-md-8 searchBoxSearch searchResultsSearch">
-						<c:forEach var="address" items="${addresses}">
-      						<div class="markers" data-address="${address}"></div>
-						</c:forEach>
-
-    <!-- THIS IS WHERE THE MAP IS ADDED -->
-    						<div id="googleMap"></div>
-    
-						<c:if test="${not empty searchResults}">
-							<c:forEach items="${searchResults}" var="item">
-
-								<!-- API Key: AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o -->
-					
-								<span class="title">Item:</span> ${item.title } <br>
-								<span class="title">Description:</span> ${item.description } <br>
-								<span class="title">Contact:</span> 
-								${item.owner.firstName} ${item.owner.lastName} ${item.owner.email} <br>
-								${item.owner.phone }<br>
-								${item.owner.address.street} ${item.owner.address.city}
-								<a href="processRequest.do?itemId=${item.id}">Borrow Item</a>
-								<br>
-								<br>
-							</c:forEach>
-						</c:if>
-					</div>
-				</div>
+				<c:if test="${not empty addresses}">
+					<c:forEach var="address" items="${addresses}">
+     						<div class="markers" data-address="${address}"></div>
+					</c:forEach>
+   					<div id="googleMap"></div> <!-- API Key: AIzaSyAgD9VxSl5snVT8lXakoJXCifrmguQT43o -->
+   				</c:if>
+				<c:if test="${not empty searchResults}">
+					<c:forEach items="${searchResults}" var="item">
+						<div class="card w-50 mx-auto my-3">
+							<ul class="list-group">
+								<li class="list-group-item">
+									<span class="title">Item: ${item.title }</span>
+								</li>
+								<li class="list-group-item">
+									<span class="title">Description: ${item.description } </span>
+								</li>
+								<c:choose>
+									<c:when test="${authUser.permissionLevel > 0}">
+										<li class="list-group-item">
+											<span class="title">Contact:  ${item.owner.firstName} ${item.owner.lastName} </span>
+										</li>
+										<li class="list-group-item">
+											<span class="title">Email: ${item.owner.email} </span>
+										</li>
+										<li class="list-group-item">
+											<span class="title">Phone: ${item.owner.phone } </span>
+										</li>
+										<c:if test="${not empty addresses}">
+											<li class="list-group-item">
+												<span class="title">Address: ${item.owner.address.street}, ${item.owner.address.city} ${item.owner.address.zip} </span>
+											</li>
+										</c:if>
+									</c:when>
+									<c:otherwise>
+										<li class="list-group-item">
+											<span class="title">Contact: ${item.owner.firstName}</span>
+										</li>
+									</c:otherwise>
+								</c:choose>
+								<li class="list-group-item">
+									<c:if test="${authUser.permissionLevel > 0}">
+										<a class="btn btn-success d-block w-75 mx-auto" href="processRequest.do?itemId=${item.id}">Borrow Item</a>
+									</c:if>
+								</li>
+							</ul>
+						</div>
+					</c:forEach>
+				</c:if>
 			</div>
+		</div>
+	</div>
 	<%@ include file="footer.jsp"%>
 	
 					    	<script>
