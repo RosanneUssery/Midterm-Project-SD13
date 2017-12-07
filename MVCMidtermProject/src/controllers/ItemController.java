@@ -37,18 +37,6 @@ public class ItemController {
 	GoogleAddressHelper gmap;
 	
 	/**
-	 * returns a view of all available items
-	 * @return	-- the ModelAndView object
-	 */
-	@RequestMapping(path = "viewAllItems.do", method = RequestMethod.GET)
-	public ModelAndView viewAllItems() {
-		ModelAndView mv = new ModelAndView("searchPage");
-		List<Item> allItems = itemDAO.getAllItems();
-		mv.addObject("allItems", allItems);		
-		return mv;
-	}
-	
-	/**
 	 * directs user to search page
 	 * @return -- the ModelAndView object
 	 */
@@ -64,32 +52,41 @@ public class ItemController {
 	 * @return				-- the ModelAndView object
 	 */
 	@RequestMapping(path = "searchResults.do", method = RequestMethod.GET)
-	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType, @RequestParam("EquipmentZip") String equipmentZip) {
+	public ModelAndView searchResults(@RequestParam("EquipmentType") String equipmentType, 
+			@RequestParam("EquipmentZip") String equipmentZip,
+			HttpSession session) {
 		ModelAndView mv = new ModelAndView("searchpage");
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		mv.addObject("authUser", authUser);
 		List<Item> searchResults = itemDAO.getItemsByOwnerAddressWithZipCode(equipmentType,equipmentZip);
 		mv.addObject("searchResults", searchResults);
 		List<String> addresses = new ArrayList<>();
-		for (Item item : searchResults) {
-			addresses.add(item.getOwner().getAddress().formatAddress());
+		if (authUser.getPermissionLevel() > 0) {
+			for (Item item : searchResults) {
+				addresses.add(item.getOwner().getAddress().formatAddress());
+			}
+			mv.addObject("addresses", addresses);
 		}
-		
-		mv.addObject("addresses", addresses);
 		return mv;
 	}
 	
 	@RequestMapping(path = "showAllItems.do", method = RequestMethod.GET)
-	public ModelAndView showAllItems() {
+	public ModelAndView showAllItems(HttpSession session) {
 		ModelAndView mv = new ModelAndView("searchpage");
+		User authUser = (User) session.getAttribute("authenticatedUser");
+		mv.addObject("authUser", authUser);
 		List<Item> searchResults = itemDAO.getAllItems();
 		mv.addObject("searchResults", searchResults);
 		List<String> addresses = new ArrayList<>();
-		for (Item item : searchResults) {
-			String address = item.getOwner().getAddress().formatAddress();
-			if (!addresses.contains(address)) {
-				addresses.add(address);
+		if (authUser.getPermissionLevel() > 0) {
+			for (Item item : searchResults) {
+				String address = item.getOwner().getAddress().formatAddress();
+				if (!addresses.contains(address)) {
+					addresses.add(address);
+				}
 			}
+			mv.addObject("addresses", addresses);
 		}
-		mv.addObject("addresses", addresses);
 		return mv;
 	}
 	
