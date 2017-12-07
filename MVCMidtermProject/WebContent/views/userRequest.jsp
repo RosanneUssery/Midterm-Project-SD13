@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>User Request</title>
 <%@ include file="header.jsp"%>
+<link rel="stylesheet" href="css/requests.css">
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
