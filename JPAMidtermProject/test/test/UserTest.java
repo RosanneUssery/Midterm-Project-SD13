@@ -37,7 +37,7 @@ public class UserTest {
 		assertEquals("Caethe", user.getLastName());
 		assertEquals("5551234567", user.getPhone());
 		assertEquals("vivian.caethe@gmail.com", user.getEmail());
-		assertEquals(1, user.getPermissionLevel());
+		assertEquals(2, user.getPermissionLevel());
 	}
 	
 	@Test
