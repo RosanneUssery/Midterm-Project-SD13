@@ -229,6 +229,14 @@ table, th, td {
   margin: 0px;
 }
 
+a {
+    color: gold;
+}
+
+#footer_link {
+	color: blue;
+}
+
 	
 
 
