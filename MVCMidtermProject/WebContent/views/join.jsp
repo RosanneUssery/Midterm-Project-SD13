@@ -17,7 +17,7 @@
 
 
 
-<div class="container">
+<div id ="id02" class="container">
 	<c:choose>
 
 		<c:when test="${newUserDTO != null }">
@@ -62,38 +62,12 @@
 	</c:choose>
 </div>
 
-	<%-- 		<c:when test="${modelUser != null}">
-			
-			<form:form action="processJoinUser.do" method="post" modelAttribute="modelUser">
-			${session.userLogin.userEmail}
-				<form:hidden path="id"/>
-				<form:hidden path="email"/>
-				<form:hidden path="address"/>
-				<form:hidden path="permissionLevel"/>
-				<form:hidden path="items"/>
-				<input type="submit" value="Next">
-			</form:form>
-			
-			
-		</c:when>
-		
-		<c:when test="${modelAddress != null}">
-			
-			<form:form action="processJoinAddress.do" method="post" modelAttribute="modelAddress">
-				<form:hidden path="id"/>
-				
-				<input type="submit" value="Submit">
-			</form:form>
-			
-			
-		</c:when>
 	
- --%>
+	
+ 
 
-
-
-	<%-- 
-	<form>
+	
+	<%-- <form>
   <div class="form-row">
     <div class="form-group col-sm-5">
       <label for="inputEmail4">Email</label>
@@ -104,11 +78,6 @@
       <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
     </div>
   </div>
-  
-  
-  
-  
-  
   
   <div class="form-group col-lg-10">
     <label for="inputAddress">Address</label>
@@ -141,12 +110,12 @@
   <button type="submit" class="btn btn-primary">Sign in</button>
    </div>
   </div>
-</form>--%>
+</form>
+ --%>
 
 
 
-
-
+<div class="modal" id="modal"></div>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
