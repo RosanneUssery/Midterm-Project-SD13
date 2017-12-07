@@ -18,6 +18,9 @@
 
 
 <div id ="id02" class="container">
+<h2>User Sign Up</h2>
+<br>
+<br>
 	<c:choose>
 
 		<c:when test="${newUserDTO != null }">

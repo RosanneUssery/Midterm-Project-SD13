@@ -32,11 +32,11 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-/*  #body-join {
-	background-image: url("../images/sheep.jpg");
+  #body-join {
+	background-image: url("../images/grass-background.jpeg");
 	background-size: cover;
 	background-repeat: no-repeat;
-} */
+} 
 
   #body-search {
 	background-image: url("../images/duck.jpg");
@@ -254,4 +254,10 @@ a {
 
 #id02{
 	background-color:#f5f5f5
+}
+
+h2{
+	color:#007a99;
+	text-decoration: underline;
+	text-align: center;
 }
