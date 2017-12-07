@@ -53,7 +53,7 @@
 								${item.owner.firstName} ${item.owner.lastName} ${item.owner.email} <br>
 								${item.owner.phone }<br>
 								${item.owner.address.street} ${item.owner.address.city}
-								<a href="">Borrow Item</a>
+								<a href="processRequest.do?itemId=${item.id}">Borrow Item</a>
 								<br>
 								<br>
 							</c:forEach>
