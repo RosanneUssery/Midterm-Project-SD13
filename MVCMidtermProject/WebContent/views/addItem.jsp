@@ -21,8 +21,10 @@
 			<form:input path="description" />
 			Is this item a supply of an expendable item? (Example: seed, medicine)
 			<form:checkbox path = "isSupply" />
+			<br>
 			Is this item available for others to request?
 			<form:checkbox path = "isAvailable" />
+			<br>
 			<input type="submit" value="Submit">
 		</form:form>
 		
